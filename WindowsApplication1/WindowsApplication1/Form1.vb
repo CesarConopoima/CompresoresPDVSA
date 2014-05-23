@@ -37,7 +37,7 @@ Public Class Form1
         Chart2.ChartAreas(0).AxisY.Title = "Relación de presión"
         Chart2.ChartAreas(0).AxisX.MajorGrid.Enabled = False
         Chart2.ChartAreas(0).AxisY.MajorGrid.Enabled = False
-        Chart2.Location = New System.Drawing.Point(20, 290)
+        Chart2.Location = New System.Drawing.Point(20, 365)
         Chart2.Size = New System.Drawing.Size(340, 240)
         Me.Controls.Add(Chart2)
         Chart2.BringToFront()
@@ -70,7 +70,7 @@ Public Class Form1
         Chart1.ChartAreas(0).AxisY.Title = "Relación de presión"
         Chart1.ChartAreas(0).AxisX.MajorGrid.Enabled = False
         Chart1.ChartAreas(0).AxisY.MajorGrid.Enabled = False
-        Chart1.Location = New System.Drawing.Point(20, 290)
+        Chart1.Location = New System.Drawing.Point(20, 365)
         Chart1.Size = New System.Drawing.Size(340, 240)
         Me.Controls.Add(Chart1)
         Chart1.BringToFront()
@@ -181,5 +181,53 @@ Public Class Form1
         Dim matrix2 As New Matrix2(1, 1)
         ' a method to handle inproper incommens of users
         MsgBox(interception("Compre1", "Sistema", 1.0))
+    End Sub
+
+    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
+        charts("Compre1")
+        ' ojo esta linea de codigo no es correcta, la referencia del repertorio
+        ' es local
+        PictureBox5.Image = System.Drawing.Bitmap.FromFile("C:\Users\Sala de Tesistas pre\Desktop\_CesarConopoima_vb\images\compressor.jpg")
+    End Sub
+    Private Sub Label1_DoubleClick(sender As Object, e As EventArgs) Handles Label1.DoubleClick
+        Dim rpm, Rp, Eficiencia, equipo As String
+        equipo = "Compre1"
+        rpm = "5000"
+        Rp = "3.5"
+        Eficiencia = "70%"
+        Form3.Show()
+        Form3.DefineProperties(rpm, Rp, Eficiencia, equipo)
+    End Sub
+
+    Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click
+        charts("Compre2")
+        ' ojo esta linea de codigo no es correcta, la referencia del repertorio
+        ' es local
+        PictureBox5.Image = System.Drawing.Bitmap.FromFile("C:\Users\Sala de Tesistas pre\Desktop\_CesarConopoima_vb\images\compressor2.jpg")
+    End Sub
+    Private Sub Label2_DoubleClick(sender As Object, e As EventArgs) Handles Label2.DoubleClick
+        Dim rpm, Rp, Eficiencia, equipo As String
+        equipo = "Compre2"
+        rpm = "7500"
+        Rp = "4"
+        Eficiencia = "70%"
+        Form3.Show()
+        Form3.DefineProperties(rpm, Rp, Eficiencia, equipo)
+    End Sub
+
+    Private Sub Label3_Click(sender As Object, e As EventArgs) Handles Label3.Click
+        charts("Compre3")
+        ' ojo esta linea de codigo no es correcta, la referencia del repertorio
+        ' es local
+        PictureBox5.Image = System.Drawing.Bitmap.FromFile("C:\Users\Sala de Tesistas pre\Desktop\_CesarConopoima_vb\images\compressor3.jpg")
+    End Sub
+    Private Sub Label3_DoubleClick(sender As Object, e As EventArgs) Handles Label3.DoubleClick
+        Dim rpm, Rp, Eficiencia, equipo As String
+        equipo = "Compre3"
+        rpm = "5500"
+        Rp = "3.9"
+        Eficiencia = "70%"
+        Form3.Show()
+        Form3.DefineProperties(rpm, Rp, Eficiencia, equipo)
     End Sub
 End Class
