@@ -1,0 +1,331 @@
+﻿' Author: Brad Helm
+' E-mail: prof.brad.helm@gmail.com
+' License: MIT License
+'
+' Although using Octave for Prof. Andrew Ng's Machine Learning course
+' was easy enough, I wanted to port the funcitonality to Windows 
+' applications.  I also didn't care for the lack of traditional
+' mathematics operators in most linear algebra libraries, therefore
+' I created my own class with overloaded operators to make the syntax
+' mirror Octave as best I could.
+'
+' I call this class Matrix2 as it is a two-dimensional matrix only.  
+'
+' There is only one constructor and it requires the dimensions of the 
+' desired matrix. Rows and Columns are Zero-based for access.
+'
+' I used simple exceptions to pass messages back to the calling code.
+' Users are expected to utilize proper exception handling techniques
+' in their code.
+'
+' The Inverse() and Determinant() functions use Gaussian elimination.
+'
+
+Public Class Matrix2
+
+#Region "Member Data Elements"
+    Private _cells(,) As Double
+#End Region
+
+#Region "Member Properties"
+    Public Sub New(ByVal rows As Integer, ByVal cols As Integer)
+        ReDim _cells(rows - 1, cols - 1)
+    End Sub
+
+    Public ReadOnly Property Rows As Integer
+        Get
+            Return _cells.GetUpperBound(0) + 1
+        End Get
+    End Property
+
+    Public ReadOnly Property Cols As Integer
+        Get
+            Return _cells.GetUpperBound(1) + 1
+        End Get
+    End Property
+
+    Default Property Cells(ByVal row As Integer, ByVal col As Integer) As Double
+        Get
+            If row >= Rows Or col >= Cols Or row < 0 Or col < 0 Then
+                Throw New Exception("Invalid cell coordinates")
+            End If
+            Return _cells(row, col)
+        End Get
+        Set(value As Double)
+            If row >= Rows Or col >= Cols Or row < 0 Or col < 0 Then
+                Throw New Exception("Invalid cell coordinates")
+            End If
+            _cells(row, col) = value
+        End Set
+    End Property
+#End Region
+
+#Region "Class Functions"
+    Public Shared Function FromArray(ByRef A(,) As Double) As Matrix2
+        Dim result As New Matrix2(A.GetUpperBound(0) + 1, A.GetUpperBound(1) + 1)
+
+        For r = 0 To A.GetUpperBound(0)
+            For c = 0 To A.GetUpperBound(1)
+                result(r, c) = A(r, c)
+            Next
+        Next
+
+        Return result
+    End Function
+
+    Public Shared Function Identity(ByVal n As Integer) As Matrix2
+        Dim result As New Matrix2(n, n)
+        For i = 0 To result._cells.GetUpperBound(0)
+            result(i, i) = 1
+        Next
+        Return result
+    End Function
+
+    Public Shared Function ColumnVector(ByVal length As Integer, ByVal value As Single) As Matrix2
+        Dim result As New Matrix2(length, 0)
+        For i = 0 To result._cells.GetUpperBound(0)
+            result(i, 0) = value
+        Next
+        Return result
+    End Function
+
+    Public Shared Function RowVector(ByVal length As Integer, ByVal value As Single) As Matrix2
+        Dim result As New Matrix2(0, length)
+        For i = 0 To result._cells.GetUpperBound(1)
+            result(0, i) = value
+        Next
+        Return result
+    End Function
+
+    Public Shared Function Determinant(ByVal A As Matrix2) As Double
+        If A.Rows <> A.Cols Then
+            Throw New Exception("Can only calculate determinants of square matrices")
+        End If
+
+        ' forward elimination method
+        Dim current As Matrix2 = A.Clone
+        Dim result As Double = 1
+
+        For i = 0 To current.Rows - 1
+            For r = i + 1 To current.Rows - 1
+                Dim factor As Double = current(r, i) / current(i, i)
+                For c = 0 To current.Cols - 1
+                    current(r, c) -= current(i, c) * factor
+                Next
+            Next
+            result *= current(i, i)
+        Next
+
+        Return result
+    End Function
+#End Region
+
+#Region "Member Functions"
+    Public Overrides Function Equals(ByVal A As Object) As Boolean
+        If A.GetType() <> Me.GetType() Then Return False
+        Dim B As Matrix2 = CType(A, Matrix2)
+        If B.Rows <> Rows And B.Cols <> Cols Then Return False
+        For r = 0 To Rows - 1
+            For c = 0 To Cols - 1
+                If B(r, c) <> Cells(r, c) Then Return False
+            Next
+        Next
+
+        Return True
+    End Function
+
+    Public Function Transpose() As Matrix2
+        Dim result As New Matrix2(_cells.GetUpperBound(1) + 1, _cells.GetUpperBound(0) + 1)
+        For r = 0 To _cells.GetUpperBound(0)
+            For c = 0 To _cells.GetUpperBound(1)
+                result(c, r) = Cells(r, c)
+            Next
+        Next
+        Return result
+    End Function
+
+    Public Function Clone() As Matrix2
+        Dim result As New Matrix2(_cells.GetUpperBound(0) + 1, _cells.GetUpperBound(1) + 1)
+        For r = 0 To _cells.GetUpperBound(0)
+            For c = 0 To _cells.GetUpperBound(1)
+                result(r, c) = Cells(r, c)
+            Next
+        Next
+        Return result
+    End Function
+
+    Public Function Inverse() As Matrix2
+        If Rows <> Cols Then
+            Throw New Exception("Can only invert square matrices")
+        End If
+        If Determinant(Me) = 0 Then
+            Throw New Exception("Non-invertible matrix")
+        End If
+
+        Dim result As Matrix2 = Matrix2.Identity(Rows)
+        Dim current As Matrix2 = Me.Clone
+        Dim lastrow As Integer = Rows - 1
+
+        For row = 0 To Rows - 1
+            If current(row, row) = 0 Then
+                ' find candidate row to swap
+                For swap = row + 1 To Rows - 1
+                    If current(swap, row) <> 0 Then
+                        For c = 0 To Cols - 1
+                            Dim temp As Double = current(row, c)
+                            current(row, c) = current(swap, c)
+                            current(swap, c) = temp
+                            temp = result(row, c)
+                            result(row, c) = result(swap, c)
+                            result(swap, c) = temp
+                        Next
+                        Exit For
+                    End If
+                    ' column is filled with zeros
+                    ' should never get here because determinant would be zero
+                Next
+            End If
+            ' row reduce using Gaussian elimination
+            Dim factor As Double = current(row, row)
+            For c = 0 To Rows - 1
+                current(row, c) /= factor
+                result(row, c) /= factor
+            Next
+            ' current row is reduced, now apply to every other row
+            For r = 0 To Rows - 1
+                If r = row Then Continue For ' skip current row
+                factor = current(r, row)
+                For c = 0 To Cols - 1
+                    current(r, c) -= current(row, c) * factor
+                    result(r, c) -= result(row, c) * factor
+                Next
+            Next
+        Next
+
+        Return result
+    End Function
+
+    Public Overrides Function ToString() As String
+        Dim result As String = ""
+
+        For r = 0 To _cells.GetUpperBound(0)
+            For c = 0 To _cells.GetUpperBound(1)
+                result &= Cells(r, c).ToString("0.00") & vbTab
+            Next
+            result &= vbCrLf
+        Next
+
+        Return result
+    End Function
+#End Region
+
+#Region "Overloaded Math Operators"
+    Public Shared Operator +(ByVal A As Matrix2, ByVal B As Matrix2) As Matrix2
+        If A Is Nothing Xor B Is Nothing Then Return Nothing
+        If A Is Nothing And B Is Nothing Then Return Nothing
+
+        If A.Rows <> B.Rows And A.Cols <> B.Cols Then
+            Throw New Exception("Matrix addition requries matrices of the same dimensions")
+        End If
+        Dim result As New Matrix2(A.Rows, A.Cols)
+        For r = 0 To A.Rows - 1
+            For c = 0 To A.Cols - 1
+                result(r, c) = A(r, c) + B(r, c)
+            Next
+        Next
+        Return result
+    End Operator
+
+    Public Shared Operator -(ByVal A As Matrix2, ByVal B As Matrix2) As Matrix2
+        If A Is Nothing Xor B Is Nothing Then Return Nothing
+        If A Is Nothing And B Is Nothing Then Return Nothing
+
+        If A.Rows <> B.Rows And A.Cols <> B.Cols Then
+            Throw New Exception("Matrix addition requries matrices of the same dimensions")
+        End If
+        Dim result As New Matrix2(A.Rows, A.Cols)
+        For r = 0 To A.Rows - 1
+            For c = 0 To A.Cols - 1
+                result(r, c) = A(r, c) - B(r, c)
+            Next
+        Next
+        Return result
+    End Operator
+
+    Public Shared Operator *(ByVal A As Matrix2, ByVal B As Matrix2) As Matrix2
+        If A Is Nothing Xor B Is Nothing Then Return Nothing
+        If A Is Nothing And B Is Nothing Then Return Nothing
+
+        If A.Cols <> B.Rows Then Return Nothing
+
+        Dim result As New Matrix2(A.Rows, B.Cols)
+
+        For r = 0 To result.Rows - 1
+            For c = 0 To result.Cols - 1
+                For pivot = 0 To A.Cols - 1
+                    result(r, c) += A(r, pivot) * B(pivot, c)
+                Next
+            Next
+        Next
+    End Operator
+
+    Public Shared Operator *(ByVal scalar As Double, ByVal A As Matrix2) As Matrix2
+        If A Is Nothing Then Return Nothing
+
+        Dim result As Matrix2 = A.Clone
+        For r = 0 To result.Rows - 1
+            For c = 0 To result.Cols - 1
+                result(r, c) *= scalar
+            Next
+        Next
+
+        Return result
+    End Operator
+
+    Public Shared Operator *(ByVal A As Matrix2, ByVal scalar As Double) As Matrix2
+        If A Is Nothing Then Return Nothing
+
+        Dim result As Matrix2 = A.Clone
+        For r = 0 To result.Rows - 1
+            For c = 0 To result.Cols - 1
+                result(r, c) *= scalar
+            Next
+        Next
+        Return result
+    End Operator
+
+    Public Shared Operator &(ByVal A As Matrix2, ByVal s As String) As String
+        If A Is Nothing Then Return s
+        Return A.ToString & s
+    End Operator
+
+    Public Shared Operator &(ByVal s As String, ByVal A As Matrix2) As String
+        If A Is Nothing Then Return s
+        Return s & A.ToString
+    End Operator
+
+    Public Shared Operator =(ByVal A As Matrix2, ByVal B As Matrix2) As Boolean
+        Dim result As Boolean = True
+
+        If A Is Nothing Xor B Is Nothing Then Return False
+        If A Is Nothing And B Is Nothing Then Return True
+
+        If A.Rows <> B.Rows Or A.Cols <> B.Cols Then Return False
+
+        For r = 0 To A.Rows - 1
+            For c = 0 To A.Cols
+                If A(r, c) <> B(r, c) Then Return False
+            Next
+        Next
+
+        Return result
+    End Operator
+
+    Public Shared Operator <>(ByVal A As Matrix2, ByVal B As Matrix2) As Boolean
+        Return Not A = B
+    End Operator
+
+#End Region
+
+
+End Class
