@@ -1,5 +1,4 @@
 ﻿Imports System.Windows.Forms.DataVisualization.Charting
-
 Public Class Form1
     Private Sub Form1_Load(sender As Object, e As EventArgs)
     End Sub
@@ -29,6 +28,12 @@ Public Class Form1
         Chart2.Series("Series1").ChartType = SeriesChartType.Spline
         Chart2.Series("Series2").ChartType = SeriesChartType.Spline
         Chart2.Series("Series3").ChartType = SeriesChartType.Spline
+        Chart2.Series("Series1").MarkerStyle = MarkerStyle.Square
+        Chart2.Series("Series2").MarkerStyle = MarkerStyle.Square
+        Chart2.Series("Series3").MarkerStyle = MarkerStyle.Square
+        Chart2.Series("Series1").ToolTip = "#VALY"
+        Chart2.Series("Series2").ToolTip = "#VALY"
+        Chart2.Series("Series3").ToolTip = "#VALY"
         Chart2.Series("Series1").BorderWidth = 2
         Chart2.Series("Series2").BorderWidth = 2
         Chart2.Series("Series3").BorderWidth = 2
@@ -63,11 +68,17 @@ Public Class Form1
         Chart1.Series("Series2").ChartType = SeriesChartType.Spline
         Chart1.Series("Series1").BorderWidth = 2
         Chart1.Series("Series2").BorderWidth = 2
-        Chart1.Series("Series1").IsValueShownAsLabel = True
-        Chart1.Series("Series2").IsValueShownAsLabel = True
+        'esta linea permite visualizar values of points on mouse hover
+        Chart1.Series("Series1").ToolTip = "#VALY"
+        Chart1.Series("Series2").ToolTip = "#VALY"
+        'agregar marcador al gráfico
+        Chart1.Series("Series1").MarkerStyle = MarkerStyle.Square
+        Chart1.Series("Series2").MarkerStyle = MarkerStyle.Square
+
         Chart1.Titles.Add("Curva de" & " " & maquina & " y Curva del Sistema")
         Chart1.ChartAreas(0).AxisX.Title = "Caudal"
         Chart1.ChartAreas(0).AxisY.Title = "Relación de presión"
+
         Chart1.ChartAreas(0).AxisX.MajorGrid.Enabled = False
         Chart1.ChartAreas(0).AxisY.MajorGrid.Enabled = False
         Chart1.Location = New System.Drawing.Point(20, 365)
@@ -75,6 +86,8 @@ Public Class Form1
         Me.Controls.Add(Chart1)
         Chart1.BringToFront()
     End Sub
+    'metodo para manipular los valores en el gráfico actual
+
     'Acción que se lleva a cabo on click de las imagenes y en doble click de las mismas
     Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
         charts("Compre1")
@@ -229,5 +242,9 @@ Public Class Form1
         Eficiencia = "70%"
         Form3.Show()
         Form3.DefineProperties(rpm, Rp, Eficiencia, equipo)
+    End Sub
+
+    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
+        Form2.Show()
     End Sub
 End Class
