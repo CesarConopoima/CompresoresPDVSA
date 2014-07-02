@@ -19,7 +19,7 @@
 
         maquina = TextBox4.Text
         NewValue = TextBox5.Text
-        factor = CDbl(Val(NewValue)) / CDbl(Val(TextBox1.Text))
+        factor = CDbl(Val(NewValue)) / CDbl(Val(TextBox2.Text))
         Form1.chartsChanged(maquina, factor)
 
         TextBox6.Text = Math.Round(Form1.interception(maquina, "Sistema", 1.0), 2)
@@ -30,4 +30,5 @@
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Close()
     End Sub
+
 End Class
