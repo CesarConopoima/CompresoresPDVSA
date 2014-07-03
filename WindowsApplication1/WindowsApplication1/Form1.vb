@@ -1,6 +1,7 @@
 ﻿Imports System.Windows.Forms.DataVisualization.Charting
 
 Public Class Form1
+
     Private Sub Form1_Load_1(sender As Object, e As EventArgs) Handles MyBase.Load
         'Panel2.BackColor = ColorTranslator.FromHtml("#f9e0b7")
         Panel3.BackColor = ColorTranslator.FromHtml("#072842")
@@ -295,5 +296,9 @@ Public Class Form1
     ' botton para mostrar form4 que contiene código para cargar y ejecutar el hardyCross para Agua
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
         Form4.Show()
+    End Sub
+
+    Private Sub Button6_Click_1(sender As Object, e As EventArgs) Handles Button6.Click
+        TablaBD.Show()
     End Sub
 End Class

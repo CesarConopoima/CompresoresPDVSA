@@ -64,6 +64,17 @@ Namespace My
                 Return CType(Me("CompresoresConnectionString"),String)
             End Get
         End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("C:\Users\Sala de Tesistas pre\Desktop\_CesarConopoima_vb\WindowsApplication1\Wind"& _ 
+            "owsApplication1\Compresores.mdf")>  _
+        Public ReadOnly Property connect() As String
+            Get
+                Return CType(Me("connect"),String)
+            End Get
+        End Property
     End Class
 End Namespace
 

@@ -135,7 +135,6 @@ Public Class Form4
         Dim k As Integer = 0
         For Each value As Decimal In Qf
             series1.Points.AddXY(k, value * 1000)
-            MsgBox(value)
             k = k + 1
         Next
         series1.ChartArea = "ChartArea1"
@@ -156,7 +155,7 @@ Public Class Form4
         'Chart1.Show()
 
     End Sub
-
+    'funciones aux para solucionar el hardyCross (la normal de un vector, la distancia)
     Public Function Norm(ByVal vector() As Double) As Double
         Dim sum As Double = 0
         For i = 0 To vector.GetUpperBound(0) - 1
@@ -164,8 +163,22 @@ Public Class Form4
         Next
         Norm = (sum) ^ 0.5
     End Function
+    'funciones aux para solucionar el hardycross (factor de fricción )
     Public Function ff(ByVal Rey As Double, ByVal ep As Double, ByVal D As Double) As Double
         ff = 1.325 * (Math.Log(0.27 * ep / D + 5.74 * (Rey) ^ (-0.9))) ^ (-2)
     End Function
+
+
+    Private Sub Form4_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'CompresoresDataSet1.Codo' table. You can move, or remove it, as needed.
+
+    End Sub
+
+    '------------------------------------------------------------------
+    '------------------------------------------------------------------
+    '------------------------------------------------------------------
+
+
+
 
 End Class
