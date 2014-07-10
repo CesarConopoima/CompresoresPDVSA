@@ -56,6 +56,7 @@ Partial Class Form1
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.Button6 = New System.Windows.Forms.Button()
+        Me.Button7 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
@@ -113,9 +114,9 @@ Partial Class Form1
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(453, 7)
+        Me.Button1.Location = New System.Drawing.Point(448, 7)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(125, 27)
+        Me.Button1.Size = New System.Drawing.Size(130, 32)
         Me.Button1.TabIndex = 3
         Me.Button1.Text = "Ver Carta Psicrometrica"
         Me.Button1.UseVisualStyleBackColor = True
@@ -379,12 +380,22 @@ Partial Class Form1
         Me.Button6.Text = "Ver tabla"
         Me.Button6.UseVisualStyleBackColor = True
         '
+        'Button7
+        '
+        Me.Button7.Location = New System.Drawing.Point(21, 550)
+        Me.Button7.Name = "Button7"
+        Me.Button7.Size = New System.Drawing.Size(136, 44)
+        Me.Button7.TabIndex = 37
+        Me.Button7.Text = "Explore DB Methods"
+        Me.Button7.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.ClientSize = New System.Drawing.Size(952, 683)
+        Me.Controls.Add(Me.Button7)
         Me.Controls.Add(Me.Button6)
         Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.Label14)
@@ -453,5 +464,6 @@ Partial Class Form1
     Friend WithEvents Label14 As System.Windows.Forms.Label
     Friend WithEvents Button5 As System.Windows.Forms.Button
     Friend WithEvents Button6 As System.Windows.Forms.Button
+    Friend WithEvents Button7 As System.Windows.Forms.Button
 
 End Class

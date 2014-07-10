@@ -30,6 +30,15 @@ Partial Class VistaBienvenida
         Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.TextBox5 = New System.Windows.Forms.TextBox()
+        Me.CompresoresDataSet1 = New WindowsApplication1.CompresoresDataSet()
+        Me.CompresoresDataSet11 = New WindowsApplication1.CompresoresDataSet1()
+        Me.UsuarioTableAdapter1 = New WindowsApplication1.CompresoresDataSet1TableAdapters.UsuarioTableAdapter()
+        CType(Me.CompresoresDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CompresoresDataSet11, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -98,11 +107,60 @@ Partial Class VistaBienvenida
         Me.Button2.Text = "Cancelar"
         Me.Button2.UseVisualStyleBackColor = True
         '
+        'ComboBox1
+        '
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(338, 189)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(121, 21)
+        Me.ComboBox1.TabIndex = 8
+        '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(323, 135)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(149, 32)
+        Me.Button3.TabIndex = 9
+        Me.Button3.Text = "Llenar"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'TextBox4
+        '
+        Me.TextBox4.Location = New System.Drawing.Point(338, 216)
+        Me.TextBox4.Name = "TextBox4"
+        Me.TextBox4.Size = New System.Drawing.Size(121, 20)
+        Me.TextBox4.TabIndex = 10
+        '
+        'TextBox5
+        '
+        Me.TextBox5.Location = New System.Drawing.Point(338, 242)
+        Me.TextBox5.Name = "TextBox5"
+        Me.TextBox5.Size = New System.Drawing.Size(121, 20)
+        Me.TextBox5.TabIndex = 11
+        '
+        'CompresoresDataSet1
+        '
+        Me.CompresoresDataSet1.DataSetName = "CompresoresDataSet"
+        Me.CompresoresDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'CompresoresDataSet11
+        '
+        Me.CompresoresDataSet11.DataSetName = "CompresoresDataSet1"
+        Me.CompresoresDataSet11.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'UsuarioTableAdapter1
+        '
+        Me.UsuarioTableAdapter1.ClearBeforeFill = True
+        '
         'VistaBienvenida
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(284, 262)
+        Me.ClientSize = New System.Drawing.Size(564, 326)
+        Me.Controls.Add(Me.TextBox5)
+        Me.Controls.Add(Me.TextBox4)
+        Me.Controls.Add(Me.Button3)
+        Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.TextBox3)
@@ -113,6 +171,8 @@ Partial Class VistaBienvenida
         Me.Controls.Add(Me.Label1)
         Me.Name = "VistaBienvenida"
         Me.Text = "VistaBienvenida"
+        CType(Me.CompresoresDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CompresoresDataSet11, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -125,4 +185,11 @@ Partial Class VistaBienvenida
     Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
+    Friend WithEvents Button3 As System.Windows.Forms.Button
+    Friend WithEvents TextBox4 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBox5 As System.Windows.Forms.TextBox
+    Friend WithEvents CompresoresDataSet1 As WindowsApplication1.CompresoresDataSet
+    Friend WithEvents CompresoresDataSet11 As WindowsApplication1.CompresoresDataSet1
+    Friend WithEvents UsuarioTableAdapter1 As WindowsApplication1.CompresoresDataSet1TableAdapters.UsuarioTableAdapter
 End Class

@@ -11,6 +11,8 @@ Imports System.Windows.Forms
 Imports System.Data.SqlClient
 Imports System.Configuration
 
+
+
 Public Class VistaBienvenida
     Private UserID As Integer
     Private connect As String = WindowsApplication1.My.Settings.CompresoresConnectionString
@@ -24,10 +26,10 @@ Public Class VistaBienvenida
         Dim cmd As New SqlCommand
         Dim reader As SqlDataReader
 
-
         'fetch data from table addapter
         Dim tableAdapter As New CompresoresDataSet1TableAdapters.UsuarioTableAdapter
-        MsgBox(tableAdapter.GetDataBy().Rows(0)(0)) 'trying to exploit query results
+        Console.WriteLine(tableAdapter.GetDataBy().Rows(0)(0))
+        'trying to exploit query results
 
         'MsgBox(tableAdapter.GetDataBy().nombreColumn)
 
@@ -82,11 +84,15 @@ Public Class VistaBienvenida
         '        conn.Close()
         '    End Try
         'End If
+        Console.ReadLine()
     End Sub
 
 
     Private Sub ReadSingleRow(ByVal record As IDataRecord)
+        Console.WriteLine(String.Format("{0}, {1}", record(0), record(1)))
+        Console.ReadLine()
         MsgBox(String.Format("{0}, {1}", record(0), record(1)))
+
     End Sub
 
 
@@ -102,5 +108,42 @@ Public Class VistaBienvenida
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Me.Close()
+    End Sub
+
+    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Dim conn As New SqlConnection(connect)
+        Dim cmd As New SqlCommand
+        Dim adapter As New SqlDataAdapter()
+        Dim ds As New DataSet()
+        Dim data As CompresoresDataSet1.UsuarioRow
+        Dim i As Integer = 0
+        Dim sql As String = Nothing
+        sql = "SELECT nombre,descripcion FROM Usuario"
+
+        'data = CompresoresDataSet1.
+        'data.nombre = "User3"
+        'data.descripcion = "Operador 3"
+        Try
+            conn.Open()
+            cmd = New SqlCommand(sql, conn)
+            adapter.SelectCommand = cmd
+            adapter.Fill(ds)
+            adapter.Dispose()
+            cmd.Dispose()
+            conn.Close()
+
+            ComboBox1.DataSource = ds.Tables(0)
+            'ComboBox1.DisplayMember = "nombre"
+            ComboBox1.DisplayMember = "nombre"
+            ' in this way you can fetch the data contained in db
+            TextBox4.Text = ds.Tables(0).Rows(0).Item(0)
+            TextBox5.Text = ds.Tables(0).Rows(1).Item(0)
+        Catch ex As Exception
+            MsgBox("Can not open connection ! ")
+        End Try
     End Sub
 End Class

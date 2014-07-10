@@ -281,18 +281,6 @@ Public Class Form1
         TextBox7.Text = Math.Round(interceptionXvalues(maquina, "Sistema", factor), 2)
     End Sub
 
-    ' La clase asociada hace operaciones de matrices, en uso hasta que se desarrolle la propia
-    Private Sub Button6_Click(sender As Object, e As EventArgs)
-        Dim matrix As New Matrix2(2, 2) ' asi se crea una matriz cuadrada de la clase Matrix2
-        Dim matrix2 As New Matrix2(2, 2)
-        ' a method to handle inproper incommens of users
-        matrix.Cells(0, 0) = 1
-        matrix.Cells(1, 0) = 2
-        matrix.Cells(0, 1) = 3
-        matrix.Cells(1, 1) = 4
-        'MsgBox(matrix.Cells(1, 0))
-        Form4.Show()
-    End Sub
     ' botton para mostrar form4 que contiene código para cargar y ejecutar el hardyCross para Agua
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
         Form4.Show()
@@ -300,5 +288,9 @@ Public Class Form1
 
     Private Sub Button6_Click_1(sender As Object, e As EventArgs) Handles Button6.Click
         TablaBD.Show()
+    End Sub
+
+    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
+        VistaBienvenida.Show()
     End Sub
 End Class
