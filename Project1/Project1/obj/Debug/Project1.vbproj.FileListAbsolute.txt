@@ -1,0 +1,2 @@
+C:\Users\Sala de Tesistas pre\Desktop\_CesarConopoima_vb\Project1\Project1\bin\Debug\Project1.exe.config
+C:\Users\Sala de Tesistas pre\Desktop\_CesarConopoima_vb\Project1\Project1\obj\Debug\Project1.vbprojResolveAssemblyReference.cache
