@@ -96,6 +96,7 @@
   <ItemGroup>
     <Compile Include="ApplicationEvents.vb" />
     <Compile Include="Class1.vb" />
+    <Compile Include="ComposicionGas.vb" />
     <Compile Include="CompresoresDataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -134,6 +135,12 @@
     <Compile Include="Form4.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="GasComposicion.Designer.vb">
+      <DependentUpon>GasComposicion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="GasComposicion.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Informacion_Planta.vb" />
     <Compile Include="Inicio.designer.vb">
       <DependentUpon>Inicio.vb</DependentUpon>
@@ -145,6 +152,12 @@
       <DependentUpon>Intro.vb</DependentUpon>
     </Compile>
     <Compile Include="Intro.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Jusepin_1.Designer.vb">
+      <DependentUpon>Jusepin_1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Jusepin_1.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -189,11 +202,17 @@
     <EmbeddedResource Include="Form4.resx">
       <DependentUpon>Form4.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GasComposicion.resx">
+      <DependentUpon>GasComposicion.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Inicio.resx">
       <DependentUpon>Inicio.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Intro.resx">
       <DependentUpon>Intro.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Jusepin_1.resx">
+      <DependentUpon>Jusepin_1.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

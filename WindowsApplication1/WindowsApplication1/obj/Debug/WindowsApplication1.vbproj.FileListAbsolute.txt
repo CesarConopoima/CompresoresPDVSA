@@ -21,3 +21,5 @@ C:\Users\Sala de Tesistas pre\Desktop\_CesarConopoima_vb\WindowsApplication1\Win
 C:\Users\Sala de Tesistas pre\Desktop\_CesarConopoima_vb\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.Intro.resources
 C:\Users\Sala de Tesistas pre\Desktop\_CesarConopoima_vb\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.TablaBD.resources
 C:\Users\Sala de Tesistas pre\Desktop\_CesarConopoima_vb\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.VistaBienvenida.resources
+C:\Users\Sala de Tesistas pre\Desktop\_CesarConopoima_vb\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.Jusepin_1.resources
+C:\Users\Sala de Tesistas pre\Desktop\_CesarConopoima_vb\WindowsApplication1\WindowsApplication1\obj\Debug\WindowsApplication1.GasComposicion.resources
