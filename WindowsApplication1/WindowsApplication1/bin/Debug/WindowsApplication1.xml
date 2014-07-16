@@ -6,7 +6,11 @@ WindowsApplication1
 </name>
 </assembly>
 <members>
-<member name="P:WindowsApplication1.My.Resources.Resources.ResourceManager">
+<member name="T:WindowsApplication1.CompresoresDataSet">
+	<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="P:WindowsApplication1.My.Resources.Resources.ResourceManager">
 	<summary>
   Returns the cached ResourceManager instance used by this class.
 </summary>
@@ -18,6 +22,314 @@ WindowsApplication1
 </member><member name="T:WindowsApplication1.My.Resources.Resources">
 	<summary>
   A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1.AccesorioDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1.BombaDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1.Caso_estudioDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1.CodoDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1.Composicion_disenoDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1.CompresorDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1.FluidoDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1.Nominal_bombaDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1.Nominal_compresorDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1.Sistema_bombeoDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1.Sistema_compresionDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1.Tanque_reservorioDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1.TuberiaDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1.UsuarioDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1.Valvula_filtroDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1.Curva_compresorDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1.Curva_compresor_disenoDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1.AccesorioRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1.BombaRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1.Caso_estudioRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1.CodoRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1.Composicion_disenoRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1.CompresorRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1.FluidoRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1.Nominal_bombaRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1.Nominal_compresorRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1.Sistema_bombeoRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1.Sistema_compresionRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1.Tanque_reservorioRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1.TuberiaRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1.UsuarioRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1.Valvula_filtroRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1.Curva_compresorRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1.Curva_compresor_disenoRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1.AccesorioRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1.BombaRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1.Caso_estudioRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1.CodoRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1.Composicion_disenoRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1.CompresorRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1.FluidoRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1.Nominal_bombaRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1.Nominal_compresorRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1.Sistema_bombeoRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1.Sistema_compresionRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1.Tanque_reservorioRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1.TuberiaRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1.UsuarioRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1.Valvula_filtroRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1.Curva_compresorRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1.Curva_compresor_disenoRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1">
+	<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1TableAdapters.AccesorioTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1TableAdapters.BombaTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1TableAdapters.Caso_estudioTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1TableAdapters.CodoTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1TableAdapters.Composicion_disenoTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1TableAdapters.CompresorTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1TableAdapters.FluidoTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1TableAdapters.Nominal_bombaTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1TableAdapters.Nominal_compresorTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1TableAdapters.Sistema_bombeoTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1TableAdapters.Sistema_compresionTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1TableAdapters.Tanque_reservorioTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1TableAdapters.TuberiaTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1TableAdapters.UsuarioTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1TableAdapters.Valvula_filtroTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1TableAdapters.Curva_compresorTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1TableAdapters.Curva_compresor_disenoTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="M:WindowsApplication1.CompresoresDataSet1TableAdapters.TableAdapterManager.UpdateUpdatedRows(WindowsApplication1.CompresoresDataSet1,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Update rows in top-down order.
+</summary>
+</member><member name="M:WindowsApplication1.CompresoresDataSet1TableAdapters.TableAdapterManager.UpdateInsertedRows(WindowsApplication1.CompresoresDataSet1,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Insert rows in top-down order.
+</summary>
+</member><member name="M:WindowsApplication1.CompresoresDataSet1TableAdapters.TableAdapterManager.UpdateDeletedRows(WindowsApplication1.CompresoresDataSet1,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Delete rows in bottom-up order.
+</summary>
+</member><member name="M:WindowsApplication1.CompresoresDataSet1TableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member><member name="M:WindowsApplication1.CompresoresDataSet1TableAdapters.TableAdapterManager.UpdateAll(WindowsApplication1.CompresoresDataSet1)">
+	<summary>
+Update all changes to the dataset.
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1TableAdapters.TableAdapterManager.UpdateOrderOption">
+	<summary>
+Update Order Option
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1TableAdapters.TableAdapterManager.SelfReferenceComparer">
+	<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member><member name="T:WindowsApplication1.CompresoresDataSet1TableAdapters.TableAdapterManager">
+	<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
 </summary>
 </member>
 </members>
