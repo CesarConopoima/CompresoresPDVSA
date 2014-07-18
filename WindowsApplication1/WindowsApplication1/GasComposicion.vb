@@ -43,7 +43,6 @@
         If porcentaje <> 100 And flag = False Then
             MsgBox("Tu composición no esta correcta, debe sumar 100!!")
         ElseIf porcentaje = 100 Then
-            MsgBox(cadenaGas)
             Dim propiedadesDelGas As New ComposicionGas(cadenaGas())
             TextBox15.Text = propiedadesDelGas.getSpecifcGravity()
             TextBox12.Text = propiedadesDelGas.GetPropertiesOfGasesMix(0)

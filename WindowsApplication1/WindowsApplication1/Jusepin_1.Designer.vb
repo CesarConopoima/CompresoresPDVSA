@@ -22,12 +22,12 @@ Partial Class Jusepin_1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim ChartArea5 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend5 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series5 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea6 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend6 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series6 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
@@ -41,10 +41,14 @@ Partial Class Jusepin_1
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.Chart2 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.P1diseno = New System.Windows.Forms.TextBox()
+        Me.T1diseno = New System.Windows.Forms.TextBox()
+        Me.proff = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
+        Me.GroupBox5.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -112,9 +116,12 @@ Partial Class Jusepin_1
         '
         'GroupBox5
         '
-        Me.GroupBox5.Location = New System.Drawing.Point(613, 281)
+        Me.GroupBox5.Controls.Add(Me.proff)
+        Me.GroupBox5.Controls.Add(Me.T1diseno)
+        Me.GroupBox5.Controls.Add(Me.P1diseno)
+        Me.GroupBox5.Location = New System.Drawing.Point(617, 270)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(522, 232)
+        Me.GroupBox5.Size = New System.Drawing.Size(555, 330)
         Me.GroupBox5.TabIndex = 2
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "GroupBox5"
@@ -142,16 +149,16 @@ Partial Class Jusepin_1
         '
         'Chart1
         '
-        ChartArea5.Name = "ChartArea1"
-        Me.Chart1.ChartAreas.Add(ChartArea5)
-        Legend5.Name = "Legend1"
-        Me.Chart1.Legends.Add(Legend5)
+        ChartArea1.Name = "ChartArea1"
+        Me.Chart1.ChartAreas.Add(ChartArea1)
+        Legend1.Name = "Legend1"
+        Me.Chart1.Legends.Add(Legend1)
         Me.Chart1.Location = New System.Drawing.Point(6, 3)
         Me.Chart1.Name = "Chart1"
-        Series5.ChartArea = "ChartArea1"
-        Series5.Legend = "Legend1"
-        Series5.Name = "Series1"
-        Me.Chart1.Series.Add(Series5)
+        Series1.ChartArea = "ChartArea1"
+        Series1.Legend = "Legend1"
+        Series1.Name = "Series1"
+        Me.Chart1.Series.Add(Series1)
         Me.Chart1.Size = New System.Drawing.Size(428, 295)
         Me.Chart1.TabIndex = 0
         Me.Chart1.Text = "Chart1"
@@ -169,17 +176,17 @@ Partial Class Jusepin_1
         '
         'Chart2
         '
-        ChartArea6.Name = "ChartArea1"
-        Me.Chart2.ChartAreas.Add(ChartArea6)
-        Legend6.Name = "Legend1"
-        Me.Chart2.Legends.Add(Legend6)
+        ChartArea2.Name = "ChartArea1"
+        Me.Chart2.ChartAreas.Add(ChartArea2)
+        Legend2.Name = "Legend1"
+        Me.Chart2.Legends.Add(Legend2)
         Me.Chart2.Location = New System.Drawing.Point(3, 3)
         Me.Chart2.Name = "Chart2"
-        Series6.ChartArea = "ChartArea1"
-        Series6.Legend = "Legend1"
-        Series6.Name = "Series1"
-        Me.Chart2.Series.Add(Series6)
-        Me.Chart2.Size = New System.Drawing.Size(426, 283)
+        Series2.ChartArea = "ChartArea1"
+        Series2.Legend = "Legend1"
+        Series2.Name = "Series1"
+        Me.Chart2.Series.Add(Series2)
+        Me.Chart2.Size = New System.Drawing.Size(431, 295)
         Me.Chart2.TabIndex = 0
         Me.Chart2.Text = "Chart2"
         '
@@ -191,6 +198,27 @@ Partial Class Jusepin_1
         Me.Button1.TabIndex = 4
         Me.Button1.Text = "Cambio de composición"
         Me.Button1.UseVisualStyleBackColor = True
+        '
+        'P1diseno
+        '
+        Me.P1diseno.Location = New System.Drawing.Point(70, 35)
+        Me.P1diseno.Name = "P1diseno"
+        Me.P1diseno.Size = New System.Drawing.Size(70, 20)
+        Me.P1diseno.TabIndex = 0
+        '
+        'T1diseno
+        '
+        Me.T1diseno.Location = New System.Drawing.Point(70, 77)
+        Me.T1diseno.Name = "T1diseno"
+        Me.T1diseno.Size = New System.Drawing.Size(70, 20)
+        Me.T1diseno.TabIndex = 1
+        '
+        'proff
+        '
+        Me.proff.Location = New System.Drawing.Point(70, 122)
+        Me.proff.Name = "proff"
+        Me.proff.Size = New System.Drawing.Size(70, 20)
+        Me.proff.TabIndex = 2
         '
         'Jusepin_1
         '
@@ -208,6 +236,8 @@ Partial Class Jusepin_1
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
+        Me.GroupBox5.ResumeLayout(False)
+        Me.GroupBox5.PerformLayout()
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -229,4 +259,7 @@ Partial Class Jusepin_1
     Friend WithEvents TabPage2 As System.Windows.Forms.TabPage
     Friend WithEvents Chart2 As System.Windows.Forms.DataVisualization.Charting.Chart
     Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents T1diseno As System.Windows.Forms.TextBox
+    Friend WithEvents P1diseno As System.Windows.Forms.TextBox
+    Friend WithEvents proff As System.Windows.Forms.TextBox
 End Class

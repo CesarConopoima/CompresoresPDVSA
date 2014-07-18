@@ -1,16 +1,15 @@
 ﻿Imports System.Windows.Forms.DataVisualization.Charting
 
 Public Class Jusepin_1
-
+    'Metodo para crear gráfico que está incrustado en la primera vista
     Private Sub chart(maquina As String)
+        Dim NewCompresor As New Similitudes(100, 300, 33, 230, 15, 23, "compresor_1_Jusepin")
         Chart1.Series.Clear()
         Dim series1 As New Series()
         Dim series2 As New Series()
-        Dim k As Integer = 0
-        For Each value As Decimal In ArrayOfValuesX("Sistema")
-            series1.Points.AddXY(value, ArrayOfValuesY("Sistema")(k))
-            series2.Points.AddXY(ArrayOfValuesX(maquina)(k), ArrayOfValuesY(maquina)(k))
-            k = k + 1
+        Dim k As Integer = NewCompresor.CurvaDisenoCompresorPresion.Item(maquina).GetUpperBound(1)
+        For i As Integer = 0 To k
+            series1.Points.AddXY(NewCompresor.CurvaDisenoCompresorPresion.Item(maquina)(0, i), NewCompresor.CurvaDisenoCompresorHead(maquina).Item(maquina)(i))
         Next
         Chart1.Series.Add(series1)
         Chart1.Series.Add(series2)
@@ -23,52 +22,13 @@ Public Class Jusepin_1
         'agregar marcador al gráfico
         Chart1.Series("Series1").MarkerStyle = MarkerStyle.Square
         Chart1.Series("Series2").MarkerStyle = MarkerStyle.Square
-        Chart1.Titles.Add("Curva de" & " " & maquina & " y Curva del Sistema")
+        Chart1.Titles.Add("Curva de" & " " & maquina)
         Chart1.ChartAreas(0).AxisX.Title = "Caudal [CFM]"
         Chart1.ChartAreas(0).AxisY.Title = "Relación de presión"
         Chart1.ChartAreas(0).AxisX.MajorGrid.Enabled = False
         Chart1.ChartAreas(0).AxisY.MajorGrid.Enabled = False
     End Sub
 
-    Private Sub charts(maquina As String)
-        Dim k As Integer
-        Dim Chart1 As New Chart
-        Dim ChartArea1 As New ChartArea()
-        Chart1.ChartAreas.Add(ChartArea1)
-        Dim series1 As New Series()
-        Dim series2 As New Series()
-        For Each value As Decimal In ArrayOfValuesX("Sistema")
-            series1.Points.AddXY(value, ArrayOfValuesY("Sistema")(k))
-            series2.Points.AddXY(ArrayOfValuesX(maquina)(k), ArrayOfValuesY(maquina)(k))
-            k = k + 1
-        Next
-
-        series1.ChartArea = "ChartArea1"
-        series2.ChartArea = "ChartArea1"
-        Chart1.Series.Add(series1)
-        Chart1.Series.Add(series2)
-        Chart1.Series("Series1").ChartType = SeriesChartType.Spline
-        Chart1.Series("Series2").ChartType = SeriesChartType.Spline
-        Chart1.Series("Series1").BorderWidth = 3
-        Chart1.Series("Series2").BorderWidth = 3
-        'esta linea permite visualizar values of points on mouse hover
-        Chart1.Series("Series1").ToolTip = "#VALY"
-        Chart1.Series("Series2").ToolTip = "#VALY"
-        'agregar marcador al gráfico
-        Chart1.Series("Series1").MarkerStyle = MarkerStyle.Square
-        Chart1.Series("Series2").MarkerStyle = MarkerStyle.Square
-
-        Chart1.Titles.Add("Curva de" & " " & maquina & " y Curva del Sistema")
-        Chart1.ChartAreas(0).AxisX.Title = "Caudal [CFM]"
-        Chart1.ChartAreas(0).AxisY.Title = "Relación de presión"
-
-        Chart1.ChartAreas(0).AxisX.MajorGrid.Enabled = False
-        Chart1.ChartAreas(0).AxisY.MajorGrid.Enabled = False
-        Chart1.Location = New System.Drawing.Point(0, 0)
-        Chart1.Size = New System.Drawing.Size(340, 240)
-
-        Chart1.BringToFront()
-    End Sub
     Public Function ArrayOfValuesX(ByVal Maquina As String) As Array
         Select Case Maquina
             Case "Compre1"
@@ -93,14 +53,16 @@ Public Class Jusepin_1
                 Return New Decimal(6) {6, 5.9, 5.7, 5.3, 4.6, 3.4, 1.5}
         End Select
     End Function
-
-
+    'cuando la Forma llamada Jusepin carga, se cambia el gráfico incrustado en la pestaña de la forma
     Private Sub Jusepin_1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        chart("compre1")
+        Dim NewCompresor As New Similitudes(100, 300, 33, 230, 15, 23, "Jusepin")
+        P1diseno.Text = NewCompresor.DictionarieCompresores.Item("compresor_1_Jusepin").Item("compresor_1_Jusepin_P1Diseno")
+        T1diseno.Text = NewCompresor.DictionarieCompresores.Item("compresor_2_Jusepin").Item("compresor_2_Jusepin_T1Diseno")
+        proff.Text = NewCompresor.CurvaDisenoCompresorHead("compresor_1_Jusepin").Item("compresor_1_Jusepin").Count
+        chart("compresor_1_Jusepin")
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         GasComposicion.Show()
-        Dim gravedadSpecificaDelGas As New ComposicionGas("C1:49;C2:38;C3:13;")
     End Sub
 End Class

@@ -175,6 +175,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Similitudes.vb" />
     <Compile Include="TablaBD.Designer.vb">
       <DependentUpon>TablaBD.vb</DependentUpon>
     </Compile>
