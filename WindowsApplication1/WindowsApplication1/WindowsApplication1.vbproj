@@ -95,7 +95,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationEvents.vb" />
-    <Compile Include="Class1.vb" />
     <Compile Include="ComposicionGas.vb" />
     <Compile Include="CompresoresDataSet.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -110,6 +109,7 @@
     <Compile Include="CompresoresDataSet1.vb">
       <DependentUpon>CompresoresDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="CurvasEquipos.vb" />
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +154,18 @@
     <Compile Include="Intro.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Jusepin_Compresores.Designer.vb">
+      <DependentUpon>Jusepin_Compresores.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Jusepin_Compresores.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Jusepin_Bombas.Designer.vb">
+      <DependentUpon>Jusepin_Bombas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Jusepin_Bombas.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Jusepin_1.Designer.vb">
       <DependentUpon>Jusepin_1.vb</DependentUpon>
     </Compile>
@@ -182,6 +194,7 @@
     <Compile Include="TablaBD.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="UnitsConvert.vb" />
     <Compile Include="Utility.vb" />
     <Compile Include="VistaBienvenida.Designer.vb">
       <DependentUpon>VistaBienvenida.vb</DependentUpon>
@@ -211,6 +224,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Intro.resx">
       <DependentUpon>Intro.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Jusepin_Compresores.resx">
+      <DependentUpon>Jusepin_Compresores.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Jusepin_Bombas.resx">
+      <DependentUpon>Jusepin_Bombas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Jusepin_1.resx">
       <DependentUpon>Jusepin_1.vb</DependentUpon>

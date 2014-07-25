@@ -1,7 +1,7 @@
 ﻿Imports System.Windows.Forms.DataVisualization.Charting
 Imports WindowsApplication1.UnitsConvert
 
-Public Class Jusepin_1
+Public Class Jusepin_Compresores
     'Metodo para crear gráfico que está incrustado en la primera vista, se grafica la curva de diseño on click sobre la etiqueta
     Private Sub chart1Diseno(maquina As String)
         ' el orden para definir los parametros de la máquina son:
@@ -113,7 +113,7 @@ Public Class Jusepin_1
     Private Sub Label12_Click(sender As Object, e As EventArgs) Handles Label12.Click
         Dim name As String = Label12.Text
         Dim NewCompresor As New Similitudes(100, 300, 33, 230, 15, 23, name)
-        P1diseno.Text = NewCompresor.DictionarieCompresores.Item(name).Item(name & "_P1diseno")
+        Tambiental.Text = NewCompresor.DictionarieCompresores.Item(name).Item(name & "_P1diseno")
         T1diseno.Text = NewCompresor.DictionarieCompresores.Item(name).Item(name & "_T1diseno")
         RPMdiseno.Text = NewCompresor.DictionarieCompresores.Item(name).Item(name & "_RPMdiseno")
         PMdiseno.Text = NewCompresor.DictionarieCompresores.Item(name).Item(name & "_PMdiseno")

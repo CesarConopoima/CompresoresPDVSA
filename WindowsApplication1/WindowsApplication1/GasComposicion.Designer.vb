@@ -241,11 +241,11 @@ Partial Class GasComposicion
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(204, 139)
+        Me.Label9.Location = New System.Drawing.Point(171, 139)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(107, 15)
+        Me.Label9.Size = New System.Drawing.Size(176, 15)
         Me.Label9.TabIndex = 25
-        Me.Label9.Text = "Peso Molecular"
+        Me.Label9.Text = "Peso Molecular [Kg/Kmol]"
         '
         'Label14
         '
@@ -307,7 +307,7 @@ Partial Class GasComposicion
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(97, 376)
+        Me.Button1.Location = New System.Drawing.Point(93, 376)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(183, 27)
         Me.Button1.TabIndex = 33
@@ -316,7 +316,7 @@ Partial Class GasComposicion
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(123, 409)
+        Me.Button2.Location = New System.Drawing.Point(120, 409)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(139, 26)
         Me.Button2.TabIndex = 34

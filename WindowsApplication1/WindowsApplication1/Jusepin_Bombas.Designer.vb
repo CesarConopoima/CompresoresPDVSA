@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Jusepin_1
+Partial Class Jusepin_Bombas
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -22,17 +22,16 @@ Partial Class Jusepin_1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim ChartArea3 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend3 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series3 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea4 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend4 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series4 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Jusepin_Bombas))
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.Label15 = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
-        Me.Label13 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
@@ -40,22 +39,18 @@ Partial Class Jusepin_1
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
         Me.RPMUnidades = New System.Windows.Forms.ComboBox()
-        Me.TemperaturaUnidades = New System.Windows.Forms.ComboBox()
-        Me.PresionUnidades = New System.Windows.Forms.ComboBox()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.RPMValor = New System.Windows.Forms.TextBox()
         Me.Label16 = New System.Windows.Forms.Label()
-        Me.Label17 = New System.Windows.Forms.Label()
         Me.Label18 = New System.Windows.Forms.Label()
-        Me.T1succion = New System.Windows.Forms.TextBox()
-        Me.P1succion = New System.Windows.Forms.TextBox()
+        Me.NEtapas = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Coefdiseno = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Zdiseno = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.RPMdiseno = New System.Windows.Forms.TextBox()
+        Me.EficMax = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -63,8 +58,8 @@ Partial Class Jusepin_1
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.PMdiseno = New System.Windows.Forms.TextBox()
-        Me.T1diseno = New System.Windows.Forms.TextBox()
-        Me.P1diseno = New System.Windows.Forms.TextBox()
+        Me.Hdiseno = New System.Windows.Forms.TextBox()
+        Me.Qdiseno = New System.Windows.Forms.TextBox()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
@@ -95,59 +90,45 @@ Partial Class Jusepin_1
         '
         'GroupBox3
         '
-        Me.GroupBox3.Controls.Add(Me.Label15)
         Me.GroupBox3.Controls.Add(Me.Label14)
-        Me.GroupBox3.Controls.Add(Me.Label13)
         Me.GroupBox3.Controls.Add(Me.Label12)
         Me.GroupBox3.Controls.Add(Me.PictureBox1)
         Me.GroupBox3.Location = New System.Drawing.Point(164, 9)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(986, 227)
+        Me.GroupBox3.Size = New System.Drawing.Size(986, 236)
         Me.GroupBox3.TabIndex = 1
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "GroupBox3"
         '
-        'Label15
-        '
-        Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(558, 89)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(66, 13)
-        Me.Label15.TabIndex = 4
-        Me.Label15.Text = "Compresor 4"
-        '
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(354, 122)
+        Me.Label14.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.Label14.ForeColor = System.Drawing.SystemColors.HotTrack
+        Me.Label14.Location = New System.Drawing.Point(491, 189)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(66, 13)
+        Me.Label14.Size = New System.Drawing.Size(94, 13)
         Me.Label14.TabIndex = 3
-        Me.Label14.Text = "Compresor 2"
-        '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(457, 47)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(66, 13)
-        Me.Label13.TabIndex = 2
-        Me.Label13.Text = "Compresor 3"
+        Me.Label14.Text = "Bomba_2_Jusepin"
         '
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(234, 63)
+        Me.Label12.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.Label12.ForeColor = System.Drawing.SystemColors.HotTrack
+        Me.Label12.Location = New System.Drawing.Point(478, 47)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(110, 13)
+        Me.Label12.Size = New System.Drawing.Size(94, 13)
         Me.Label12.TabIndex = 1
-        Me.Label12.Text = "compresor_1_Jusepin"
+        Me.Label12.Text = "Bomba_1_Jusepin"
         '
         'PictureBox1
         '
-        Me.PictureBox1.Location = New System.Drawing.Point(81, 10)
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(277, 10)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(773, 204)
+        Me.PictureBox1.Size = New System.Drawing.Size(450, 236)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
@@ -183,22 +164,18 @@ Partial Class Jusepin_1
         'GroupBox5
         '
         Me.GroupBox5.Controls.Add(Me.RPMUnidades)
-        Me.GroupBox5.Controls.Add(Me.TemperaturaUnidades)
-        Me.GroupBox5.Controls.Add(Me.PresionUnidades)
         Me.GroupBox5.Controls.Add(Me.Button2)
         Me.GroupBox5.Controls.Add(Me.Button1)
         Me.GroupBox5.Controls.Add(Me.RPMValor)
         Me.GroupBox5.Controls.Add(Me.Label16)
-        Me.GroupBox5.Controls.Add(Me.Label17)
         Me.GroupBox5.Controls.Add(Me.Label18)
-        Me.GroupBox5.Controls.Add(Me.T1succion)
-        Me.GroupBox5.Controls.Add(Me.P1succion)
+        Me.GroupBox5.Controls.Add(Me.NEtapas)
         Me.GroupBox5.Controls.Add(Me.Label11)
         Me.GroupBox5.Controls.Add(Me.Coefdiseno)
         Me.GroupBox5.Controls.Add(Me.Label10)
         Me.GroupBox5.Controls.Add(Me.Zdiseno)
         Me.GroupBox5.Controls.Add(Me.Label9)
-        Me.GroupBox5.Controls.Add(Me.RPMdiseno)
+        Me.GroupBox5.Controls.Add(Me.EficMax)
         Me.GroupBox5.Controls.Add(Me.Label8)
         Me.GroupBox5.Controls.Add(Me.Label7)
         Me.GroupBox5.Controls.Add(Me.Label6)
@@ -206,8 +183,8 @@ Partial Class Jusepin_1
         Me.GroupBox5.Controls.Add(Me.Label4)
         Me.GroupBox5.Controls.Add(Me.Label3)
         Me.GroupBox5.Controls.Add(Me.PMdiseno)
-        Me.GroupBox5.Controls.Add(Me.T1diseno)
-        Me.GroupBox5.Controls.Add(Me.P1diseno)
+        Me.GroupBox5.Controls.Add(Me.Hdiseno)
+        Me.GroupBox5.Controls.Add(Me.Qdiseno)
         Me.GroupBox5.Location = New System.Drawing.Point(617, 270)
         Me.GroupBox5.Name = "GroupBox5"
         Me.GroupBox5.Size = New System.Drawing.Size(555, 330)
@@ -219,33 +196,14 @@ Partial Class Jusepin_1
         '
         Me.RPMUnidades.FormattingEnabled = True
         Me.RPMUnidades.Items.AddRange(New Object() {"[RPM]", "[Hz]"})
-        Me.RPMUnidades.Location = New System.Drawing.Point(138, 288)
+        Me.RPMUnidades.Location = New System.Drawing.Point(118, 264)
         Me.RPMUnidades.Name = "RPMUnidades"
         Me.RPMUnidades.Size = New System.Drawing.Size(55, 21)
         Me.RPMUnidades.TabIndex = 24
         '
-        'TemperaturaUnidades
-        '
-        Me.TemperaturaUnidades.FormattingEnabled = True
-        Me.TemperaturaUnidades.Items.AddRange(New Object() {"[°C]", "[K]", "[F]", "[R]"})
-        Me.TemperaturaUnidades.Location = New System.Drawing.Point(138, 263)
-        Me.TemperaturaUnidades.Name = "TemperaturaUnidades"
-        Me.TemperaturaUnidades.Size = New System.Drawing.Size(55, 21)
-        Me.TemperaturaUnidades.TabIndex = 23
-        '
-        'PresionUnidades
-        '
-        Me.PresionUnidades.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.PresionUnidades.FormattingEnabled = True
-        Me.PresionUnidades.Items.AddRange(New Object() {"[psi]", "[Pa]", "[KPa]", "[MPa]", "[bar]", "[m]", "[mmHg]"})
-        Me.PresionUnidades.Location = New System.Drawing.Point(138, 239)
-        Me.PresionUnidades.Name = "PresionUnidades"
-        Me.PresionUnidades.Size = New System.Drawing.Size(55, 21)
-        Me.PresionUnidades.TabIndex = 22
-        '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(371, 127)
+        Me.Button2.Location = New System.Drawing.Point(371, 227)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(138, 43)
         Me.Button2.TabIndex = 21
@@ -254,7 +212,7 @@ Partial Class Jusepin_1
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(371, 60)
+        Me.Button1.Location = New System.Drawing.Point(371, 71)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(138, 43)
         Me.Button1.TabIndex = 4
@@ -263,7 +221,7 @@ Partial Class Jusepin_1
         '
         'RPMValor
         '
-        Me.RPMValor.Location = New System.Drawing.Point(206, 288)
+        Me.RPMValor.Location = New System.Drawing.Point(179, 265)
         Me.RPMValor.Name = "RPMValor"
         Me.RPMValor.Size = New System.Drawing.Size(70, 20)
         Me.RPMValor.TabIndex = 20
@@ -271,43 +229,27 @@ Partial Class Jusepin_1
         'Label16
         '
         Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(7, 291)
+        Me.Label16.Location = New System.Drawing.Point(7, 268)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(89, 13)
         Me.Label16.TabIndex = 19
         Me.Label16.Text = "Velocidad de giro"
-        '
-        'Label17
-        '
-        Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(6, 265)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(122, 13)
-        Me.Label17.TabIndex = 18
-        Me.Label17.Text = "Temperatura de succión"
         '
         'Label18
         '
         Me.Label18.AutoSize = True
         Me.Label18.Location = New System.Drawing.Point(6, 242)
         Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(97, 13)
+        Me.Label18.Size = New System.Drawing.Size(95, 13)
         Me.Label18.TabIndex = 17
-        Me.Label18.Text = "Presión de succión"
+        Me.Label18.Text = "Numero de Etapas"
         '
-        'T1succion
+        'NEtapas
         '
-        Me.T1succion.Location = New System.Drawing.Point(206, 263)
-        Me.T1succion.Name = "T1succion"
-        Me.T1succion.Size = New System.Drawing.Size(70, 20)
-        Me.T1succion.TabIndex = 16
-        '
-        'P1succion
-        '
-        Me.P1succion.Location = New System.Drawing.Point(206, 239)
-        Me.P1succion.Name = "P1succion"
-        Me.P1succion.Size = New System.Drawing.Size(70, 20)
-        Me.P1succion.TabIndex = 15
+        Me.NEtapas.Location = New System.Drawing.Point(179, 239)
+        Me.NEtapas.Name = "NEtapas"
+        Me.NEtapas.Size = New System.Drawing.Size(70, 20)
+        Me.NEtapas.TabIndex = 15
         '
         'Label11
         '
@@ -315,9 +257,9 @@ Partial Class Jusepin_1
         Me.Label11.ForeColor = System.Drawing.Color.Black
         Me.Label11.Location = New System.Drawing.Point(51, 216)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(122, 13)
+        Me.Label11.Size = New System.Drawing.Size(191, 13)
         Me.Label11.TabIndex = 14
-        Me.Label11.Text = "Condiciones cambiantes"
+        Me.Label11.Text = "Condiciones cambiantes, haga similitud"
         '
         'Coefdiseno
         '
@@ -351,12 +293,12 @@ Partial Class Jusepin_1
         Me.Label9.TabIndex = 10
         Me.Label9.Text = "Factor de compresibilidad"
         '
-        'RPMdiseno
+        'EficMax
         '
-        Me.RPMdiseno.Location = New System.Drawing.Point(179, 98)
-        Me.RPMdiseno.Name = "RPMdiseno"
-        Me.RPMdiseno.Size = New System.Drawing.Size(70, 20)
-        Me.RPMdiseno.TabIndex = 9
+        Me.EficMax.Location = New System.Drawing.Point(179, 98)
+        Me.EficMax.Name = "EficMax"
+        Me.EficMax.Size = New System.Drawing.Size(70, 20)
+        Me.EficMax.TabIndex = 9
         '
         'Label8
         '
@@ -372,45 +314,45 @@ Partial Class Jusepin_1
         Me.Label7.AutoSize = True
         Me.Label7.Location = New System.Drawing.Point(7, 101)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(122, 13)
+        Me.Label7.Size = New System.Drawing.Size(91, 13)
         Me.Label7.TabIndex = 7
-        Me.Label7.Text = "Velocidad de giro [RPM]"
+        Me.Label7.Text = "Eficiencia máxima"
         '
         'Label6
         '
         Me.Label6.AutoSize = True
         Me.Label6.Location = New System.Drawing.Point(6, 75)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(138, 13)
+        Me.Label6.Size = New System.Drawing.Size(100, 13)
         Me.Label6.TabIndex = 6
-        Me.Label6.Text = "Temperatura de succión [K]"
+        Me.Label6.Text = "Altura de diseño [m]"
         '
         'Label5
         '
         Me.Label5.AutoSize = True
         Me.Label5.Location = New System.Drawing.Point(6, 52)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(123, 13)
+        Me.Label5.Size = New System.Drawing.Size(122, 13)
         Me.Label5.TabIndex = 5
-        Me.Label5.Text = "Presión de succión [PSI]"
+        Me.Label5.Text = "Caudal de diseño [GPM]"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(27, 25)
+        Me.Label4.Location = New System.Drawing.Point(51, 25)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(166, 13)
+        Me.Label4.Size = New System.Drawing.Size(152, 13)
         Me.Label4.TabIndex = 4
-        Me.Label4.Text = "Condiciones de diseño del equipo"
+        Me.Label4.Text = "Punto de operación del equipo"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(385, 25)
+        Me.Label3.Location = New System.Drawing.Point(351, 25)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(106, 13)
+        Me.Label3.Size = New System.Drawing.Size(184, 13)
         Me.Label3.TabIndex = 3
-        Me.Label3.Text = "Composición del Gas"
+        Me.Label3.Text = "Composición de la mezcla de líquidos"
         '
         'PMdiseno
         '
@@ -419,19 +361,19 @@ Partial Class Jusepin_1
         Me.PMdiseno.Size = New System.Drawing.Size(70, 20)
         Me.PMdiseno.TabIndex = 2
         '
-        'T1diseno
+        'Hdiseno
         '
-        Me.T1diseno.Location = New System.Drawing.Point(179, 73)
-        Me.T1diseno.Name = "T1diseno"
-        Me.T1diseno.Size = New System.Drawing.Size(70, 20)
-        Me.T1diseno.TabIndex = 1
+        Me.Hdiseno.Location = New System.Drawing.Point(179, 73)
+        Me.Hdiseno.Name = "Hdiseno"
+        Me.Hdiseno.Size = New System.Drawing.Size(70, 20)
+        Me.Hdiseno.TabIndex = 1
         '
-        'P1diseno
+        'Qdiseno
         '
-        Me.P1diseno.Location = New System.Drawing.Point(179, 49)
-        Me.P1diseno.Name = "P1diseno"
-        Me.P1diseno.Size = New System.Drawing.Size(70, 20)
-        Me.P1diseno.TabIndex = 0
+        Me.Qdiseno.Location = New System.Drawing.Point(179, 49)
+        Me.Qdiseno.Name = "Qdiseno"
+        Me.Qdiseno.Size = New System.Drawing.Size(70, 20)
+        Me.Qdiseno.TabIndex = 0
         '
         'TabControl1
         '
@@ -456,16 +398,16 @@ Partial Class Jusepin_1
         '
         'Chart1
         '
-        ChartArea3.Name = "ChartArea1"
-        Me.Chart1.ChartAreas.Add(ChartArea3)
-        Legend3.Name = "Legend1"
-        Me.Chart1.Legends.Add(Legend3)
+        ChartArea1.Name = "ChartArea1"
+        Me.Chart1.ChartAreas.Add(ChartArea1)
+        Legend1.Name = "Legend1"
+        Me.Chart1.Legends.Add(Legend1)
         Me.Chart1.Location = New System.Drawing.Point(6, 3)
         Me.Chart1.Name = "Chart1"
-        Series3.ChartArea = "ChartArea1"
-        Series3.Legend = "Legend1"
-        Series3.Name = "Series1"
-        Me.Chart1.Series.Add(Series3)
+        Series1.ChartArea = "ChartArea1"
+        Series1.Legend = "Legend1"
+        Series1.Name = "Series1"
+        Me.Chart1.Series.Add(Series1)
         Me.Chart1.Size = New System.Drawing.Size(428, 295)
         Me.Chart1.TabIndex = 0
         Me.Chart1.Text = "Chart1"
@@ -483,21 +425,21 @@ Partial Class Jusepin_1
         '
         'Chart2
         '
-        ChartArea4.Name = "ChartArea1"
-        Me.Chart2.ChartAreas.Add(ChartArea4)
-        Legend4.Name = "Legend1"
-        Me.Chart2.Legends.Add(Legend4)
+        ChartArea2.Name = "ChartArea1"
+        Me.Chart2.ChartAreas.Add(ChartArea2)
+        Legend2.Name = "Legend1"
+        Me.Chart2.Legends.Add(Legend2)
         Me.Chart2.Location = New System.Drawing.Point(3, 3)
         Me.Chart2.Name = "Chart2"
-        Series4.ChartArea = "ChartArea1"
-        Series4.Legend = "Legend1"
-        Series4.Name = "Series1"
-        Me.Chart2.Series.Add(Series4)
+        Series2.ChartArea = "ChartArea1"
+        Series2.Legend = "Legend1"
+        Series2.Name = "Series1"
+        Me.Chart2.Series.Add(Series2)
         Me.Chart2.Size = New System.Drawing.Size(431, 295)
         Me.Chart2.TabIndex = 0
         Me.Chart2.Text = "Chart2"
         '
-        'Jusepin_1
+        'Jusepin_Bombas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -505,7 +447,7 @@ Partial Class Jusepin_1
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Name = "Jusepin_1"
+        Me.Name = "Jusepin_Bombas"
         Me.Text = "Jusepin_1"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox3.ResumeLayout(False)
@@ -528,7 +470,6 @@ Partial Class Jusepin_1
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
-    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents GroupBox5 As System.Windows.Forms.GroupBox
     Friend WithEvents TabControl1 As System.Windows.Forms.TabControl
     Friend WithEvents TabPage1 As System.Windows.Forms.TabPage
@@ -536,8 +477,8 @@ Partial Class Jusepin_1
     Friend WithEvents TabPage2 As System.Windows.Forms.TabPage
     Friend WithEvents Chart2 As System.Windows.Forms.DataVisualization.Charting.Chart
     Friend WithEvents Button1 As System.Windows.Forms.Button
-    Friend WithEvents T1diseno As System.Windows.Forms.TextBox
-    Friend WithEvents P1diseno As System.Windows.Forms.TextBox
+    Friend WithEvents Hdiseno As System.Windows.Forms.TextBox
+    Friend WithEvents Qdiseno As System.Windows.Forms.TextBox
     Friend WithEvents PMdiseno As System.Windows.Forms.TextBox
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
@@ -545,24 +486,19 @@ Partial Class Jusepin_1
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents RPMdiseno As System.Windows.Forms.TextBox
+    Friend WithEvents EficMax As System.Windows.Forms.TextBox
     Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents Zdiseno As System.Windows.Forms.TextBox
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents Coefdiseno As System.Windows.Forms.TextBox
     Friend WithEvents Label11 As System.Windows.Forms.Label
-    Friend WithEvents Label15 As System.Windows.Forms.Label
     Friend WithEvents Label14 As System.Windows.Forms.Label
-    Friend WithEvents Label13 As System.Windows.Forms.Label
     Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents RPMValor As System.Windows.Forms.TextBox
     Friend WithEvents Label16 As System.Windows.Forms.Label
-    Friend WithEvents Label17 As System.Windows.Forms.Label
     Friend WithEvents Label18 As System.Windows.Forms.Label
-    Friend WithEvents T1succion As System.Windows.Forms.TextBox
-    Friend WithEvents P1succion As System.Windows.Forms.TextBox
+    Friend WithEvents NEtapas As System.Windows.Forms.TextBox
     Friend WithEvents RPMUnidades As System.Windows.Forms.ComboBox
-    Friend WithEvents TemperaturaUnidades As System.Windows.Forms.ComboBox
-    Friend WithEvents PresionUnidades As System.Windows.Forms.ComboBox
+    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
 End Class

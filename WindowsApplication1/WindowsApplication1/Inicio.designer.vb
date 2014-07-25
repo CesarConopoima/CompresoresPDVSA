@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Form5
+Partial Class Inicio
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
@@ -22,7 +22,7 @@ Partial Class Form5
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form5))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Inicio))
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
@@ -39,12 +39,14 @@ Partial Class Form5
         Me.LabelDescripcion = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.LabelSubsistema = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.FotoSantaBarbara = New System.Windows.Forms.PictureBox()
         Me.FotoSanJoaquin = New System.Windows.Forms.PictureBox()
         Me.FotoJusepin = New System.Windows.Forms.PictureBox()
         Me.Button4 = New System.Windows.Forms.Button()
-        Me.PictureBox5 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
+        Me.SubSistema2 = New System.Windows.Forms.PictureBox()
+        Me.SubSistema1 = New System.Windows.Forms.PictureBox()
         Me.Mapa = New System.Windows.Forms.PictureBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.Atajo4 = New System.Windows.Forms.Button()
@@ -56,8 +58,8 @@ Partial Class Form5
         CType(Me.FotoSantaBarbara, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FotoSanJoaquin, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FotoJusepin, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SubSistema2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SubSistema1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Mapa, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -98,7 +100,7 @@ Partial Class Form5
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(139, 44)
         Me.Button3.TabIndex = 3
-        Me.Button3.Text = "San Joaquin"
+        Me.Button3.Text = "Jose"
         Me.Button3.UseVisualStyleBackColor = True
         '
         'Label1
@@ -211,12 +213,14 @@ Partial Class Form5
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.LabelSubsistema)
+        Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.FotoSantaBarbara)
         Me.GroupBox1.Controls.Add(Me.FotoSanJoaquin)
         Me.GroupBox1.Controls.Add(Me.FotoJusepin)
         Me.GroupBox1.Controls.Add(Me.Button4)
-        Me.GroupBox1.Controls.Add(Me.PictureBox5)
-        Me.GroupBox1.Controls.Add(Me.PictureBox4)
+        Me.GroupBox1.Controls.Add(Me.SubSistema2)
+        Me.GroupBox1.Controls.Add(Me.SubSistema1)
         Me.GroupBox1.Controls.Add(Me.LabelDescripcion)
         Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.Controls.Add(Me.Mapa)
@@ -235,10 +239,28 @@ Partial Class Form5
         Me.GroupBox1.Controls.Add(Me.Label6)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(1100, 399)
+        Me.GroupBox1.Size = New System.Drawing.Size(1100, 411)
         Me.GroupBox1.TabIndex = 18
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Lista de Planta"
+        '
+        'LabelSubsistema
+        '
+        Me.LabelSubsistema.AutoSize = True
+        Me.LabelSubsistema.Location = New System.Drawing.Point(170, 333)
+        Me.LabelSubsistema.Name = "LabelSubsistema"
+        Me.LabelSubsistema.Size = New System.Drawing.Size(72, 13)
+        Me.LabelSubsistema.TabIndex = 25
+        Me.LabelSubsistema.Text = "Sin Selección"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(44, 333)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(61, 13)
+        Me.Label2.TabIndex = 24
+        Me.Label2.Text = "Subsistema"
         '
         'FotoSantaBarbara
         '
@@ -274,30 +296,34 @@ Partial Class Form5
         Me.Button4.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button4.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Button4.Location = New System.Drawing.Point(359, 333)
+        Me.Button4.Location = New System.Drawing.Point(371, 333)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(139, 44)
         Me.Button4.TabIndex = 20
         Me.Button4.Text = "Abrir"
         Me.Button4.UseVisualStyleBackColor = True
         '
-        'PictureBox5
+        'SubSistema2
         '
-        Me.PictureBox5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.PictureBox5.Location = New System.Drawing.Point(797, 306)
-        Me.PictureBox5.Name = "PictureBox5"
-        Me.PictureBox5.Size = New System.Drawing.Size(288, 93)
-        Me.PictureBox5.TabIndex = 19
-        Me.PictureBox5.TabStop = False
+        Me.SubSistema2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.SubSistema2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.SubSistema2.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.SubSistema2.Location = New System.Drawing.Point(803, 302)
+        Me.SubSistema2.Name = "SubSistema2"
+        Me.SubSistema2.Size = New System.Drawing.Size(280, 103)
+        Me.SubSistema2.TabIndex = 19
+        Me.SubSistema2.TabStop = False
         '
-        'PictureBox4
+        'SubSistema1
         '
-        Me.PictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.PictureBox4.Location = New System.Drawing.Point(518, 306)
-        Me.PictureBox4.Name = "PictureBox4"
-        Me.PictureBox4.Size = New System.Drawing.Size(273, 93)
-        Me.PictureBox4.TabIndex = 18
-        Me.PictureBox4.TabStop = False
+        Me.SubSistema1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.SubSistema1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.SubSistema1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.SubSistema1.Location = New System.Drawing.Point(518, 302)
+        Me.SubSistema1.Name = "SubSistema1"
+        Me.SubSistema1.Size = New System.Drawing.Size(280, 103)
+        Me.SubSistema1.TabIndex = 18
+        Me.SubSistema1.TabStop = False
         '
         'Mapa
         '
@@ -378,14 +404,14 @@ Partial Class Form5
         'PictureBox2
         '
         Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
-        Me.PictureBox2.Location = New System.Drawing.Point(791, 417)
+        Me.PictureBox2.Location = New System.Drawing.Point(792, 429)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(246, 100)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox2.TabIndex = 8
         Me.PictureBox2.TabStop = False
         '
-        'Form5
+        'Inicio
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -397,15 +423,15 @@ Partial Class Form5
         Me.Controls.Add(Me.PictureBox2)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Name = "Form5"
+        Me.Name = "Inicio"
         Me.Text = "MikeSIM"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         CType(Me.FotoSantaBarbara, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FotoSanJoaquin, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FotoJusepin, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SubSistema2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SubSistema1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Mapa, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
@@ -431,8 +457,8 @@ Partial Class Form5
     Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
-    Friend WithEvents PictureBox5 As System.Windows.Forms.PictureBox
-    Friend WithEvents PictureBox4 As System.Windows.Forms.PictureBox
+    Friend WithEvents SubSistema2 As System.Windows.Forms.PictureBox
+    Friend WithEvents SubSistema1 As System.Windows.Forms.PictureBox
     Friend WithEvents Button4 As System.Windows.Forms.Button
     Friend WithEvents Atajo1 As System.Windows.Forms.Button
     Friend WithEvents FotoSantaBarbara As System.Windows.Forms.PictureBox
@@ -441,5 +467,7 @@ Partial Class Form5
     Friend WithEvents Atajo4 As System.Windows.Forms.Button
     Friend WithEvents Atajo3 As System.Windows.Forms.Button
     Friend WithEvents Atajo2 As System.Windows.Forms.Button
+    Friend WithEvents LabelSubsistema As System.Windows.Forms.Label
+    Friend WithEvents Label2 As System.Windows.Forms.Label
 
 End Class
