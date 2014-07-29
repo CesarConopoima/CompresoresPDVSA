@@ -1,7 +1,10 @@
 ﻿Imports System.Windows.Forms.DataVisualization.Charting
 Imports WindowsApplication1.UnitsConvert
+Imports WindowsApplication1.Similitudes
 
 Public Class Jusepin_Compresores
+    Public CondicionesCompresor1 As Double()
+
     'Metodo para crear gráfico que está incrustado en la primera vista, se grafica la curva de diseño on click sobre la etiqueta
     Private Sub chart1Diseno(maquina As String)
         ' el orden para definir los parametros de la máquina son:
@@ -27,43 +30,6 @@ Public Class Jusepin_Compresores
         Chart1.ChartAreas(0).AxisY.MajorGrid.Enabled = False
         Chart1.ChartAreas(0).AxisY.Minimum = (Diseno.Points().FindMinByValue("Y").YValues(0) - 50)
         Chart1.BringToFront()
-    End Sub
-    'Metodo para graficar en la segunda pestaña, normalmente aqui va grafico de potencia
-    Private Sub chart2New(maquina As String)
-        ' el orden para definir los parametros de la máquina son:
-        'Presión acutual, Temp actual,Zactual,PMactual, Kactual,RPMactula,Nombre de la Maquina
-        Dim NewCompresor As New Similitudes(441, 283, 0.93, 18.17, 1.28, 12000, maquina)
-        Dim NewCompresor2 As New Similitudes(500, 300, 0.93, 18.17, 1.4, 11000, maquina)
-        Chart2.Series.Clear()
-        Dim series1 As New Series()
-        Dim series2 As New Series()
-        Dim series3 As New Series()
-        Dim k As Integer = NewCompresor.CurvaDisenoCompresorRPM(maquina).Item(maquina).GetUpperBound(1)
-        For i As Integer = 0 To k
-            series1.Points.AddXY(NewCompresor.CurvaDisenoCompresorPresion.Item(maquina)(0, i), NewCompresor.CurvaCompresorHeadDiseno(maquina).Item(maquina)(i))
-            series2.Points.AddXY(NewCompresor.CurvaDisenoCompresorRPM(maquina).Item(maquina)(0, i), NewCompresor.CurvaDisenoCompresorRPM(maquina).Item(maquina)(1, i))
-        Next
-        Chart2.Series.Add(series1)
-        Chart2.Series.Add(series2)
-        Chart2.Series.Add(series3)
-        Chart2.Series("Series1").ChartType = SeriesChartType.Spline
-        Chart2.Series("Series2").ChartType = SeriesChartType.Spline
-        Chart2.Series("Series3").ChartType = SeriesChartType.Spline
-        Chart2.Series("Series1").BorderWidth = 3
-        Chart2.Series("Series2").BorderWidth = 3
-        Chart2.Series("Series3").BorderWidth = 3
-        Chart2.Series("Series1").ToolTip = "#VALY"
-        Chart2.Series("Series2").ToolTip = "#VALY"
-        Chart2.Series("Series3").ToolTip = "#VALY"
-        'agregar marcador al gráfico
-        Chart2.Series("Series1").MarkerStyle = MarkerStyle.Square
-        Chart2.Series("Series2").MarkerStyle = MarkerStyle.Square
-        Chart2.Series("Series3").MarkerStyle = MarkerStyle.Square
-        Chart2.Titles.Add("Curva de" & " " & maquina)
-        Chart2.ChartAreas(0).AxisX.Title = "Caudal [ACFM]"
-        Chart2.ChartAreas(0).AxisY.Title = "Relación de presión"
-        Chart2.ChartAreas(0).AxisX.MajorGrid.Enabled = False
-        Chart2.ChartAreas(0).AxisY.MajorGrid.Enabled = False
     End Sub
     'Crear graph pasandole el tipo de maquina que se esta graficando como un parametro y el nuevo objeto para graficar haciendo similitud
     Private Sub chart1New(maquina As String, NewCompresorActual As Similitudes)
@@ -101,49 +67,152 @@ Public Class Jusepin_Compresores
         Chart1.BringToFront()
     End Sub
 
-    'cuando la Forma llamada Jusepin carga, se cambia el gráfico incrustado en la pestaña de la forma
-    Private Sub Jusepin_1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        chart2New("compresor_1_Jusepin")
-    End Sub
-
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        GasComposicion.Show()
+        Carta_de_psicrometria.Show()
     End Sub
 
     Private Sub Label12_Click(sender As Object, e As EventArgs) Handles Label12.Click
         Dim name As String = Label12.Text
-        Dim NewCompresor As New Similitudes(100, 300, 33, 230, 15, 23, name)
-        Tambiental.Text = NewCompresor.DictionarieCompresores.Item(name).Item(name & "_P1diseno")
-        T1diseno.Text = NewCompresor.DictionarieCompresores.Item(name).Item(name & "_T1diseno")
-        RPMdiseno.Text = NewCompresor.DictionarieCompresores.Item(name).Item(name & "_RPMdiseno")
-        PMdiseno.Text = NewCompresor.DictionarieCompresores.Item(name).Item(name & "_PMdiseno")
-        Zdiseno.Text = NewCompresor.DictionarieCompresores.Item(name).Item(name & "_Zdiseno")
-        'Estos valores se definen por defecto para que no hayan errores cuando se haga click al boton 
-        P1succion.Text = NewCompresor.DictionarieCompresores.Item(name).Item(name & "_P1diseno")
-        T1succion.Text = NewCompresor.DictionarieCompresores.Item(name).Item(name & "_T1diseno")
-        Coefdiseno.Text = NewCompresor.DictionarieCompresores.Item(name).Item(name & "_Kdiseno")
-        chart1Diseno(name)
+        Label11.Text = "Condiciones cambiantes " & name
+        Stroke.Text = DictionarieCompresores.Item(name).Item(name & "_Stroke")
+        Diametro.Text = DictionarieCompresores.Item(name).Item(name & "_Diametro")
+        DiametroBiela.Text = DictionarieCompresores.Item(name).Item(name & "_DiametroBiela")
+        Area.Text = DictionarieCompresores.Item(name).Item(name & "_Area")
+        RPM.Text = DictionarieCompresores.Item(name).Item(name & "_RPM")
     End Sub
-
-    'Boton para hacer similitudes
+    'Etiqueta para el segundo compresor
+    Private Sub Label19_Click(sender As Object, e As EventArgs) Handles Label19.Click
+        'En esta linea se limpian los valores de los textbox, Cálculados para el compresor 1
+        Pdescarga.Clear()
+        Tdescarga.Clear()
+        FlujoMasico.Clear()
+        FlujoVolumetrico.Clear()
+        Potencia.Clear()
+        Dim name As String = Label19.Text
+        Label11.Text = "Condiciones cambiantes " & name
+        Stroke.Text = DictionarieCompresores.Item(name).Item(name & "_Stroke")
+        Diametro.Text = DictionarieCompresores.Item(name).Item(name & "_Diametro")
+        DiametroBiela.Text = DictionarieCompresores.Item(name).Item(name & "_DiametroBiela")
+        Area.Text = DictionarieCompresores.Item(name).Item(name & "_Area")
+        RPM.Text = DictionarieCompresores.Item(name).Item(name & "_RPM")
+    End Sub
+    'Boton para hacer CALCULAR en función de las relaciones de compresión
+    'la temperatura 2 en la descarga del equipo, el flujo másico y volumétrico y la potencia
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Dim PresionUnits, PresionValue, TemperaturaUnits, TemperaturaValues, RPMUnits, RPMValues As String
-        Dim Presion, Temperatura, RPM As Double
-        PresionUnits = PresionUnidades.Text
-        PresionValue = P1succion.Text
-        Presion = to_Psi(PresionUnits & "_" & PresionValue)
-        TemperaturaUnits = TemperaturaUnidades.Text
-        TemperaturaValues = T1succion.Text
-        Temperatura = to_Kelvin(TemperaturaUnits & "_" & TemperaturaValues)
-        RPMUnits = RPMUnidades.Text
-        RPMValues = RPMValor.Text
-        RPM = to_RPM(RPMUnits & "_" & RPMValues)
-        ''''''''''''''''''''''''''''''''''''''''''
-        'Aqui defines las condiciones de diseno del equipo que se selecciona, pasandole el argumento a este método
-        'Ojo que esto no está integrado con la selección de las etiquetas.. es necesario hacer un flag que permita
-        'saber a quién se ha seleccionado
-        Dim NewCompresor As New Similitudes(Presion, Temperatura, 0.93, 18.17, 1.28, RPM, "compresor_1_Jusepin")
-        chart1New("compresor_1_Jusepin", NewCompresor)
+        'Esta linea cambia el texto de la etiqueta de la img, para que sepan el estado de su cálculo
+        'Parametros Termodinámicos
+        Dim MaquinaActual As String = Split(Label11.Text, " ").Last
+        'Aquí poner estructura de control donde se pregunte que máquina se esta trabajando y calcular en función de eso
+
+        If MaquinaActual = "compresor_Jusepin_1" Then
+            Try
+                Dim PresionDescarga As Double = CDbl(Pdescarga.Text)
+                Dim TempSuccion As Double = CDbl(Tambiental.Text)
+                Dim PresionSuccion As Double = 14.5
+                'Parametros Geométricos
+                Dim DCilindro As Double = CDbl(Diametro.Text)
+                Dim DBiela As Double = CDbl(DiametroBiela.Text)
+                Dim Corrida As Double = CDbl(Stroke.Text)
+                Dim RPMActual As Double = CDbl(RPM.Text)
+                'Creación de objeto para tener las funciones propias de los cálculos de cantidades físicas
+                Dim CalculosCompresores As New CalculosCompresores
+                'Aquí el orden de los argumentos de la función son KGas, P2,P1,T1,ns
+                Tdescarga.Text = Math.Round(CalculosCompresores.TempDescarga(1.4, PresionDescarga, PresionSuccion, TempSuccion, 1), 2)
+                FlujoVolumetrico.Text = Math.Round(CalculosCompresores.FlujoVolumetrico_SimpleEfecto(DCilindro, Corrida, RPMActual), 2)
+                'Esta variable guarda los valores de presión y temp en la descarga del compresor1
+                'Ella se redefine cada vez que se hace calcular y estamos en el compresor1
+                CondicionesCompresor1 = {PresionDescarga, Math.Round(CalculosCompresores.TempDescarga(1.4, PresionDescarga, PresionSuccion, TempSuccion, 1), 2)}
+                'Definición de las etiquetas que estan en la imag
+                TextDescargaCompresor1.Text = "Presión" & vbCrLf & Pdescarga.Text & "[psi]" & vbCrLf & "Temperatura" & vbCrLf & Tdescarga.Text & "[°C]"
+                TextTempIntercambiador.Text = "Temperatura" & vbCrLf & Tdescarga.Text & "[°C]"
+            Catch ex As Exception
+                MsgBox("Defina el valor de: " & vbCrLf & "**Presión de descarga" & vbCrLf & "**Las condiciones ambientales")
+            End Try
+        End If
+        'Condicional para saber si el compresor 2 está seleccionado y al mismo tiempo las
+        'condiciones del compresor 1 ya fueron cálculadas
+
+        If TextDescargaCompresor1.Text.Contains("Presión") And MaquinaActual = "compresor_Jusepin_2" Then
+            Try
+                Dim PresionDescarga As Double = CDbl(Pdescarga.Text)
+                Dim PresionSuccion As Double = CondicionesCompresor1(0)
+                Dim TempSuccion As Double = CondicionesCompresor1(1)
+                Dim CalculosCompresores As New CalculosCompresores
+
+                If PresionDescarga <= PresionSuccion Then
+                    MsgBox("La presión de descarga del segundo compresor es menor o igual a la presión de succión")
+                Else
+                    Tdescarga.Text = Math.Round(CalculosCompresores.TempDescarga(1.4, PresionDescarga, PresionSuccion, TempSuccion, 1), 2)
+                    TextDescargaCompresor2.Text = "Presión" & vbCrLf & Pdescarga.Text & "[psi]" & vbCrLf & "Temperatura" & vbCrLf & Tdescarga.Text & "[°C]"
+                End If
+
+            Catch ex As Exception
+                MsgBox("Defina la presión de descarga para el segundo compresor!")
+            End Try
+
+        End If
+        'Guardar en una variable los valores calculados en los textbox para uso en el cálculo de compresore 2
+
     End Sub
 
+    'Desabilita la edición de los textBoxes
+    Private Sub Jusepin_Compresores_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Tdescarga.Enabled = False
+        FlujoMasico.Enabled = False
+        FlujoVolumetrico.Enabled = False
+        Potencia.Enabled = False
+        Tambiental.Enabled = False
+        HumedadRelativa.Enabled = False
+        HumedadAbsoluta.Enabled = False
+        Stroke.Enabled = False
+        Diametro.Enabled = False
+        DiametroBiela.Enabled = False
+        Area.Enabled = False
+        RPM.Enabled = False
+    End Sub
+
+    'Selección de carrera simple cálculo del caudal como simple efecto
+    Private Sub RadioButton1_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton1.CheckedChanged
+        Dim MaquinaActual As String = Split(Label11.Text, " ").Last
+        If MaquinaActual = "compresor_Jusepin_1" Then
+            Try
+                Dim PresionDescarga As Double = CDbl(Pdescarga.Text)
+                Dim TempSuccion As Double = CDbl(Tambiental.Text)
+                Dim PresionSuccion As Double = 14.5
+                'Parametros Geométricos
+                Dim DCilindro As Double = CDbl(Diametro.Text)
+                Dim Corrida As Double = CDbl(Stroke.Text)
+                Dim RPMActual As Double = CDbl(RPM.Text)
+                Dim CalculosCompresores As New CalculosCompresores
+                'Aquí el orden de los argumentos de la función son KGas, P2,P1,T1,ns
+                Tdescarga.Text = Math.Round(CalculosCompresores.TempDescarga(1.4, PresionDescarga, PresionSuccion, TempSuccion, 1), 2)
+                FlujoVolumetrico.Text = Math.Round(CalculosCompresores.FlujoVolumetrico_SimpleEfecto(DCilindro, Corrida, RPMActual), 2)
+            Catch ex As Exception
+                MsgBox("Defina el valor de: " & vbCrLf & "**Presión de descarga" & vbCrLf & "**Las condiciones ambientales")
+            End Try
+        End If
+    End Sub
+
+    'Selección de carrera simple cálculo del caudal como doble efecto
+    Private Sub RadioButton2_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton2.CheckedChanged
+        Dim MaquinaActual As String = Split(Label11.Text, " ").Last
+        If MaquinaActual = "compresor_Jusepin_1" Then
+            Try
+                Dim PresionDescarga As Double = CDbl(Pdescarga.Text)
+                Dim TempSuccion As Double = CDbl(Tambiental.Text)
+                Dim PresionSuccion As Double = 14.5
+                'Parametros Geométricos
+                Dim DCilindro As Double = CDbl(Diametro.Text)
+                Dim DBiela As Double = CDbl(DiametroBiela.Text)
+                Dim Corrida As Double = CDbl(Stroke.Text)
+                Dim RPMActual As Double = CDbl(RPM.Text)
+                Dim CalculosCompresores As New CalculosCompresores
+                'Aquí el orden de los argumentos de la función son KGas, P2,P1,T1,ns
+                Tdescarga.Text = Math.Round(CalculosCompresores.TempDescarga(1.4, PresionDescarga, PresionSuccion, TempSuccion, 1), 2)
+                FlujoVolumetrico.Text = Math.Round(CalculosCompresores.FlujoVolumetrico_DoubleEfecto(DCilindro, DBiela, Corrida, RPMActual), 2)
+            Catch ex As Exception
+                MsgBox("Defina el valor de: " & vbCrLf & "**Presión de descarga" & vbCrLf & "**Las condiciones ambientales")
+            End Try
+        End If
+    End Sub
 End Class

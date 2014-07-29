@@ -243,7 +243,7 @@ Public Class Form1
 
     ' Este metodo muestra la forma donde está la carte psicrométrica
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
-        Form2.Show()
+        Carta_de_psicrometria.Show()
     End Sub
 
     'Este metodo llena los text box con la info propia del equipo actualmente clickeado

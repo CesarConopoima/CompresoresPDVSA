@@ -237,9 +237,10 @@ Public Class Similitudes
     'otra alternativa es hacer llamadas a la base de datos, con el mismo argumento
     'que se le habia pasado, por el momento usare simple definicion de las propiedades como
     'variables
-    Public Function DictionarieCompresores() As Dictionary(Of String, Dictionary(Of String, Double))
+    Public Shared Function DictionarieCompresores() As Dictionary(Of String, Dictionary(Of String, Double))
         Dim propiedades As New Dictionary(Of String, Double)
         Dim compresores As New Dictionary(Of String, Dictionary(Of String, Double))
+        'Valores de diseño para un compresor tipico centrifugo
         propiedades.Add("compresor_1_Jusepin_P1diseno", 441)
         propiedades.Add("compresor_1_Jusepin_T1diseno", 283.55)
         propiedades.Add("compresor_1_Jusepin_Zdiseno", 0.93)
@@ -255,6 +256,19 @@ Public Class Similitudes
         propiedades.Add("compresor_2_Jusepin_Kdiseno", 1.29)
         propiedades.Add("compresor_2_Jusepin_RPMdiseno", 10000)
         compresores.Add("compresor_2_Jusepin", propiedades)
+        'Aqui las propiedades de los compresores reciprocantes de Jusepin
+        propiedades.Add("compresor_Jusepin_1_Stroke", 7)
+        propiedades.Add("compresor_Jusepin_1_Diametro", 12)
+        propiedades.Add("compresor_Jusepin_1_DiametroBiela", 2)
+        propiedades.Add("compresor_Jusepin_1_Area", 113.1)
+        propiedades.Add("compresor_Jusepin_1_RPM", 750)
+        compresores.Add("compresor_Jusepin_1", propiedades)
+        propiedades.Add("compresor_Jusepin_2_Stroke", 7)
+        propiedades.Add("compresor_Jusepin_2_Diametro", 7)
+        propiedades.Add("compresor_Jusepin_2_DiametroBiela", 2)
+        propiedades.Add("compresor_Jusepin_2_Area", 38.48)
+        propiedades.Add("compresor_Jusepin_2_RPM", 750)
+        compresores.Add("compresor_Jusepin_2", propiedades)
         Return compresores
     End Function
 

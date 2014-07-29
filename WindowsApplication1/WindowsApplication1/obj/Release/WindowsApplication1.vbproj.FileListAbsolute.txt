@@ -12,7 +12,6 @@ C:\Users\Sala de Tesistas pre\Desktop\_CesarConopoima_vb\WindowsApplication1\Win
 C:\Users\Sala de Tesistas pre\Desktop\_CesarConopoima_vb\WindowsApplication1\WindowsApplication1\obj\Release\WindowsApplication1.exe
 C:\Users\Sala de Tesistas pre\Desktop\_CesarConopoima_vb\WindowsApplication1\WindowsApplication1\obj\Release\WindowsApplication1.xml
 C:\Users\Sala de Tesistas pre\Desktop\_CesarConopoima_vb\WindowsApplication1\WindowsApplication1\obj\Release\WindowsApplication1.pdb
-C:\Users\Sala de Tesistas pre\Desktop\_CesarConopoima_vb\WindowsApplication1\WindowsApplication1\obj\Release\WindowsApplication1.Form2.resources
 C:\Users\Sala de Tesistas pre\Desktop\_CesarConopoima_vb\WindowsApplication1\WindowsApplication1\obj\Release\WindowsApplication1.Form3.resources
 C:\Users\Sala de Tesistas pre\Desktop\_CesarConopoima_vb\WindowsApplication1\WindowsApplication1\obj\Release\WindowsApplication1.Form4.resources
 C:\Users\Sala de Tesistas pre\Desktop\_CesarConopoima_vb\WindowsApplication1\WindowsApplication1\bin\Release\Compresores.mdf
@@ -25,3 +24,4 @@ C:\Users\Sala de Tesistas pre\Desktop\_CesarConopoima_vb\WindowsApplication1\Win
 C:\Users\Sala de Tesistas pre\Desktop\_CesarConopoima_vb\WindowsApplication1\WindowsApplication1\obj\Release\WindowsApplication1.Jusepin_Bombas.resources
 C:\Users\Sala de Tesistas pre\Desktop\_CesarConopoima_vb\WindowsApplication1\WindowsApplication1\obj\Release\WindowsApplication1.Inicio.resources
 C:\Users\Sala de Tesistas pre\Desktop\_CesarConopoima_vb\WindowsApplication1\WindowsApplication1\obj\Release\WindowsApplication1.Jusepin_Compresores.resources
+C:\Users\Sala de Tesistas pre\Desktop\_CesarConopoima_vb\WindowsApplication1\WindowsApplication1\obj\Release\WindowsApplication1.Carta_de_psicrometria.resources
