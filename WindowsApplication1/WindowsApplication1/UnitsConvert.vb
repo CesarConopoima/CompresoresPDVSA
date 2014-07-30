@@ -39,6 +39,22 @@
                 Return quantity
         End Select
     End Function
+    Public Shared Function to_Rankine(cantidad As String) As Double
+        Dim unit As String = Split(cantidad, "_")(0)
+        Dim quantity As Double = CDbl(Replace(Split(cantidad, "_")(1), ".", ","))
+        Select Case unit
+            Case "[°C]"
+                Return (quantity + 273.15) * 9 / 5
+            Case "[K]"
+                Return quantity * 9 / 5
+            Case "[F]"
+                Return quantity + 459.67
+            Case "[R]"
+                Return quantity
+            Case Else
+                Return quantity
+        End Select
+    End Function
     Public Shared Function to_RPM(cantidad As String) As Double
         Dim unit As String = Split(cantidad, "_")(0)
         Dim quantity As Double = CDbl(Replace(Split(cantidad, "_")(1), ".", ","))
