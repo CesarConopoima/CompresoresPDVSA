@@ -31,6 +31,12 @@
     Public Function Potencia(FlujoMasico As Double, DeltaEntalpia As Double, ns As Double, nv As Double, nm As Double) As Double
         Return FlujoMasico * DeltaEntalpia / (ns * nv * nm) * 1 / 1000
     End Function
+    'Calculo de la temperatura de succión del compresor 2 en función del flujo másico de la máquina
+    'y del Flujo volumetrico del compresor2
+    'Las unidades de esto es [Kg/s],[m^3/s],[Pa],[K]
+    Public Function TempAeroenfriador(FlujoMasico As Double, FlujoVolumetrico As Double, Presion As Double, Temperatura As Double)
+        Return Presion / (287 * FlujoMasico / (FlujoVolumetrico / 3600))
+    End Function
 
 
 

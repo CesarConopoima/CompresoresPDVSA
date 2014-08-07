@@ -283,7 +283,7 @@ Public Class Form1
 
     ' botton para mostrar form4 que contiene código para cargar y ejecutar el hardyCross para Agua
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
-        Form4.Show()
+        SolucionSistemaBombeo.Show()
     End Sub
 
     Private Sub Button6_Click_1(sender As Object, e As EventArgs) Handles Button6.Click

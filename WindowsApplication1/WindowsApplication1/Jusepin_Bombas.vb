@@ -13,8 +13,10 @@ Public Class Jusepin_Bombas
         Chart1.Series.Clear()
         Dim Diseno As New Series()
         Dim k As Integer = NewBomba.CurvaDisenoEquipo.Item(maquina).GetUpperBound(1)
+        Dim NBombas As Integer = CInt(NumBombas.Text)
         For i As Integer = 0 To k
-            Diseno.Points.AddXY(NewBomba.CurvaDisenoEquipo.Item(maquina)(0, i), NewBomba.CurvaDisenoEquipo.Item(maquina)(1, i))
+            'Ojo estos puntos estan en litros y la altura en [m]
+            Diseno.Points.AddXY(Math.Round(NewBomba.CurvaDisenoEquipo.Item(maquina)(0, i) * 0.06309, 2) * NBombas, Math.Round(NewBomba.CurvaDisenoEquipo.Item(maquina)(1, i) / 3.28, 2))
         Next
         Chart1.Series.Add(Diseno)
         Chart1.Series("Series1").ChartType = SeriesChartType.Spline
@@ -24,11 +26,11 @@ Public Class Jusepin_Bombas
         Chart1.Series("Series1").MarkerStyle = MarkerStyle.Square
         Chart1.Titles.Clear()
         Chart1.Titles.Add("Curva de" & " " & maquina & " esta curva es para una bomba de 28 etápas")
-        Chart1.ChartAreas(0).AxisX.Title = "Caudal [GPM]"
+        Chart1.ChartAreas(0).AxisX.Title = "Caudal [L/seg]"
         Chart1.ChartAreas(0).AxisY.Title = "Altura [m]"
         Chart1.ChartAreas(0).AxisX.MajorGrid.Enabled = False
         Chart1.ChartAreas(0).AxisY.MajorGrid.Enabled = False
-        Chart1.ChartAreas(0).AxisY.Minimum = (Diseno.Points().FindMinByValue("Y").YValues(0) - 500)
+        Chart1.ChartAreas(0).AxisY.Minimum = (Diseno.Points().FindMinByValue("Y").YValues(0) - 100)
         Chart1.BringToFront()
     End Sub
     Private Sub chartSimilitudTotal(maquina As String, NumEtapas As Integer, rpm As Integer)
@@ -40,9 +42,10 @@ Public Class Jusepin_Bombas
         Dim series1 As New Series()
         Dim series2 As New Series()
         Dim k As Integer = NewBomba.CurvaDisenoEquipo.Item(maquina).GetUpperBound(1)
+        Dim NBombas As Integer = CInt(NumBombas.Text)
         For i As Integer = 0 To k
-            series1.Points.AddXY(NewBomba.CurvaDisenoEquipo.Item(maquina)(0, i), NewBomba.CurvaDisenoEquipo.Item(maquina)(1, i))
-            series2.Points.AddXY(CuvaBombaSimilitud.CurvaBombaEtapas(maquina, NumEtapas, rpm).Item(maquina)(0, i), CuvaBombaSimilitud.CurvaBombaEtapas(maquina, NumEtapas, rpm).Item(maquina)(1, i))
+            series1.Points.AddXY(Math.Round(NewBomba.CurvaDisenoEquipo.Item(maquina)(0, i) * 0.06309, 2) * NBombas, Math.Round(NewBomba.CurvaDisenoEquipo.Item(maquina)(1, i) / 3.28, 2))
+            series2.Points.AddXY(Math.Round(CuvaBombaSimilitud.CurvaBombaEtapas(maquina, NumEtapas, rpm).Item(maquina)(0, i) * 0.06309, 2) * NBombas, Math.Round(CuvaBombaSimilitud.CurvaBombaEtapas(maquina, NumEtapas, rpm).Item(maquina)(1, i) / 3.28, 2))
             'series2.Points.AddXY(NewCompresor.CurvaDisenoCompresorRPM(maquina).Item(maquina)(0, i), NewCompresor.CurvaDisenoCompresorRPM(maquina).Item(maquina)(1, i))
         Next
         Chart1.Series.Add(series1)
@@ -58,11 +61,11 @@ Public Class Jusepin_Bombas
         Chart1.Series("Series2").MarkerStyle = MarkerStyle.Square
         Chart1.Titles.Clear()
         Chart1.Titles.Add("Curva de similitud con número de etápas" & " " & maquina)
-        Chart1.ChartAreas(0).AxisX.Title = "Caudal [ACFM]"
-        Chart1.ChartAreas(0).AxisY.Title = "Altura Equivalente [m]"
+        Chart1.ChartAreas(0).AxisX.Title = "Caudal [L/seg]"
+        Chart1.ChartAreas(0).AxisY.Title = "Altura [m]"
         Chart1.ChartAreas(0).AxisX.MajorGrid.Enabled = False
         Chart1.ChartAreas(0).AxisY.MajorGrid.Enabled = False
-        Chart1.ChartAreas(0).AxisY.Minimum = (series2.Points().FindMinByValue("Y").YValues(0) - 500)
+        Chart1.ChartAreas(0).AxisY.Minimum = (series2.Points().FindMinByValue("Y").YValues(0) - 100)
         Chart1.BringToFront()
     End Sub
     'Metodo para graficar en la segunda pestaña, normalmente aqui va grafico de potencia
@@ -105,7 +108,8 @@ Public Class Jusepin_Bombas
     'End Sub
     'cuando la Forma llamada Jusepin carga, se cambia el gráfico incrustado en la pestaña de la forma
     Private Sub Jusepin_Bombas_load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        RPMUnidades.Text = "[RPM]"
+        NumBombas.Text = 1
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
@@ -117,8 +121,8 @@ Public Class Jusepin_Bombas
         'Esta linea sirve para saber quien se está graficando actualmente, para el boton que envia hacer la similitud
         EquipoActual = name
         'Dim NewCompresor As New Similitudes(100, 300, 33, 230, 15, 23, name)
-        Qdiseno.Text = 441.76
-        Hdiseno.Text = 4547.28
+        Qdiseno.Text = Math.Round(441.76 * 0.06309 * CInt(NumBombas.Text), 2)
+        Hdiseno.Text = 1363.7
         EficMax.Text = 76.6
         chart1Diseno(name)
     End Sub
@@ -127,8 +131,8 @@ Public Class Jusepin_Bombas
         Dim name As String = Label14.Text
         'Esta linea sirve para saber quien se está graficando actualmente, para el boton que envia hacer la similitud
         EquipoActual = name
-        Qdiseno.Text = 441.76
-        Hdiseno.Text = 4547.28
+        Qdiseno.Text = Math.Round(441.76 * 0.06309 * CInt(NumBombas.Text), 2)
+        Hdiseno.Text = 1363.7
         EficMax.Text = 76.6
         chart1Diseno(name)
     End Sub
@@ -163,5 +167,9 @@ Public Class Jusepin_Bombas
 
     End Sub
 
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        SolucionSistemaBombeo.Show()
+    End Sub
 
 End Class

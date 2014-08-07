@@ -35,9 +35,13 @@ Partial Class Jusepin_Bombas
         Me.Label12 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Label13 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.NumBombas = New System.Windows.Forms.ComboBox()
+        Me.Button3 = New System.Windows.Forms.Button()
         Me.RPMUnidades = New System.Windows.Forms.ComboBox()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
@@ -105,7 +109,7 @@ Partial Class Jusepin_Bombas
         Me.Label14.AutoSize = True
         Me.Label14.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.Label14.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.Label14.Location = New System.Drawing.Point(491, 189)
+        Me.Label14.Location = New System.Drawing.Point(485, 186)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(94, 13)
         Me.Label14.TabIndex = 3
@@ -134,14 +138,24 @@ Partial Class Jusepin_Bombas
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.Label13)
         Me.GroupBox2.Controls.Add(Me.Label2)
         Me.GroupBox2.Controls.Add(Me.Label1)
         Me.GroupBox2.Location = New System.Drawing.Point(10, 30)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(128, 114)
+        Me.GroupBox2.Size = New System.Drawing.Size(155, 114)
         Me.GroupBox2.TabIndex = 0
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "GroupBox2"
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Location = New System.Drawing.Point(6, 85)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(103, 13)
+        Me.Label13.TabIndex = 2
+        Me.Label13.Text = "Nombre de la Planta"
         '
         'Label2
         '
@@ -163,6 +177,9 @@ Partial Class Jusepin_Bombas
         '
         'GroupBox5
         '
+        Me.GroupBox5.Controls.Add(Me.Label15)
+        Me.GroupBox5.Controls.Add(Me.NumBombas)
+        Me.GroupBox5.Controls.Add(Me.Button3)
         Me.GroupBox5.Controls.Add(Me.RPMUnidades)
         Me.GroupBox5.Controls.Add(Me.Button2)
         Me.GroupBox5.Controls.Add(Me.Button1)
@@ -192,6 +209,33 @@ Partial Class Jusepin_Bombas
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "GroupBox5"
         '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Location = New System.Drawing.Point(6, 294)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(100, 26)
+        Me.Label15.TabIndex = 27
+        Me.Label15.Text = "Numero de Bombas" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "en paralelo"
+        '
+        'NumBombas
+        '
+        Me.NumBombas.FormattingEnabled = True
+        Me.NumBombas.Items.AddRange(New Object() {"1", "2", "3"})
+        Me.NumBombas.Location = New System.Drawing.Point(118, 294)
+        Me.NumBombas.Name = "NumBombas"
+        Me.NumBombas.Size = New System.Drawing.Size(32, 21)
+        Me.NumBombas.TabIndex = 26
+        '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(371, 212)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(138, 43)
+        Me.Button3.TabIndex = 25
+        Me.Button3.Text = "Calculo Hardy Cross"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
         'RPMUnidades
         '
         Me.RPMUnidades.FormattingEnabled = True
@@ -203,7 +247,7 @@ Partial Class Jusepin_Bombas
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(371, 227)
+        Me.Button2.Location = New System.Drawing.Point(371, 152)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(138, 43)
         Me.Button2.TabIndex = 21
@@ -332,9 +376,9 @@ Partial Class Jusepin_Bombas
         Me.Label5.AutoSize = True
         Me.Label5.Location = New System.Drawing.Point(6, 52)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(122, 13)
+        Me.Label5.Size = New System.Drawing.Size(114, 13)
         Me.Label5.TabIndex = 5
-        Me.Label5.Text = "Caudal de diseño [GPM]"
+        Me.Label5.Text = "Caudal de diseño [L/s]"
         '
         'Label4
         '
@@ -402,15 +446,15 @@ Partial Class Jusepin_Bombas
         Me.Chart1.ChartAreas.Add(ChartArea1)
         Legend1.Name = "Legend1"
         Me.Chart1.Legends.Add(Legend1)
-        Me.Chart1.Location = New System.Drawing.Point(6, 3)
+        Me.Chart1.Location = New System.Drawing.Point(-4, 0)
         Me.Chart1.Name = "Chart1"
         Series1.ChartArea = "ChartArea1"
         Series1.Legend = "Legend1"
         Series1.Name = "Series1"
         Me.Chart1.Series.Add(Series1)
-        Me.Chart1.Size = New System.Drawing.Size(428, 295)
+        Me.Chart1.Size = New System.Drawing.Size(438, 298)
         Me.Chart1.TabIndex = 0
-        Me.Chart1.Text = "Chart1"
+        Me.Chart1.Text = "c"
         '
         'TabPage2
         '
@@ -501,4 +545,8 @@ Partial Class Jusepin_Bombas
     Friend WithEvents NEtapas As System.Windows.Forms.TextBox
     Friend WithEvents RPMUnidades As System.Windows.Forms.ComboBox
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
+    Friend WithEvents Label13 As System.Windows.Forms.Label
+    Friend WithEvents Button3 As System.Windows.Forms.Button
+    Friend WithEvents Label15 As System.Windows.Forms.Label
+    Friend WithEvents NumBombas As System.Windows.Forms.ComboBox
 End Class

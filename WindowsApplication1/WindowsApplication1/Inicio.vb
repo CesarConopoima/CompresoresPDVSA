@@ -128,8 +128,14 @@ Public Class Inicio
         If LabelSubsistema.Text = "Sin Selección" Then
             MsgBox("Seleccione un Subsistema a estudiar!")
         ElseIf LabelSubsistema.Text = "Sistema de Compresores Reciprocantes" And nameOfSystem = "Planta Jusepin" Then
+            Jusepin_Compresores.Label1.Text = LabelNombre.Text
+            Jusepin_Compresores.Label2.Text = LabelDescripcion.Text
+            Jusepin_Compresores.Label21.Text = LabelSubsistema.Text
             Jusepin_Compresores.Show()
         ElseIf LabelSubsistema.Text = "Sistema de Bombas LNG" And nameOfSystem = "Planta Jusepin" Then
+            Jusepin_Bombas.Label1.Text = LabelNombre.Text
+            Jusepin_Bombas.Label2.Text = LabelDescripcion.Text
+            Jusepin_Bombas.Label13.Text = LabelSubsistema.Text
             Jusepin_Bombas.Show()
         End If
         

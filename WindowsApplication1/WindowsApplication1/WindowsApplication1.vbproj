@@ -95,6 +95,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="CalculoCondensado.vb" />
     <Compile Include="CalculosCompresores.vb" />
     <Compile Include="ComposicionGas.vb" />
     <Compile Include="CompresoresDataSet.Designer.vb">
@@ -130,10 +131,10 @@
     <Compile Include="Form3.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form4.Designer.vb">
-      <DependentUpon>Form4.vb</DependentUpon>
+    <Compile Include="SolucionSistemaBombeo.Designer.vb">
+      <DependentUpon>SolucionSistemaBombeo.vb</DependentUpon>
     </Compile>
-    <Compile Include="Form4.vb">
+    <Compile Include="SolucionSistemaBombeo.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GasComposicion.Designer.vb">
@@ -142,6 +143,7 @@
     <Compile Include="GasComposicion.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="GeneradorReporte.vb" />
     <Compile Include="Informacion_Planta.vb" />
     <Compile Include="Inicio.designer.vb">
       <DependentUpon>Inicio.vb</DependentUpon>
@@ -214,8 +216,8 @@
     <EmbeddedResource Include="Form3.resx">
       <DependentUpon>Form3.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form4.resx">
-      <DependentUpon>Form4.vb</DependentUpon>
+    <EmbeddedResource Include="SolucionSistemaBombeo.resx">
+      <DependentUpon>SolucionSistemaBombeo.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GasComposicion.resx">
       <DependentUpon>GasComposicion.vb</DependentUpon>

@@ -27,25 +27,11 @@
         Pv = (W / 1000 * 101325) / (0.622 + W / 1000)
         HR = (Pv / Psat) * 100
         If e.X > 33 And e.X < 671 And (e.Y > 40 And e.Y < 394) And HR < 100.01 Then
-            'TextBox1.Text = Math.Round(55 - (671 - e.X) * factorX, 2)
-            'TextBox2.Text = Math.Round((394 - e.Y) * factorY, 2)
-            'TextBox3.Text = Math.Round(Psat, 2)
-            'TextBox4.Text = Math.Round(Pv, 2)
-            'TextBox5.Text = Math.Round(HR, 2)
             pointX = 671
             pointY = 394
-            'PictureBox2.Location = New Point(e.X, e.Y)
-            ' g.DrawLine(Pens.Blue, pointX, e.Y, e.X, e.Y)  'draw horizontal line4:
-            ' g.DrawLine(Pens.Red, e.X, pointY, e.X, e.Y)   'draw vertical line
         ElseIf e.X = 33 Or e.X = 671 Or (e.Y = 40 Or e.Y = 394) Or HR = 100.01 Then
-            'TextBox1.Text = Math.Round(55 - (671 - e.X) * factorX, 2)
-            'TextBox2.Text = Math.Round((394 - e.Y) * factorY, 2)
-            'TextBox3.Text = Math.Round(Psat, 2)
-            'TextBox4.Text = Math.Round(Pv, 2)
             TextBox5.Text = Math.Round(HR, 2)
         End If
-        'g.FillEllipse(brsh, 460, 215, 12, 12)
-
     End Sub
     'código para implementar mouse position and add shapes and forms to then
     Private Sub PictureBox1_MouseClick(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles PictureBox1.MouseClick
@@ -73,7 +59,7 @@
         TempBS = (55 - (671 - e.X) * factorX)
         W = (394 - e.Y) * factorY
         Psat = 611.21 * Math.Exp((18.678 - TempBS / 234.5) * TempBS / (257.14 + TempBS)) ' Está en [Pa]
-        Pv = (W / 1000 * 101325) / (0.622 + W / 1000)
+        Pv = (W / 1000 * 101325) / (0.622 + W / 1000) 'Está en [Pa]
         HR = (Pv / Psat) * 100
         If e.X > 33 And e.X < 671 And (e.Y > 40 And e.Y < 394) And HR < 100.01 Then
             TextBox1.Text = Math.Round(55 - (671 - e.X) * factorX, 2)
@@ -84,9 +70,6 @@
             pointX = 671
             pointY = 394
             PictureBox2.Location = New Point(e.X - PictureBox2.Width / 2, e.Y - PictureBox2.Height / 2)
-            'PictureBox2.Location = New Point(e.X, e.Y)
-            ' g.DrawLine(Pens.Blue, pointX, e.Y, e.X, e.Y)  'draw horizontal line4:
-            ' g.DrawLine(Pens.Red, e.X, pointY, e.X, e.Y)   'draw vertical line
         ElseIf e.X = 33 Or e.X = 671 Or (e.Y = 40 Or e.Y = 394) Or HR = 100.01 Then
             TextBox1.Text = Math.Round(55 - (671 - e.X) * factorX, 2)
             TextBox2.Text = Math.Round((394 - e.Y) * factorY, 2)
@@ -106,9 +89,7 @@
         TransformationAndMove(HR, TempBS)
     End Sub
 
-    ' Método para hacer transformación de coord de la carta al la real de la img
-    ' ojo aqui los dos argumentos son en coord de la carta psicrométrica la HR y la TempBS
-    ' n1 is HR, n2 is TempBS 
+   
     Private Sub TransformationAndMove(n1 As Double, n2 As Double)
         Dim factorX, factorY, Psat, X, Y, W As Double
         factorX = 65 / 638
