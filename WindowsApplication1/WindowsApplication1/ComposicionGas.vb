@@ -46,7 +46,7 @@
         Return GetPropertiesOfGasesMix()(0) / 28.97
     End Function
 
-    ' definir una función que contenga todas las propiedades de los posibles gases
+    'Definir una función que contenga todas las propiedades de los posibles gases
     Private Function GetPropertieOfGasName(ByVal gas As String) As Array
         'El orden y las unidades de estos arreglos son Peso Molecular [Kg/Kgmol], Presión Critica [Bar abs], Temperatura Crítica[K]
         Select Case gas

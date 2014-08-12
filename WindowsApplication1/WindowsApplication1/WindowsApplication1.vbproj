@@ -131,12 +131,6 @@
     <Compile Include="Form3.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SolucionSistemaBombeo.Designer.vb">
-      <DependentUpon>SolucionSistemaBombeo.vb</DependentUpon>
-    </Compile>
-    <Compile Include="SolucionSistemaBombeo.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="GasComposicion.Designer.vb">
       <DependentUpon>GasComposicion.vb</DependentUpon>
     </Compile>
@@ -144,6 +138,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GeneradorReporte.vb" />
+    <Compile Include="HardyCross.vb" />
     <Compile Include="Informacion_Planta.vb" />
     <Compile Include="Inicio.designer.vb">
       <DependentUpon>Inicio.vb</DependentUpon>
@@ -191,6 +186,12 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Similitudes.vb" />
+    <Compile Include="SolucionHardyCross.Designer.vb">
+      <DependentUpon>SolucionHardyCross.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SolucionHardyCross.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="TablaBD.Designer.vb">
       <DependentUpon>TablaBD.vb</DependentUpon>
     </Compile>
@@ -216,9 +217,6 @@
     <EmbeddedResource Include="Form3.resx">
       <DependentUpon>Form3.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SolucionSistemaBombeo.resx">
-      <DependentUpon>SolucionSistemaBombeo.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="GasComposicion.resx">
       <DependentUpon>GasComposicion.vb</DependentUpon>
     </EmbeddedResource>
@@ -242,6 +240,9 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SolucionHardyCross.resx">
+      <DependentUpon>SolucionHardyCross.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TablaBD.resx">
       <DependentUpon>TablaBD.vb</DependentUpon>
