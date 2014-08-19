@@ -23,12 +23,12 @@ Partial Class Jusepin_Bombas
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Jusepin_Bombas))
-        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea3 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend3 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series3 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea4 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend4 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series4 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.Label14 = New System.Windows.Forms.Label()
@@ -44,7 +44,6 @@ Partial Class Jusepin_Bombas
         Me.Button3 = New System.Windows.Forms.Button()
         Me.RPMUnidades = New System.Windows.Forms.ComboBox()
         Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.RPMValor = New System.Windows.Forms.TextBox()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Label18 = New System.Windows.Forms.Label()
@@ -60,7 +59,6 @@ Partial Class Jusepin_Bombas
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.PMdiseno = New System.Windows.Forms.TextBox()
         Me.Hdiseno = New System.Windows.Forms.TextBox()
         Me.Qdiseno = New System.Windows.Forms.TextBox()
@@ -182,7 +180,6 @@ Partial Class Jusepin_Bombas
         Me.GroupBox5.Controls.Add(Me.Button3)
         Me.GroupBox5.Controls.Add(Me.RPMUnidades)
         Me.GroupBox5.Controls.Add(Me.Button2)
-        Me.GroupBox5.Controls.Add(Me.Button1)
         Me.GroupBox5.Controls.Add(Me.RPMValor)
         Me.GroupBox5.Controls.Add(Me.Label16)
         Me.GroupBox5.Controls.Add(Me.Label18)
@@ -198,7 +195,6 @@ Partial Class Jusepin_Bombas
         Me.GroupBox5.Controls.Add(Me.Label6)
         Me.GroupBox5.Controls.Add(Me.Label5)
         Me.GroupBox5.Controls.Add(Me.Label4)
-        Me.GroupBox5.Controls.Add(Me.Label3)
         Me.GroupBox5.Controls.Add(Me.PMdiseno)
         Me.GroupBox5.Controls.Add(Me.Hdiseno)
         Me.GroupBox5.Controls.Add(Me.Qdiseno)
@@ -229,7 +225,7 @@ Partial Class Jusepin_Bombas
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(371, 212)
+        Me.Button3.Location = New System.Drawing.Point(371, 112)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(138, 43)
         Me.Button3.TabIndex = 25
@@ -247,21 +243,12 @@ Partial Class Jusepin_Bombas
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(371, 152)
+        Me.Button2.Location = New System.Drawing.Point(371, 201)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(138, 43)
         Me.Button2.TabIndex = 21
         Me.Button2.Text = "Hacer similitud"
         Me.Button2.UseVisualStyleBackColor = True
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(371, 71)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(138, 43)
-        Me.Button1.TabIndex = 4
-        Me.Button1.Text = "Cambio de composición"
-        Me.Button1.UseVisualStyleBackColor = True
         '
         'RPMValor
         '
@@ -389,15 +376,6 @@ Partial Class Jusepin_Bombas
         Me.Label4.TabIndex = 4
         Me.Label4.Text = "Punto de operación del equipo"
         '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(351, 25)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(184, 13)
-        Me.Label3.TabIndex = 3
-        Me.Label3.Text = "Composición de la mezcla de líquidos"
-        '
         'PMdiseno
         '
         Me.PMdiseno.Location = New System.Drawing.Point(179, 123)
@@ -442,16 +420,16 @@ Partial Class Jusepin_Bombas
         '
         'Chart1
         '
-        ChartArea1.Name = "ChartArea1"
-        Me.Chart1.ChartAreas.Add(ChartArea1)
-        Legend1.Name = "Legend1"
-        Me.Chart1.Legends.Add(Legend1)
+        ChartArea3.Name = "ChartArea1"
+        Me.Chart1.ChartAreas.Add(ChartArea3)
+        Legend3.Name = "Legend1"
+        Me.Chart1.Legends.Add(Legend3)
         Me.Chart1.Location = New System.Drawing.Point(-4, 0)
         Me.Chart1.Name = "Chart1"
-        Series1.ChartArea = "ChartArea1"
-        Series1.Legend = "Legend1"
-        Series1.Name = "Series1"
-        Me.Chart1.Series.Add(Series1)
+        Series3.ChartArea = "ChartArea1"
+        Series3.Legend = "Legend1"
+        Series3.Name = "Series1"
+        Me.Chart1.Series.Add(Series3)
         Me.Chart1.Size = New System.Drawing.Size(438, 298)
         Me.Chart1.TabIndex = 0
         Me.Chart1.Text = "c"
@@ -469,16 +447,16 @@ Partial Class Jusepin_Bombas
         '
         'Chart2
         '
-        ChartArea2.Name = "ChartArea1"
-        Me.Chart2.ChartAreas.Add(ChartArea2)
-        Legend2.Name = "Legend1"
-        Me.Chart2.Legends.Add(Legend2)
+        ChartArea4.Name = "ChartArea1"
+        Me.Chart2.ChartAreas.Add(ChartArea4)
+        Legend4.Name = "Legend1"
+        Me.Chart2.Legends.Add(Legend4)
         Me.Chart2.Location = New System.Drawing.Point(3, 3)
         Me.Chart2.Name = "Chart2"
-        Series2.ChartArea = "ChartArea1"
-        Series2.Legend = "Legend1"
-        Series2.Name = "Series1"
-        Me.Chart2.Series.Add(Series2)
+        Series4.ChartArea = "ChartArea1"
+        Series4.Legend = "Legend1"
+        Series4.Name = "Series1"
+        Me.Chart2.Series.Add(Series4)
         Me.Chart2.Size = New System.Drawing.Size(431, 295)
         Me.Chart2.TabIndex = 0
         Me.Chart2.Text = "Chart2"
@@ -487,6 +465,9 @@ Partial Class Jusepin_Bombas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoScroll = True
+        Me.AutoSize = True
+        Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.ClientSize = New System.Drawing.Size(1184, 612)
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.GroupBox5)
@@ -520,7 +501,6 @@ Partial Class Jusepin_Bombas
     Friend WithEvents Chart1 As System.Windows.Forms.DataVisualization.Charting.Chart
     Friend WithEvents TabPage2 As System.Windows.Forms.TabPage
     Friend WithEvents Chart2 As System.Windows.Forms.DataVisualization.Charting.Chart
-    Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents Hdiseno As System.Windows.Forms.TextBox
     Friend WithEvents Qdiseno As System.Windows.Forms.TextBox
     Friend WithEvents PMdiseno As System.Windows.Forms.TextBox
@@ -529,7 +509,6 @@ Partial Class Jusepin_Bombas
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents EficMax As System.Windows.Forms.TextBox
     Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents Zdiseno As System.Windows.Forms.TextBox

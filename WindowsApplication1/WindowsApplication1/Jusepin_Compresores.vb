@@ -71,8 +71,10 @@ Public Class Jusepin_Compresores
 
             'Definición de las etiquetas que estan en la imag
             TextDescargaCompresor1.Text = "Presión" & vbCrLf & to_Psi(PresionUnidades.Text & "_" & Pdescarga.Text) & "[psi]" & vbCrLf & "Temperatura" & vbCrLf & Tdescarga.Text & "[R]"
-            'Dim ValueTempAeroenfriador As String = TemperaturaUnidades.Text & "_" & TextTempIntercambiador.Text
-
+            Dim ValueTempAeroenfriador As String = TemperaturaUnidades.Text & "_" & TextTempIntercambiador.Text
+            'Por defecto la temp del aeroenfriador es la temp de descarga del compresor
+            TempAeroenfriador.Text = Math.Round(CalculosCompresores.TempDescarga(1.4, PresionDescarga, PresionSuccion, TempSuccion, 1), 2)
+            TextTempIntercambiador.Text = "Temperatura" & vbCrLf & "Aeroenfriador:" & vbCrLf & TempAeroenfriador.Text & " [R]"
             'Esta variable guarda los valores de Presion y Temperatura en la descarga del compresor1
             'Ella se redefine cada vez que se hace calcular y estamos en el compresor1
 
@@ -105,12 +107,11 @@ Public Class Jusepin_Compresores
             Dim FlujoVol As Double = Math.Round(CalculosCompresores.FlujoVolumetrico_DoubleEfecto(DCilindro, DBiela, Corrida, RPMActual) * EficienciaVol, 2)
             'Dim FlujoMass As Double = Math.Round((CalculosCompresores.FlujoMasico(FlujoVol, PresionSuccion * 6894.75729, ZGas, RGas, TempSuccion * 5 / 9)) / 3600, 2)
 
-            Dim TempSuccion As Double = (CalculosCompresores.TempAeroenfriador(FlujoMasicoSistema, FlujoVol, PresionSuccion * 6894.75729, TempDescargaCompre1 * 5 / 9)) * 9 / 5 'Esta función esta definida as Private al final de la clase
-
+            'Vieja temp de succión para satisfacer el flujo másico, el cálculo es diferente
+            'Dim TempSuccion As Double = (CalculosCompresores.TempAeroenfriador(FlujoMasicoSistema, FlujoVol, PresionSuccion * 6894.75729, TempDescargaCompre1 * 5 / 9)) * 9 / 5 'Esta función esta definida as Private al final de la clase
+            Dim TempSuccion As Double = TempSuccionCompre2()
             Dim DeltaEntalpia As Double = Math.Round(CalculosCompresores.CambioEntalpiaIsoentropica(PresionSuccion, PresionDescarga, TempSuccion * 5 / 9, KGas, RGas, 1, 1))
-            TempAeroenfriador.Text = Math.Round(TempSuccion, 2)
-            TextTempIntercambiador.Text = "Temperatura" & vbCrLf & "Aeroenfriador:" & vbCrLf & TempAeroenfriador.Text & " [R]"
-
+            'TempAeroenfriador.Text = Math.Round(TempSuccion, 2)
 
             If PresionDescarga <= PresionSuccion Then
                 MsgBox("La presión de descarga del segundo compresor es menor" & vbCrLf & "o igual a la presión de succión")
@@ -168,47 +169,47 @@ Public Class Jusepin_Compresores
     'Boton para hacer set de la temperatura despues del aeroenfriador que será la temperatura de succión del compresor2
     'Se llama "Set"
 
-    'Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-    '    'Agregar un Flag para saber si se esta editando al compresor 1
-    '    Dim MaquinaActual As String = Split(Label11.Text, " ").Last
-    '    Try
-    '        If MaquinaActual = "compresor_Jusepin_1" Then
-    '            Dim TemperaturaAeroenfria As String = TemperaturaUnidades.Text & "_" & TempAeroenfriador.Text
-    '            'Primero es necesario hacer una validación del valor de Temperatura que se esta Definiendo despues 
-    '            'Del aeroenfriador.. para que no se acepten valores mayores a la temp en la descarga del compresor
-    '            Dim TempValueAeroenfria As Double = to_Rankine(TemperaturaAeroenfria)
-    '            Dim TempDescargaCompresor As Double = CDbl(Tdescarga.Text)
-    '            If TempValueAeroenfria > TempDescargaCompresor Then
-    '                MsgBox("La Temperatura despues del aeroenfriador no debe ser mayor que la temperatura" & vbCrLf & "en la descarga del compresor!")
-    '                TempAeroenfriador.Text = Tdescarga.Text
-    '            Else
-    '                TextTempIntercambiador.Text = "Temperatura" & vbCrLf & "Aeroenfriador:" & vbCrLf & TempAeroenfriador.Text & " " & TemperaturaUnidades.Text
-    '                'Este msgbox invita a recalcular para guardar el nuevo valor de temperatura de succión para el 2do compresor
-    '            End If
-    '        ElseIf MaquinaActual = "compresor_Jusepin_2" Then
-    '            Dim TempIntercambiador As String = Split(TextTempIntercambiador.Text, vbCrLf).Last
-    '            MsgBox("La Temperatura de succión del compresor ya fué definida, es: " & TempIntercambiador)
-    '        End If
-    '    Catch ex As Exception
-    '        MsgBox("Debe definir las condiciones del compresor_Juseping_1!")
-    '    End Try
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        'Agregar un Flag para saber si se esta editando al compresor 1
+        Dim MaquinaActual As String = Split(Label11.Text, " ").Last
+        Try
+            If MaquinaActual = "compresor_Jusepin_1" Then
+                Dim TemperaturaAeroenfria As String = TemperaturaUnidades.Text & "_" & TempAeroenfriador.Text
+                'Primero es necesario hacer una validación del valor de Temperatura que se esta Definiendo despues 
+                'Del aeroenfriador.. para que no se acepten valores mayores a la temp en la descarga del compresor
+                Dim TempValueAeroenfria As Double = to_Rankine(TemperaturaAeroenfria)
+                Dim TempDescargaCompresor As Double = CDbl(Tdescarga.Text)
+                If TempValueAeroenfria > TempDescargaCompresor Then
+                    MsgBox("La Temperatura despues del aeroenfriador no debe ser mayor que la temperatura" & vbCrLf & "en la descarga del compresor!")
+                    TempAeroenfriador.Text = Tdescarga.Text
+                Else
+                    TextTempIntercambiador.Text = "Temperatura" & vbCrLf & "Aeroenfriador:" & vbCrLf & TempAeroenfriador.Text & " " & TemperaturaUnidades.Text
+                    'Este msgbox invita a recalcular para guardar el nuevo valor de temperatura de succión para el 2do compresor
+                End If
+            ElseIf MaquinaActual = "compresor_Jusepin_2" Then
+                Dim TempIntercambiador As String = Split(TextTempIntercambiador.Text, vbCrLf).Last
+                MsgBox("La Temperatura de succión del compresor ya fué definida, es: " & TempIntercambiador)
+            End If
+        Catch ex As Exception
+            MsgBox("Debe definir las condiciones del compresor_Juseping_1!")
+        End Try
 
-    'End Sub
+    End Sub
 
     'Función especializada para retornar el valor de temperatura de succión del segundo 
     'compresor en [R] para usar en los calculo de compresión esta función solo sera llamada para
     'calculos del segundo compresor.
 
-    'Private Function TempSuccionCompre2() As Double
-    '    Dim UnitsTemp As String = Split(Split(TextTempIntercambiador.Text, vbCrLf).Last, " ").Last
-    '    Dim ValueTemp As String = Split(Split(TextTempIntercambiador.Text, vbCrLf).Last, " ").First
-    '    Return to_Rankine(UnitsTemp & "_" & ValueTemp)
-    'End Function
+    Private Function TempSuccionCompre2() As Double
+        Dim UnitsTemp As String = Split(Split(TextTempIntercambiador.Text, vbCrLf).Last, " ").Last
+        Dim ValueTemp As String = Split(Split(TextTempIntercambiador.Text, vbCrLf).Last, " ").First
+        Return to_Rankine(UnitsTemp & "_" & ValueTemp)
+    End Function
 
     'Botones y text para mostrar la carta psicrométrica
-    Private Sub Label13_Click(sender As Object, e As EventArgs) Handles Label13.Click
-        Carta_de_psicrometria.Show()
-    End Sub
+    'Private Sub Label13_Click(sender As Object, e As EventArgs) Handles Label13.Click
+    '    Carta_de_psicrometria.Show()
+    'End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Carta_de_psicrometria.Show()
     End Sub

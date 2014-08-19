@@ -1,15 +1,14 @@
-﻿Public Class GasComposicion
+﻿Imports WindowsApplication1.UnitsConvert
+Public Class LNGComposicion
 
-    Private Sub GasComposicion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        TextBox12.Enabled = False
-        TextBox13.Enabled = False
-        TextBox14.Enabled = False
-        TextBox15.Enabled = False
-        IC4.Enabled = False
-        NC4.Enabled = False
-        NC5.Enabled = False
-        IC5.Enabled = False
-        C6.Enabled = False
+    Private Sub LNGComposicion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        TextBox1.Enabled = False
+        TextBox2.Enabled = False
+        TextBox3.Enabled = False
+        TextBox4.Enabled = False
+        CO2.Enabled = False
+        N2.Enabled = False
+        TempMezclaUnits.Text = "[R]"
         For Each c As Control In Me.Controls
             If c.GetType Is GetType(TextBox) Then
                 If c.Name.Contains("TextBox") = False Then
@@ -24,15 +23,15 @@
         Dim k As Integer = 0
         Dim porcentaje As Double
         Dim flag As Boolean = False
-
-        'iterador a traves de textboxes todetermine if la composición suma 1
+        Dim TMezcla As Double = to_Rankine(TempMezclaUnits.Text & "_" & TextBox5.Text)
+        'Iterador a traves de textboxes to determine if la composición suma 1
         For Each c As Control In Me.Controls
             If c.GetType Is GetType(TextBox) Then
                 If c.Name.Contains("TextBox") = False Then
                     Try
-                        porcentaje += CDbl(c.Text)
+                        porcentaje += CDbl(Replace(c.Text, ".", ","))
                     Catch ex As Exception
-                        MsgBox("Llene los valores de la cromatografia!!" & vbCrLf & ex.Message)
+                        MsgBox("Llene los valores de la cromatografía!!" & vbCrLf & ex.Message)
                         flag = True
                         Exit For
                     End Try
@@ -41,13 +40,18 @@
             End If
         Next
         If porcentaje <> 100 And flag = False Then
-            MsgBox("Tu composición no esta correcta, debe sumar 100!!")
+            MsgBox("Tu composición no es correcta, debe sumar 100!!" & "actualmente suma " & porcentaje)
         ElseIf porcentaje = 100 Then
             Dim propiedadesDelGas As New ComposicionGas(cadenaGas())
-            TextBox15.Text = propiedadesDelGas.getSpecifcGravity()
-            TextBox12.Text = propiedadesDelGas.GetPropertiesOfGasesMix(0)
-            TextBox13.Text = propiedadesDelGas.GetPropertiesOfGasesMix(1)
-            TextBox14.Text = propiedadesDelGas.GetPropertiesOfGasesMix(2)
+            TextBox1.Text = propiedadesDelGas.GetPropertiesOfGasesMix(0)
+            TextBox2.Text = propiedadesDelGas.GetPropertiesOfGasesMix(1)
+            TextBox3.Text = propiedadesDelGas.GetPropertiesOfGasesMix(2)
+            TextBox4.Text = propiedadesDelGas.ViscosidadEquivalente(TMezcla)
+        End If
+        'Aqui condición para conocer que tanque y que composición estamos hablando
+        If id.Text = "Composición 1" Then
+
+        ElseIf id.Text = "Composición 2" Then
         End If
     End Sub
 
@@ -65,10 +69,8 @@
     End Function
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        IC4.Enabled = True
-        NC4.Enabled = True
-        NC5.Enabled = True
-        IC5.Enabled = True
-        C6.Enabled = True
+        CO2.Enabled = True
+        N2.Enabled = True
     End Sub
+
 End Class

@@ -1,4 +1,6 @@
-﻿Public Class HardyCross
+﻿Imports WindowsApplication1.ComposicionGas
+
+Public Class HardyCross
     Public P As Double(,)
     Public RED As Double(,)
     Public PlotX() As Double
@@ -7,10 +9,15 @@
     Dim nu As Double = 0.000001
     'Definicion de la viscosidad dinámica para incluir las variaciones de 
     'Densidad por linea
-    Dim ViscosidadDinamica As Double = 0.001
+    Dim gas1 As New ComposicionGas(FullCadenaGas1)
+    Dim gas2 As New ComposicionGas(FullCadenaGas2)
+    Dim ViscosidadDinamica1 As Double = gas1.ViscosidadEquivalente(FullTempGas1)
+    Dim ViscosidadDinamica2 As Double = gas1.ViscosidadEquivalente(FullTempGas2)
+    Dim DensidadGas1 As Double = gas1.DensidadDeMezcla(0.59)
+    Dim DensidadGas2 As Double = gas2.DensidadDeMezcla(0.56)
     Dim grav As Double = 9.8
-    Dim tol As Double = 0.1
-    Dim nmax As Integer = 500
+    Dim tol As Double = 0.9
+    Dim nmax As Integer = 10000
     Public iniF2 As Boolean
     Public iniF3 As Boolean
 
@@ -41,8 +48,63 @@
             Result = value
         End Set
     End Property
+    Private cadenaGas1 As String
+    Public Property FullCadenaGas1() As String
+        Get
+            Return cadenaGas1
+        End Get
+        Set(ByVal value As String)
+            cadenaGas1 = value
+        End Set
+    End Property
+    Private cadenaGas2 As String
+    Public Property FullCadenaGas2() As String
+        Get
+            Return cadenaGas2
+        End Get
+        Set(ByVal value As String)
+            cadenaGas2 = value
+        End Set
+    End Property
+    Private TempGas1 As Double
+    Public Property FullTempGas1() As Double
+        Get
+            Return TempGas1
+        End Get
+        Set(ByVal value As Double)
+            TempGas1 = value
+        End Set
+    End Property
+    Private TempGas2 As Double
+    Public Property FullTempGas2() As Double
+        Get
+            Return TempGas2
+        End Get
+        Set(ByVal value As Double)
+            TempGas2 = value
+        End Set
+    End Property
+    Private GravedadEspecificaGas1 As Double
+    Public Property FullGravedadEspecificaGas1() As Double
+        Get
+            Return GravedadEspecificaGas1
+        End Get
+        Set(ByVal value As Double)
+            GravedadEspecificaGas1 = value
+        End Set
+    End Property
+    Private GravedadEspecificaGas2 As Double
+    Public Property FullGravedadEspecificaGas2() As Double
+        Get
+            Return GravedadEspecificaGas2
+        End Get
+        Set(ByVal value As Double)
+            GravedadEspecificaGas2 = value
+        End Set
+    End Property
+
     'Metodo para resolver HardyCross, 
-    Public Function SolveHardyCross() As Double()
+    Public Function SolveHardyCross() As Array
         'Dim Ptext As String = File.ReadAllText(pathP)
         'Dim REDtext As String = File.ReadAllText(pathRED)
         'Matriz P Y RED comentadas son las matrices del problema base de debuggeo
@@ -95,6 +157,7 @@
         Dim DQ(Ciclos) As Double
         Dim n As Integer = 0
         Dim Q(Caudales) As Double
+        Dim Velocidad(Caudales) As Double
         Dim x = New Double() {0.0}
         Dim y = New Double() {P(0, 0)}
 
@@ -115,7 +178,13 @@
                 Rey(i) = Math.Abs(4 * Q(i) / (ViscosidadCinematica(i) * 3.14159265 * P(i, 1)))
                 f(i) = ff(Rey(i), P(i, 2), P(i, 1))
                 r(i) = 8 * f(i) / (3.14159265 ^ 2 * grav * P(i, 1) ^ 5) * (P(i, 3) + P(i, 1) * P(i, 4) / f(i))
-                Sentido(i) = Math.Sign(Q(i))
+                Try
+                    Sentido(i) = Math.Sign(Q(i))
+                Catch ex As Exception
+                    MsgBox("Pruebe otra configuración!")
+                    Exit While
+                End Try
+
             Next
 
             For i = 0 To Ciclos - 1
@@ -135,6 +204,7 @@
 
                 For i = 0 To Ciclos - 1
                     Q(j) += RED(i, j) * DQ(i)
+                    Velocidad(j) = Q(j) / (3.14159265 / 4 * P(j, 1) ^ 2)
                 Next
             Next
 
@@ -157,7 +227,7 @@
 
         End While
 
-        Return Q
+        Return {Q, Velocidad}
     End Function
 
     Sub New(MatrizP As String, MatrizRed As String)
@@ -173,6 +243,10 @@
     Sub New()
         Me.MatrizP = MatrizP
         Me.MatrizRed = MatrizRed
+        Me.cadenaGas1 = cadenaGas1
+        Me.cadenaGas2 = cadenaGas2
+        Me.TempGas1 = TempGas1
+        Me.TempGas2 = TempGas2
     End Sub
 
     Private Function Norm(ByVal vector() As Double) As Double
@@ -187,13 +261,13 @@
     Private Function ViscosidadCinematica(indice As Integer) As Double
         Select Case indice
             Case 0, 1, 2
-                Return ViscosidadDinamica / 500
+                Return ViscosidadDinamica2 / DensidadGas1
             Case 3
-                Return ViscosidadDinamica / 700
+                Return ViscosidadDinamica1 / 500
             Case 4, 5, 6, 7, 8
-                Return ViscosidadDinamica / 200
+                Return ViscosidadDinamica1 / DensidadGas2
             Case Else
-                Return ViscosidadDinamica / 1000
+                Return ViscosidadDinamica2 / DensidadGas1
         End Select
     End Function
     'funciones aux para solucionar el hardycross (factor de fricción )
@@ -201,11 +275,11 @@
         ff = 1.325 * (Math.Log(0.27 * ep / D + 5.74 * (Rey) ^ (-0.9))) ^ (-2)
     End Function
     Public Sub CambiarMatrizRed(first As String, second As String, third As String, fourth As String, fith As String)
-        FullMatrizRed = "1,1,0,0,0,0,0,0,0," & first & ";0,-1,1,0,-1,0,-1,0,-1," & second & ";0,0,0,1,1,-1,0,0,0," & third & ";0,0,0,0,0,1,1,-1,0," & fourth & ";0,0,0,0,0,0,0,1,1," & fith
+        FullMatrizRed = "1,1,0,0,0,0,0,0,0," & first & ";0,-1,1,0,-1,0,-1,0,-1," & second & ";0,0,0,1,1,-1,0,0,0," & third & ";0,0,0,0,0,1,1,1,0," & fourth & ";0,0,0,0,0,0,0,-1,1," & fith
     End Sub
     'increaseHeadLoss Cambia la matriz P
-    Public Sub IncreaseLossAndSelectPump(loss1 As String, loss2 As String, curva0690 As Integer, curva1480 As Integer)
-        FullMatrizP = "1,0.1,0.001,5,0," & WhichCurve(curva0690)(0) & "," & WhichCurve(curva0690)(1) & "," & WhichCurve(curva0690)(2) & ";0.5,0.1,0.001,5," & loss1 & ",0,0,0;0.5,0.1,0.001,5,0,0,0,0;1,0.1,0.001,5,0,0,0,0;0.5,0.1,0.001,5,0,0,0,0;0.5,0.1,0.001,5," & loss2 & ",0,0,0;1,0.1,0.001,5,0,0,0," & WhichCurve(curva1480)(2) & ";0.25,0.1,0.001,50,0,0,0,0;1.25,0.1,0.001,50,0,0,0,0"
+    Public Sub IncreaseLossAndSelectPump(loss1 As String, loss2 As String, loss3 As String, loss4 As String, curva1480 As Integer, curva0690 As Integer)
+        FullMatrizP = "1,0.07,0.001,10,0," & WhichCurve(curva1480)(0) & "," & WhichCurve(curva1480)(1) & "," & WhichCurve(curva1480)(2) & ";0.5,0.07,0.001,100," & loss1 & ",0,0,0;0.5,0.07,0.001,10," & loss3 & ",0,0,0,0;1,0.07,0.001,10,0,0,0,0;0.5,0.07,0.001,10," & loss4 & ",0,0,0;0.5,0.07,0.001,10," & loss2 & ",0,0,0;1,0.07,0.001,100,0," & WhichCurve(curva0690)(0) & "," & WhichCurve(curva0690)(1) & "," & WhichCurve(curva0690)(2) & ";0.5,0.07,0.001,50,0,0,0,0;0.5,0.07,0.001,50,0,0,0,0"
     End Sub
     Private Function WhichCurve(curva As Integer) As Array
         'Este nivel de selec es para escoger la curva en función del número de bombas instaladas
