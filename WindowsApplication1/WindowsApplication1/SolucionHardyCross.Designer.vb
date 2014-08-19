@@ -22,13 +22,14 @@ Partial Class SolucionHardyCross
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Me.components = New System.ComponentModel.Container()
+        Dim ChartArea11 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend11 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series11 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(SolucionHardyCross))
-        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea12 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend12 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series12 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Tub0 = New System.Windows.Forms.Label()
         Me.Tub1 = New System.Windows.Forms.Label()
@@ -54,17 +55,31 @@ Partial Class SolucionHardyCross
         Me.Chart2 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.Compo1 = New System.Windows.Forms.Label()
         Me.Composicion_2 = New System.Windows.Forms.Label()
-        Me.Gas1Temp = New System.Windows.Forms.TextBox()
-        Me.Gas2Temp = New System.Windows.Forms.TextBox()
         Me.Valv4 = New System.Windows.Forms.HScrollBar()
         Me.Valv3 = New System.Windows.Forms.HScrollBar()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Viscosidad2 = New System.Windows.Forms.Label()
+        Me.Viscosidad1 = New System.Windows.Forms.Label()
         Me.VelValv4 = New System.Windows.Forms.Label()
         Me.VelValv3 = New System.Windows.Forms.Label()
         Me.VelValv2 = New System.Windows.Forms.Label()
         Me.VelValv1 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.Title = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Visco1 = New System.Windows.Forms.TextBox()
+        Me.Densidad1 = New System.Windows.Forms.TextBox()
+        Me.Visco2 = New System.Windows.Forms.TextBox()
+        Me.Densidad2 = New System.Windows.Forms.TextBox()
+        Me.Visco3 = New System.Windows.Forms.TextBox()
+        Me.Densidad3 = New System.Windows.Forms.TextBox()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         CType(Me.Chart2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -73,9 +88,9 @@ Partial Class SolucionHardyCross
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(865, 44)
+        Me.Button1.Location = New System.Drawing.Point(872, 44)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(111, 27)
+        Me.Button1.Size = New System.Drawing.Size(148, 31)
         Me.Button1.TabIndex = 3
         Me.Button1.Text = "Calcular"
         Me.Button1.UseVisualStyleBackColor = True
@@ -92,7 +107,7 @@ Partial Class SolucionHardyCross
         'Tub1
         '
         Me.Tub1.AutoSize = True
-        Me.Tub1.Location = New System.Drawing.Point(390, 362)
+        Me.Tub1.Location = New System.Drawing.Point(416, 377)
         Me.Tub1.Name = "Tub1"
         Me.Tub1.Size = New System.Drawing.Size(39, 13)
         Me.Tub1.TabIndex = 5
@@ -205,7 +220,7 @@ Partial Class SolucionHardyCross
         '
         'Valv1
         '
-        Me.Valv1.Location = New System.Drawing.Point(276, 362)
+        Me.Valv1.Location = New System.Drawing.Point(289, 362)
         Me.Valv1.Name = "Valv1"
         Me.Valv1.Size = New System.Drawing.Size(79, 13)
         Me.Valv1.TabIndex = 19
@@ -255,16 +270,16 @@ Partial Class SolucionHardyCross
         '
         'Chart2
         '
-        ChartArea1.Name = "ChartArea1"
-        Me.Chart2.ChartAreas.Add(ChartArea1)
-        Legend1.Name = "Legend1"
-        Me.Chart2.Legends.Add(Legend1)
-        Me.Chart2.Location = New System.Drawing.Point(689, 423)
+        ChartArea11.Name = "ChartArea1"
+        Me.Chart2.ChartAreas.Add(ChartArea11)
+        Legend11.Name = "Legend1"
+        Me.Chart2.Legends.Add(Legend11)
+        Me.Chart2.Location = New System.Drawing.Point(689, 426)
         Me.Chart2.Name = "Chart2"
-        Series1.ChartArea = "ChartArea1"
-        Series1.Legend = "Legend1"
-        Series1.Name = "Series1"
-        Me.Chart2.Series.Add(Series1)
+        Series11.ChartArea = "ChartArea1"
+        Series11.Legend = "Legend1"
+        Series11.Name = "Series1"
+        Me.Chart2.Series.Add(Series11)
         Me.Chart2.Size = New System.Drawing.Size(375, 193)
         Me.Chart2.TabIndex = 25
         Me.Chart2.Text = "Chart2"
@@ -273,7 +288,7 @@ Partial Class SolucionHardyCross
         '
         Me.Compo1.AutoSize = True
         Me.Compo1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Compo1.Location = New System.Drawing.Point(276, 190)
+        Me.Compo1.Location = New System.Drawing.Point(184, 218)
         Me.Compo1.Name = "Compo1"
         Me.Compo1.Size = New System.Drawing.Size(108, 13)
         Me.Compo1.TabIndex = 26
@@ -283,25 +298,11 @@ Partial Class SolucionHardyCross
         '
         Me.Composicion_2.AutoSize = True
         Me.Composicion_2.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Composicion_2.Location = New System.Drawing.Point(313, 559)
+        Me.Composicion_2.Location = New System.Drawing.Point(183, 486)
         Me.Composicion_2.Name = "Composicion_2"
         Me.Composicion_2.Size = New System.Drawing.Size(108, 13)
         Me.Composicion_2.TabIndex = 27
         Me.Composicion_2.Text = "Cambiar Composición"
-        '
-        'Gas1Temp
-        '
-        Me.Gas1Temp.Location = New System.Drawing.Point(338, 575)
-        Me.Gas1Temp.Name = "Gas1Temp"
-        Me.Gas1Temp.Size = New System.Drawing.Size(51, 20)
-        Me.Gas1Temp.TabIndex = 28
-        '
-        'Gas2Temp
-        '
-        Me.Gas2Temp.Location = New System.Drawing.Point(301, 206)
-        Me.Gas2Temp.Name = "Gas2Temp"
-        Me.Gas2Temp.Size = New System.Drawing.Size(51, 20)
-        Me.Gas2Temp.TabIndex = 29
         '
         'Valv4
         '
@@ -319,6 +320,8 @@ Partial Class SolucionHardyCross
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Viscosidad2)
+        Me.GroupBox1.Controls.Add(Me.Viscosidad1)
         Me.GroupBox1.Controls.Add(Me.VelValv4)
         Me.GroupBox1.Controls.Add(Me.VelValv3)
         Me.GroupBox1.Controls.Add(Me.VelValv2)
@@ -336,10 +339,8 @@ Partial Class SolucionHardyCross
         Me.GroupBox1.Controls.Add(Me.Valv4)
         Me.GroupBox1.Controls.Add(Me.Tub2)
         Me.GroupBox1.Controls.Add(Me.Valv2)
-        Me.GroupBox1.Controls.Add(Me.Gas2Temp)
         Me.GroupBox1.Controls.Add(Me.Compo1)
         Me.GroupBox1.Controls.Add(Me.Tub3)
-        Me.GroupBox1.Controls.Add(Me.Gas1Temp)
         Me.GroupBox1.Controls.Add(Me.Tub4)
         Me.GroupBox1.Controls.Add(Me.Composicion_2)
         Me.GroupBox1.Controls.Add(Me.Tub5)
@@ -358,6 +359,24 @@ Partial Class SolucionHardyCross
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Sistema de bombas LNG"
         '
+        'Viscosidad2
+        '
+        Me.Viscosidad2.AutoSize = True
+        Me.Viscosidad2.Location = New System.Drawing.Point(173, 508)
+        Me.Viscosidad2.Name = "Viscosidad2"
+        Me.Viscosidad2.Size = New System.Drawing.Size(126, 13)
+        Me.Viscosidad2.TabIndex = 37
+        Me.Viscosidad2.Text = "Viscosidad de la mezcla2"
+        '
+        'Viscosidad1
+        '
+        Me.Viscosidad1.AutoSize = True
+        Me.Viscosidad1.Location = New System.Drawing.Point(173, 241)
+        Me.Viscosidad1.Name = "Viscosidad1"
+        Me.Viscosidad1.Size = New System.Drawing.Size(126, 13)
+        Me.Viscosidad1.TabIndex = 36
+        Me.Viscosidad1.Text = "Viscosidad de la mezcla1"
+        '
         'VelValv4
         '
         Me.VelValv4.AutoSize = True
@@ -370,7 +389,7 @@ Partial Class SolucionHardyCross
         'VelValv3
         '
         Me.VelValv3.AutoSize = True
-        Me.VelValv3.Location = New System.Drawing.Point(487, 101)
+        Me.VelValv3.Location = New System.Drawing.Point(490, 105)
         Me.VelValv3.Name = "VelValv3"
         Me.VelValv3.Size = New System.Drawing.Size(49, 13)
         Me.VelValv3.TabIndex = 34
@@ -388,7 +407,7 @@ Partial Class SolucionHardyCross
         'VelValv1
         '
         Me.VelValv1.AutoSize = True
-        Me.VelValv1.Location = New System.Drawing.Point(298, 417)
+        Me.VelValv1.Location = New System.Drawing.Point(299, 412)
         Me.VelValv1.Name = "VelValv1"
         Me.VelValv1.Size = New System.Drawing.Size(49, 13)
         Me.VelValv1.TabIndex = 32
@@ -405,26 +424,152 @@ Partial Class SolucionHardyCross
         '
         'Chart1
         '
-        ChartArea2.Name = "ChartArea1"
-        Me.Chart1.ChartAreas.Add(ChartArea2)
-        Legend2.Name = "Legend1"
-        Me.Chart1.Legends.Add(Legend2)
-        Me.Chart1.Location = New System.Drawing.Point(689, 224)
+        ChartArea12.Name = "ChartArea1"
+        Me.Chart1.ChartAreas.Add(ChartArea12)
+        Legend12.Name = "Legend1"
+        Me.Chart1.Legends.Add(Legend12)
+        Me.Chart1.Location = New System.Drawing.Point(689, 226)
         Me.Chart1.Name = "Chart1"
-        Series2.ChartArea = "ChartArea1"
-        Series2.Legend = "Legend1"
-        Series2.Name = "Series1"
-        Me.Chart1.Series.Add(Series2)
+        Series12.ChartArea = "ChartArea1"
+        Series12.Legend = "Legend1"
+        Series12.Name = "Series1"
+        Me.Chart1.Series.Add(Series12)
         Me.Chart1.Size = New System.Drawing.Size(375, 193)
         Me.Chart1.TabIndex = 33
         Me.Chart1.Text = "Chart1"
+        '
+        'Title
+        '
+        Me.Title.AutoSize = True
+        Me.Title.BackColor = System.Drawing.Color.Transparent
+        Me.Title.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Title.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Title.Location = New System.Drawing.Point(866, 81)
+        Me.Title.Name = "Title"
+        Me.Title.Size = New System.Drawing.Size(166, 16)
+        Me.Title.TabIndex = 38
+        Me.Title.Text = "Resumén de propiedades"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(818, 107)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(126, 13)
+        Me.Label3.TabIndex = 38
+        Me.Label3.Text = "Viscosidad de la mezcla1"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(817, 148)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(126, 13)
+        Me.Label4.TabIndex = 39
+        Me.Label4.Text = "Viscosidad de la mezcla2"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(818, 186)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(126, 13)
+        Me.Label5.TabIndex = 40
+        Me.Label5.Text = "Viscosidad de la mezcla3"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(953, 109)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(120, 13)
+        Me.Label6.TabIndex = 41
+        Me.Label6.Text = "Densidad de la mezcla1"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(953, 149)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(120, 13)
+        Me.Label7.TabIndex = 42
+        Me.Label7.Text = "Densidad de la mezcla1"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(952, 185)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(120, 13)
+        Me.Label8.TabIndex = 43
+        Me.Label8.Text = "Densidad de la mezcla1"
+        '
+        'Visco1
+        '
+        Me.Visco1.Location = New System.Drawing.Point(856, 124)
+        Me.Visco1.Name = "Visco1"
+        Me.Visco1.Size = New System.Drawing.Size(51, 20)
+        Me.Visco1.TabIndex = 44
+        '
+        'Densidad1
+        '
+        Me.Densidad1.Location = New System.Drawing.Point(981, 124)
+        Me.Densidad1.Name = "Densidad1"
+        Me.Densidad1.Size = New System.Drawing.Size(51, 20)
+        Me.Densidad1.TabIndex = 45
+        '
+        'Visco2
+        '
+        Me.Visco2.Location = New System.Drawing.Point(856, 164)
+        Me.Visco2.Name = "Visco2"
+        Me.Visco2.Size = New System.Drawing.Size(51, 20)
+        Me.Visco2.TabIndex = 46
+        '
+        'Densidad2
+        '
+        Me.Densidad2.Location = New System.Drawing.Point(981, 164)
+        Me.Densidad2.Name = "Densidad2"
+        Me.Densidad2.Size = New System.Drawing.Size(51, 20)
+        Me.Densidad2.TabIndex = 47
+        '
+        'Visco3
+        '
+        Me.Visco3.Location = New System.Drawing.Point(856, 202)
+        Me.Visco3.Name = "Visco3"
+        Me.Visco3.Size = New System.Drawing.Size(51, 20)
+        Me.Visco3.TabIndex = 48
+        '
+        'Densidad3
+        '
+        Me.Densidad3.Location = New System.Drawing.Point(981, 201)
+        Me.Densidad3.Name = "Densidad3"
+        Me.Densidad3.Size = New System.Drawing.Size(51, 20)
+        Me.Densidad3.TabIndex = 49
+        '
+        'Timer1
+        '
+        Me.Timer1.Enabled = True
+        Me.Timer1.Interval = 500
         '
         'SolucionHardyCross
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
-        Me.ClientSize = New System.Drawing.Size(1067, 628)
+        Me.ClientSize = New System.Drawing.Size(1099, 647)
+        Me.Controls.Add(Me.Densidad3)
+        Me.Controls.Add(Me.Visco3)
+        Me.Controls.Add(Me.Densidad2)
+        Me.Controls.Add(Me.Visco2)
+        Me.Controls.Add(Me.Densidad1)
+        Me.Controls.Add(Me.Visco1)
+        Me.Controls.Add(Me.Label8)
+        Me.Controls.Add(Me.Label7)
+        Me.Controls.Add(Me.Label6)
+        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.Title)
         Me.Controls.Add(Me.Chart1)
         Me.Controls.Add(Me.Chart2)
         Me.Controls.Add(Me.GroupBox1)
@@ -437,6 +582,7 @@ Partial Class SolucionHardyCross
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents Button1 As System.Windows.Forms.Button
@@ -464,8 +610,6 @@ Partial Class SolucionHardyCross
     Friend WithEvents Chart2 As System.Windows.Forms.DataVisualization.Charting.Chart
     Friend WithEvents Compo1 As System.Windows.Forms.Label
     Friend WithEvents Composicion_2 As System.Windows.Forms.Label
-    Friend WithEvents Gas1Temp As System.Windows.Forms.TextBox
-    Friend WithEvents Gas2Temp As System.Windows.Forms.TextBox
     Friend WithEvents Valv4 As System.Windows.Forms.HScrollBar
     Friend WithEvents Valv3 As System.Windows.Forms.HScrollBar
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
@@ -475,4 +619,20 @@ Partial Class SolucionHardyCross
     Friend WithEvents VelValv4 As System.Windows.Forms.Label
     Friend WithEvents VelValv3 As System.Windows.Forms.Label
     Friend WithEvents VelValv2 As System.Windows.Forms.Label
+    Friend WithEvents Viscosidad2 As System.Windows.Forms.Label
+    Friend WithEvents Viscosidad1 As System.Windows.Forms.Label
+    Friend WithEvents Title As System.Windows.Forms.Label
+    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents Label7 As System.Windows.Forms.Label
+    Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents Visco1 As System.Windows.Forms.TextBox
+    Friend WithEvents Densidad1 As System.Windows.Forms.TextBox
+    Friend WithEvents Visco2 As System.Windows.Forms.TextBox
+    Friend WithEvents Densidad2 As System.Windows.Forms.TextBox
+    Friend WithEvents Visco3 As System.Windows.Forms.TextBox
+    Friend WithEvents Densidad3 As System.Windows.Forms.TextBox
+    Friend WithEvents Timer1 As System.Windows.Forms.Timer
 End Class

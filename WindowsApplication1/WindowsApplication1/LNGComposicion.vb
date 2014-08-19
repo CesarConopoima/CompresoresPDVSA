@@ -6,6 +6,7 @@ Public Class LNGComposicion
         TextBox2.Enabled = False
         TextBox3.Enabled = False
         TextBox4.Enabled = False
+        TextBox6.Text = 1
         CO2.Enabled = False
         N2.Enabled = False
         TempMezclaUnits.Text = "[R]"
@@ -42,11 +43,28 @@ Public Class LNGComposicion
         If porcentaje <> 100 And flag = False Then
             MsgBox("Tu composición no es correcta, debe sumar 100!!" & "actualmente suma " & porcentaje)
         ElseIf porcentaje = 100 Then
-            Dim propiedadesDelGas As New ComposicionGas(cadenaGas())
-            TextBox1.Text = propiedadesDelGas.GetPropertiesOfGasesMix(0)
-            TextBox2.Text = propiedadesDelGas.GetPropertiesOfGasesMix(1)
-            TextBox3.Text = propiedadesDelGas.GetPropertiesOfGasesMix(2)
-            TextBox4.Text = propiedadesDelGas.ViscosidadEquivalente(TMezcla)
+            'Aquí se crea el objeto que tendrá a partir de la composición del gas
+            'las propiedades del mismo que son calculadas 
+            Try
+                Dim propiedadesDelGas As New ComposicionGas(cadenaGas())
+                TextBox1.Text = propiedadesDelGas.GetPropertiesOfGasesMix(0)
+                TextBox2.Text = propiedadesDelGas.GetPropertiesOfGasesMix(1)
+                TextBox3.Text = propiedadesDelGas.GetPropertiesOfGasesMix(2)
+                TextBox4.Text = propiedadesDelGas.ViscosidadEquivalente(TMezcla)
+                'Aqui a partir de del identificador, se define el valor de la viscosidad de la mezcla
+                If id.Text = "Composición 1" Then
+                    SolucionHardyCross.Viscosidad1.Text = "Viscosidad de la mezcla: " & Math.Round(propiedadesDelGas.ViscosidadEquivalente(TMezcla), 2)
+                    SolucionHardyCross.Visco1.Text = Math.Round(propiedadesDelGas.ViscosidadEquivalente(TMezcla), 3)
+                    SolucionHardyCross.Densidad1.Text = Math.Round(propiedadesDelGas.DensidadDeMezcla(CDbl(Replace(TextBox6.Text, ".", ","))), 3)
+                ElseIf id.Text = "Composición 2" Then
+                    SolucionHardyCross.Viscosidad2.Text = "Viscosidad de la mezcla: " & Math.Round(propiedadesDelGas.ViscosidadEquivalente(TMezcla), 2)
+                    SolucionHardyCross.Visco2.Text = Math.Round(propiedadesDelGas.ViscosidadEquivalente(TMezcla), 3)
+                    SolucionHardyCross.Densidad2.Text = Math.Round(propiedadesDelGas.DensidadDeMezcla(CDbl(Replace(TextBox6.Text, ".", ","))), 3)
+                End If
+            Catch ex As Exception
+                MsgBox("La gravedad especifica no debe ser igual a 0!!")
+            End Try
+           
         End If
         'Aqui condición para conocer que tanque y que composición estamos hablando
         If id.Text = "Composición 1" Then

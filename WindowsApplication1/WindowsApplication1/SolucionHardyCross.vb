@@ -4,6 +4,7 @@ Imports System.IO
 Public Class SolucionHardyCross
     'Se crea el objeto solver del hardyCross
     Public resulthardycross As New HardyCross()
+
     ' Public GasComposicion1 As String =
     Private Sub SolucionHardyCross_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Tanque0.Text = 1
@@ -14,8 +15,20 @@ Public Class SolucionHardyCross
         Tanque5.Text = 77
         NumBomba1480.Text = "2"
         NumBombas0690.Text = "2"
-        Gas1Temp.Text = 583
-        Gas2Temp.Text = 583
+        Visco1.Text = 0.001
+        Visco2.Text = 0.001
+        Visco3.Text = 0.001
+        Densidad1.Text = 1000
+        Densidad2.Text = 1000
+        Densidad3.Text = (CDbl(Densidad1.Text) + CDbl(Densidad2.Text)) / 2
+        Visco1.Enabled = False
+        Visco2.Enabled = False
+        Visco3.Enabled = False
+        Densidad1.Enabled = False
+        Densidad2.Enabled = False
+        Densidad3.Enabled = False
+        'Desabilitar el timer para que no parpadee
+        Timer1.Enabled = False
     End Sub
     Private Sub SolucionHardyCross_resize(sender As Object, e As EventArgs) Handles MyBase.Resize
         Tanque0.Text = 1
@@ -26,8 +39,6 @@ Public Class SolucionHardyCross
         Tanque5.Text = 77
         NumBomba1480.Text = "2"
         NumBombas0690.Text = "2"
-        Gas1Temp.Text = 583
-        Gas2Temp.Text = 583
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         'aqui el flujo es, que se crea el objeto para calcular el hardycross a cada momento que se hace click en calcular
@@ -46,13 +57,13 @@ Public Class SolucionHardyCross
         'Ok ahora es necesario pasarle los argumentos de la cadena de gas que se esta utilizando
         'Y la temperatura actual de al mezcla para que calcule el hardyCross considerando los
         'cambios de temp den la mezcla de los gases
-        resulthardycross.FullCadenaGas1 = "C1:0;C2:1.72;C3:12.922;IC4:19.327;NC4:30.482;IC5:13.746;NC5:13.026;C6:8.774;CO2:0;N2:0"
-        resulthardycross.FullTempGas1 = CDbl(Gas1Temp.Text)
-        resulthardycross.FullGravedadEspecificaGas1 = 0.59
-        resulthardycross.FullCadenaGas2 = "C1:0;C2:1.72;C3:12.922;IC4:19.327;NC4:30.482;IC5:13.746;NC5:13.026;C6:8.774;CO2:0;N2:0"
-        resulthardycross.FullTempGas2 = CDbl(Gas2Temp.Text)
-        resulthardycross.FullGravedadEspecificaGas2 = 0.5612
-        Dim DensidadGas1 As New ComposicionGas("C1:0;C2:1.72;C3:12.922;IC4:19.327;NC4:30.482;IC5:13.746;NC5:13.026;C6:8.774;CO2:0;N2:0")
+
+        resulthardycross.Fullviscosidad1 = CDbl(Visco1.Text)
+        resulthardycross.Fullviscosidad2 = CDbl(Visco2.Text)
+        resulthardycross.Fulldensidad1 = CDbl(Densidad1.Text)
+        resulthardycross.Fulldensidad2 = CDbl(Densidad2.Text)
+        'resulthardycross.Fuu
+
         'MsgBox(DensidadGas1.DensidadDeMezcla(0.59))
         'MsgBox(DensidadGas1.ViscosidadEquivalente(583))
         'Llamar metodo para graficar las curvas de las bombas y los puntos de operacion
@@ -74,8 +85,10 @@ Public Class SolucionHardyCross
         Catch ex As Exception
             MsgBox("Intente otra configuración!! Fatal Error....")
         End Try
-        
-        'define backcolor for label
+        'Aquí condicional para disparar el método con el timer que permita hacer blinck del 
+        'color backgrounde interes
+
+        'Define backcolor for label
         Tub0.BackColor = Color.FromArgb(144, 206, 129)
         Tub1.BackColor = Color.FromArgb(144, 206, 129)
         Tub2.BackColor = Color.FromArgb(144, 206, 129)
@@ -85,6 +98,8 @@ Public Class SolucionHardyCross
         Tub6.BackColor = Color.FromArgb(144, 206, 129)
         Tub7.BackColor = Color.FromArgb(144, 206, 129)
         Tub8.BackColor = Color.FromArgb(144, 206, 129)
+        'RGB para hacer orange 253,186,109
+        Timer1.Enabled = True
     End Sub
 
     Private Sub chart1Diseno()
@@ -213,7 +228,17 @@ Public Class SolucionHardyCross
         LNGComposicion.Show()
         LNGComposicion.id.Text = "Composición 2"
     End Sub
+    'Piece of code to make blinck what so ever do I want
+    Dim blink As Boolean
 
-
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        If (blink) Then
+            Me.Tub0.BackColor = Color.FromArgb(253, 186, 109)
+            blink = False
+        Else
+            Me.Tub0.BackColor = Color.FromArgb(144, 206, 129)
+            blink = True
+        End If
+    End Sub
 
 End Class

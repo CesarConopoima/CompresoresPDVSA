@@ -583,7 +583,7 @@ Partial Class Jusepin_Compresores
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(138, 33)
         Me.Button2.TabIndex = 21
-        Me.Button2.Text = "Cálcular"
+        Me.Button2.Text = "Calcular"
         Me.Button2.UseVisualStyleBackColor = True
         '
         'Button1

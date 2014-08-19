@@ -75,6 +75,7 @@
                 Return {28.97, 546.21, 238.59, 0.2}
         End Select
     End Function
+    'Esto retorna la viscosidad en unidades de [Cp] centipoise
     Public Function ViscosidadEquivalente(TempActual As Double) As Double
         Dim numberOfSpecies As Integer = (Split(Fullgases, ";").Count)
         Dim gasName As String
