@@ -14,8 +14,8 @@ Public Class HardyCross
     Dim DensidadGas1 As Double = Fulldensidad1
     Dim DensidadGas2 As Double = Fulldensidad2
     Dim grav As Double = 9.8
-    Dim tol As Double = 0.09
-    Dim nmax As Integer = 10000
+    Dim tol As Double = 0.05
+    Dim nmax As Integer = 45000
     Public iniF2 As Boolean
     Public iniF3 As Boolean
 
@@ -139,6 +139,7 @@ Public Class HardyCross
         Dim Velocidad(Caudales) As Double
         Dim x = New Double() {0.0}
         Dim y = New Double() {P(0, 0)}
+        Dim BooleanoDeControlDeEjecucion As Boolean = True
 
         For i = 0 To Caudales - 1
             Logic(i) = 1
@@ -151,16 +152,22 @@ Public Class HardyCross
             DQ(j) = 0
         Next
 
-        While Norm(Logic) > 0
+        If Norm(Logic) > 0 Then
+            BooleanoDeControlDeEjecucion = True
+        Else
+            BooleanoDeControlDeEjecucion = False
+        End If
 
+        While Norm(Logic) > 0
             For i = 0 To Caudales - 1
                 Rey(i) = Math.Abs(4 * Q(i) / (ViscosidadCinematica(i) * 3.14159265 * P(i, 1)))
                 f(i) = ff(Rey(i), P(i, 2), P(i, 1))
                 r(i) = 8 * f(i) / (3.14159265 ^ 2 * grav * P(i, 1) ^ 5) * (P(i, 3) + P(i, 1) * P(i, 4) / f(i))
+
                 Try
                     Sentido(i) = Math.Sign(Q(i))
                 Catch ex As Exception
-                    MsgBox("Pruebe otra configuración!")
+                    MsgBox("Error fatal, pruebe otra configuración!!")
                     Exit While
                 End Try
 
@@ -200,7 +207,7 @@ Public Class HardyCross
             'MsgBox("Nmax es: " & nmax)
             'MsgBox("n es: " & n)
             If n > nmax Then
-                MsgBox("Algo va mal, se terminaron las iteraciones, ultimo caudal: " & Val(Q(0)))
+                MsgBox("La solución no ha convergido correctamente, se llego al numéro máximo de iteraciones posibles")
                 Exit While
             End If
 
@@ -236,7 +243,7 @@ Public Class HardyCross
                 Return Fullviscosidad1 / Fulldensidad1
                 'Return 0.1 / 1000
             Case 4, 5, 6, 7, 8
-                Return Fullviscosidad2 / Fulldensidad2
+                Return (Fullviscosidad1 + Fullviscosidad2) / 2 * 1 / (Fulldensidad1 + Fulldensidad2) / 2
                 'Return 0.1 / 1000
             Case Else
                 Return Fullviscosidad2 / Fulldensidad2
@@ -250,8 +257,16 @@ Public Class HardyCross
         FullMatrizRed = "1,1,0,0,0,0,0,0,0," & first & ";0,-1,1,0,-1,0,-1,0,-1," & second & ";0,0,0,1,1,-1,0,0,0," & third & ";0,0,0,0,0,1,1,1,0," & fourth & ";0,0,0,0,0,0,0,-1,1," & fith
     End Sub
     'increaseHeadLoss Cambia la matriz P
-    Public Sub IncreaseLossAndSelectPump(loss1 As String, loss2 As String, loss3 As String, loss4 As String, curva1480 As Integer, curva0690 As Integer)
-        FullMatrizP = "1,0.07,0.001,100,0," & WhichCurve(curva1480)(0) & "," & WhichCurve(curva1480)(1) & "," & WhichCurve(curva1480)(2) & ";0.5,0.0508,0.001,100," & loss1 & ",0,0,0;0.5,0.07,0.001,100," & loss3 & ",0,0,0,0;1,0.07,0.001,100,0,0,0,0;0.5,0.07,0.001,100," & loss4 & ",0,0,0;0.5,0.07,0.001,500," & loss2 & ",0,0,0;1,0.07,0.001,500,0," & WhichCurve(curva0690)(0) & "," & WhichCurve(curva0690)(1) & "," & WhichCurve(curva0690)(2) & ";0.5,0.07,0.001,500,0,0,0,0;0.5,0.07,0.001,500,0,0,0,0"
+    Public Sub IncreaseLossAndSelectPump(loss1 As String, loss2 As String, loss3 As String, loss4 As String, curva1480 As Integer, curva0690 As Integer, NumEtapas0690 As Integer)
+        FullMatrizP = "1,0.1524,0.005,48.4,0," & WhichCurve(curva1480)(0) & "," & WhichCurve(curva1480)(1) & "," & WhichCurve(curva1480)(2) & ";0.5,0.0508,0.005,36.35," & loss1 & ",0,0,0;0.5,0.1524,0.005,65.5," & loss3 & ",0,0,0,0;1,0.2032,0.005,201,0,0,0,0;0.5,0.1524,0.005,100," & loss4 & ",0,0,0;0.5,0.1016,0.005,85," & loss2 & ",0,0,0;1,0.1524,0.005,99,0," & WhichCurve(curva0690)(0) * NumEtapas0690 / 28 & "," & WhichCurve(curva0690)(1) * NumEtapas0690 / 28 & "," & WhichCurve(curva0690)(2) * NumEtapas0690 / 28 & ";0.5,0.2032,0.005,9,0,0,0,0;0.5,0.2032,0.005,9,0,0,0,0"
+    End Sub
+    'Aqui defino dos nuevos métodos para redefinir las matrices P y RED en función de los argumentos de las funciones
+    Public Sub CambiarMatrizRed2(first As String, second As String)
+        FullMatrizRed = "1,1,0," & first & ";0,-1,1," & second
+    End Sub
+    'increaseHeadLoss Cambia la matriz P
+    Public Sub IncreaseLossAndSelectPump2(loss1 As String, loss2 As String, curva1480 As Integer)
+        FullMatrizP = "1,0.1524,0.005,48,0," & WhichCurve(curva1480)(0) & "," & WhichCurve(curva1480)(1) & "," & WhichCurve(curva1480)(2) & ";0.1,0.0508,0.005,50," & loss1 & ",0,0,0;0.9,0.2032,0.005,266.5," & loss2 & ",0,0,0"
     End Sub
     Private Function WhichCurve(curva As Integer) As Array
         'Este nivel de selec es para escoger la curva en función del número de bombas instaladas
@@ -260,6 +275,8 @@ Public Class HardyCross
                 Return {-670900, 9965, 1630}
             Case 2
                 Return {-167700, 4983, 1630}
+                'Case 2
+                '    Return {0, 0, 1630}
             Case 3
                 Return {-74500, 3322, 1630}
                 'Estas curvas son para la bomba 1480 4=1Bomba; 5=2Bombas; 6=3Bombas
@@ -267,6 +284,8 @@ Public Class HardyCross
                 Return {-266000, 3706, 1161}
             Case 5
                 Return {-66500, 1853, 1161}
+            Case 5
+                Return {0, 0, 0}
             Case 6
                 Return {-29600, 1235, 1161}
             Case Else

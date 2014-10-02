@@ -48,6 +48,9 @@
             TextBox12.Text = propiedadesDelGas.GetPropertiesOfGasesMix(0)
             TextBox13.Text = propiedadesDelGas.GetPropertiesOfGasesMix(1)
             TextBox14.Text = propiedadesDelGas.GetPropertiesOfGasesMix(2)
+            SantaBarbara_CC.PMSuccion.Text = propiedadesDelGas.GetPropertiesOfGasesMix(0)
+            'Aquí calculo del coefciente politropico 
+            SantaBarbara_CC.CoefPolitroSuccion.Text = 1.3 - 0.31 * (propiedadesDelGas.getSpecifcGravity() - 0.55)
         End If
     End Sub
 

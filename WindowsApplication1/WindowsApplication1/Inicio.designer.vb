@@ -308,7 +308,7 @@ Partial Class Inicio
         Me.SubSistema2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.SubSistema2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.SubSistema2.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.SubSistema2.Location = New System.Drawing.Point(803, 302)
+        Me.SubSistema2.Location = New System.Drawing.Point(739, 302)
         Me.SubSistema2.Name = "SubSistema2"
         Me.SubSistema2.Size = New System.Drawing.Size(280, 103)
         Me.SubSistema2.TabIndex = 19

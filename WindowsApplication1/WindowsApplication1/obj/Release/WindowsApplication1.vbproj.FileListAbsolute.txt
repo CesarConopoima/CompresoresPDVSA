@@ -17,8 +17,6 @@ C:\Users\Sala de Tesistas pre\Desktop\_CesarConopoima_vb\WindowsApplication1\Win
 C:\Users\Sala de Tesistas pre\Desktop\_CesarConopoima_vb\WindowsApplication1\WindowsApplication1\bin\Release\Compresores_log.ldf
 C:\Users\Sala de Tesistas pre\Desktop\_CesarConopoima_vb\WindowsApplication1\WindowsApplication1\obj\Release\WindowsApplication1.VistaBienvenida.resources
 C:\Users\Sala de Tesistas pre\Desktop\_CesarConopoima_vb\WindowsApplication1\WindowsApplication1\obj\Release\WindowsApplication1.TablaBD.resources
-C:\Users\Sala de Tesistas pre\Desktop\_CesarConopoima_vb\WindowsApplication1\WindowsApplication1\obj\Release\WindowsApplication1.Intro.resources
-C:\Users\Sala de Tesistas pre\Desktop\_CesarConopoima_vb\WindowsApplication1\WindowsApplication1\obj\Release\WindowsApplication1.Jusepin_1.resources
 C:\Users\Sala de Tesistas pre\Desktop\_CesarConopoima_vb\WindowsApplication1\WindowsApplication1\obj\Release\WindowsApplication1.GasComposicion.resources
 C:\Users\Sala de Tesistas pre\Desktop\_CesarConopoima_vb\WindowsApplication1\WindowsApplication1\obj\Release\WindowsApplication1.Jusepin_Bombas.resources
 C:\Users\Sala de Tesistas pre\Desktop\_CesarConopoima_vb\WindowsApplication1\WindowsApplication1\obj\Release\WindowsApplication1.Inicio.resources
@@ -26,3 +24,9 @@ C:\Users\Sala de Tesistas pre\Desktop\_CesarConopoima_vb\WindowsApplication1\Win
 C:\Users\Sala de Tesistas pre\Desktop\_CesarConopoima_vb\WindowsApplication1\WindowsApplication1\obj\Release\WindowsApplication1.Carta_de_psicrometria.resources
 C:\Users\Sala de Tesistas pre\Desktop\_CesarConopoima_vb\WindowsApplication1\WindowsApplication1\obj\Release\WindowsApplication1.SolucionHardyCross.resources
 C:\Users\Sala de Tesistas pre\Desktop\_CesarConopoima_vb\WindowsApplication1\WindowsApplication1\obj\Release\WindowsApplication1.LNGComposicion.resources
+C:\Users\Sala de Tesistas pre\Desktop\_CesarConopoima_vb\WindowsApplication1\WindowsApplication1\obj\Release\WindowsApplication1.SantaBarbara_CC.resources
+C:\Users\Sala de Tesistas pre\Desktop\_CesarConopoima_vb\WindowsApplication1\WindowsApplication1\obj\Release\WindowsApplication1.SantaBarbara_Compresores.resources
+C:\Users\Sala de Tesistas pre\Desktop\_CesarConopoima_vb\WindowsApplication1\WindowsApplication1\obj\Release\WindowsApplication1.SolucionHardyCrossOpcional.resources
+C:\Users\Sala de Tesistas pre\Desktop\_CesarConopoima_vb\WindowsApplication1\WindowsApplication1\obj\Release\WindowsApplication1.fSplashScreen.resources
+C:\Users\Sala de Tesistas pre\Desktop\_CesarConopoima_vb\WindowsApplication1\WindowsApplication1\obj\Release\WindowsApplication1.vbprojResolveAssemblyReference.cache
+C:\Users\Sala de Tesistas pre\Desktop\_CesarConopoima_vb\WindowsApplication1\WindowsApplication1\obj\Release\WindowsApplication1.SB_CC_Detalle.resources

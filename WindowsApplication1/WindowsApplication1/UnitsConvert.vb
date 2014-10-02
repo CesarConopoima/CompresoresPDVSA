@@ -13,11 +13,32 @@
             Case "[MPa]"
                 Return quantity * 145.037738
             Case "[bar]"
-                Return quantity * 145.037738
+                Return quantity * 14.5037738
             Case "[m]"
                 Return quantity * 1.42197
             Case "[mmHg]"
                 Return quantity * 0.019337
+            Case Else
+                Return quantity
+        End Select
+    End Function
+
+    Public Shared Function to_MCA(cantidad As String) As Double
+        Dim unit As String = Split(cantidad, "_")(0)
+        Dim quantity As Double = CDbl(Replace(Split(cantidad, "_")(1), ".", ","))
+        Select Case unit
+            Case "[psi]"
+                Return quantity * 0.703
+            Case "[Pa]"
+                Return quantity * 0.00010197162
+            Case "[KPa]"
+                Return quantity * 0.10197162
+            Case "[MPa]"
+                Return quantity * 101.97162
+            Case "[bar]"
+                Return quantity * 10.2
+            Case "[m]"
+                Return quantity
             Case Else
                 Return quantity
         End Select

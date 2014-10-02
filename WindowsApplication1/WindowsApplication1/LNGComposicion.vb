@@ -51,15 +51,20 @@ Public Class LNGComposicion
                 TextBox2.Text = propiedadesDelGas.GetPropertiesOfGasesMix(1)
                 TextBox3.Text = propiedadesDelGas.GetPropertiesOfGasesMix(2)
                 TextBox4.Text = propiedadesDelGas.ViscosidadEquivalente(TMezcla)
-                'Aqui a partir de del identificador, se define el valor de la viscosidad de la mezcla
+                'Aqui a partir del identificador, se define el valor de la viscosidad de la mezcla
+                'Ojo se considera que las propiedades de la mezcla en las corrientes que se encuentran comparten 50% de las carterísticas de cada composición
                 If id.Text = "Composición 1" Then
                     SolucionHardyCross.Viscosidad1.Text = "Viscosidad de la mezcla: " & Math.Round(propiedadesDelGas.ViscosidadEquivalente(TMezcla), 2)
                     SolucionHardyCross.Visco1.Text = Math.Round(propiedadesDelGas.ViscosidadEquivalente(TMezcla), 3)
                     SolucionHardyCross.Densidad1.Text = Math.Round(propiedadesDelGas.DensidadDeMezcla(CDbl(Replace(TextBox6.Text, ".", ","))), 3)
+                    SolucionHardyCross.Densidad3.Text = (CDbl(SolucionHardyCross.Densidad1.Text) + CDbl(SolucionHardyCross.Densidad2.Text)) / 2
+                    SolucionHardyCross.Visco3.Text = (CDbl(SolucionHardyCross.Visco1.Text) + CDbl(SolucionHardyCross.Visco2.Text)) / 2
                 ElseIf id.Text = "Composición 2" Then
                     SolucionHardyCross.Viscosidad2.Text = "Viscosidad de la mezcla: " & Math.Round(propiedadesDelGas.ViscosidadEquivalente(TMezcla), 2)
                     SolucionHardyCross.Visco2.Text = Math.Round(propiedadesDelGas.ViscosidadEquivalente(TMezcla), 3)
                     SolucionHardyCross.Densidad2.Text = Math.Round(propiedadesDelGas.DensidadDeMezcla(CDbl(Replace(TextBox6.Text, ".", ","))), 3)
+                    SolucionHardyCross.Densidad3.Text = (CDbl(SolucionHardyCross.Densidad1.Text) + CDbl(SolucionHardyCross.Densidad2.Text)) / 2
+                    SolucionHardyCross.Visco3.Text = (CDbl(SolucionHardyCross.Visco1.Text) + CDbl(SolucionHardyCross.Visco2.Text)) / 2
                 End If
             Catch ex As Exception
                 MsgBox("La gravedad especifica no debe ser igual a 0!!")

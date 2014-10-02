@@ -17,7 +17,7 @@ Public Class GeneradorReporte
         Dim FileName As String = "\Reporte2.txt"
         Dim file As System.IO.StreamWriter
         file = My.Computer.FileSystem.OpenTextFileWriter(pathToFile & FileName, True)
-        file.WriteLine("There this is my first Report!!" & vbCrLf & vbCrLf & _
+        file.WriteLine("Hello There, this is my first Report!!" & vbCrLf & vbCrLf & _
                        "And this a second line which I use to append in a better way")
         file.Close()
         Shell("notepad.exe " & pathToFile & FileName, AppWinStyle.MaximizedFocus)

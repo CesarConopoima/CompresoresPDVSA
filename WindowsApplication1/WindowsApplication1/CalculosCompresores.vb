@@ -24,8 +24,9 @@
     End Function
     'Calculo de la variación de Entalpia en compresores reciprocantes
     'Las unidades de temperatura es en Kelvin, RGas en [J/Kg*K]= Runiv/PMAire=8314.3/28.97=287 ; kGas=1.4 el coef de calor especifico del aire
-    Public Function CambioEntalpiaIsoentropica(PresionSuccion As Double, PresionDescarga As Double, TempSuccion As Double, kGas As Double, RGas As Double, z1 As Double, z2 As Double) As Double
-        Return RGas * TempSuccion * ((z2 + z1) / 2) * kGas / (kGas - 1) * ((PresionDescarga / PresionSuccion) ^ ((kGas - 1) / kGas) - 1)
+    Public Function CambioEntalpiaIsoentropica(PresionSuccion As Double, PresionDescarga As Double, TempSuccion As Double, kGas As Double, RGas As Double, z1 As Double, z2 As Double, ns As Double) As Double
+        Dim np As Double = CoefPolitropico(kGas, PresionDescarga, PresionSuccion, ns)
+        Return RGas * TempSuccion * ((z2 + z1) / 2) * np / (np - 1) * ((PresionDescarga / PresionSuccion) ^ ((np - 1) / np) - 1)
     End Function
     'Calculo argumentos en [Kg/s] y DeltaEntalpia [J/Kg]  de la potencia consumida por el equipo retorna en [Kw]
     Public Function Potencia(FlujoMasico As Double, DeltaEntalpia As Double, ns As Double, nv As Double, nm As Double) As Double
@@ -37,6 +38,10 @@
     Public Function TempAeroenfriador(FlujoMasico As Double, FlujoVolumetrico As Double, Presion As Double, Temperatura As Double)
         Return Presion / (287 * FlujoMasico / (FlujoVolumetrico / 3600))
     End Function
+    Private Function CoefPolitropico(kGas As Double, PresionDescarga As Double, PresionSuccion As Double, ns As Double) As Double
+        Return 1 / (1 - Math.Log((((PresionDescarga / PresionSuccion) ^ ((kGas - 1) / kGas) - 1) / ns + 1)) / Math.Log((PresionDescarga / PresionSuccion)))
+    End Function
+
 
 
 

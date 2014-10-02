@@ -232,7 +232,7 @@ Partial Class GasComposicion
         '
         'TextBox12
         '
-        Me.TextBox12.Location = New System.Drawing.Point(230, 165)
+        Me.TextBox12.Location = New System.Drawing.Point(230, 152)
         Me.TextBox12.Name = "TextBox12"
         Me.TextBox12.Size = New System.Drawing.Size(50, 20)
         Me.TextBox12.TabIndex = 24
@@ -241,7 +241,7 @@ Partial Class GasComposicion
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(171, 139)
+        Me.Label9.Location = New System.Drawing.Point(171, 126)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(176, 15)
         Me.Label9.TabIndex = 25
@@ -251,7 +251,7 @@ Partial Class GasComposicion
         '
         Me.Label14.AutoSize = True
         Me.Label14.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(192, 196)
+        Me.Label14.Location = New System.Drawing.Point(192, 181)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(141, 15)
         Me.Label14.TabIndex = 26
@@ -268,7 +268,7 @@ Partial Class GasComposicion
         '
         Me.Label15.AutoSize = True
         Me.Label15.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.Location = New System.Drawing.Point(171, 260)
+        Me.Label15.Location = New System.Drawing.Point(171, 239)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(163, 15)
         Me.Label15.TabIndex = 28
@@ -276,14 +276,14 @@ Partial Class GasComposicion
         '
         'TextBox13
         '
-        Me.TextBox13.Location = New System.Drawing.Point(230, 224)
+        Me.TextBox13.Location = New System.Drawing.Point(230, 207)
         Me.TextBox13.Name = "TextBox13"
         Me.TextBox13.Size = New System.Drawing.Size(50, 20)
         Me.TextBox13.TabIndex = 29
         '
         'TextBox14
         '
-        Me.TextBox14.Location = New System.Drawing.Point(230, 282)
+        Me.TextBox14.Location = New System.Drawing.Point(230, 263)
         Me.TextBox14.Name = "TextBox14"
         Me.TextBox14.Size = New System.Drawing.Size(50, 20)
         Me.TextBox14.TabIndex = 30
@@ -292,7 +292,7 @@ Partial Class GasComposicion
         '
         Me.Label16.AutoSize = True
         Me.Label16.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label16.Location = New System.Drawing.Point(192, 312)
+        Me.Label16.Location = New System.Drawing.Point(192, 291)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(141, 15)
         Me.Label16.TabIndex = 31
@@ -300,34 +300,34 @@ Partial Class GasComposicion
         '
         'TextBox15
         '
-        Me.TextBox15.Location = New System.Drawing.Point(230, 335)
+        Me.TextBox15.Location = New System.Drawing.Point(230, 314)
         Me.TextBox15.Name = "TextBox15"
         Me.TextBox15.Size = New System.Drawing.Size(50, 20)
         Me.TextBox15.TabIndex = 32
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(93, 376)
+        Me.Button1.Location = New System.Drawing.Point(93, 361)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(183, 27)
+        Me.Button1.Size = New System.Drawing.Size(183, 42)
         Me.Button1.TabIndex = 33
-        Me.Button1.Text = "Determinar Características"
+        Me.Button1.Text = "Determinar y Guardar características"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(120, 409)
+        Me.Button2.Location = New System.Drawing.Point(118, 409)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(139, 26)
         Me.Button2.TabIndex = 34
-        Me.Button2.Text = "Habilitar"
+        Me.Button2.Text = "Habilitar gases extras"
         Me.Button2.UseVisualStyleBackColor = True
         '
         'Label17
         '
         Me.Label17.AutoSize = True
         Me.Label17.Font = New System.Drawing.Font("Arial Rounded MT Bold", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label17.Location = New System.Drawing.Point(216, 108)
+        Me.Label17.Location = New System.Drawing.Point(216, 95)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(81, 17)
         Me.Label17.TabIndex = 35

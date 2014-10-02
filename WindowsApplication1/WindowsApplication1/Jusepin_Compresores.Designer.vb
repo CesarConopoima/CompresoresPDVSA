@@ -22,8 +22,11 @@ Partial Class Jusepin_Compresores
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim TabPage1 As System.Windows.Forms.TabPage
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Jusepin_Compresores))
+        Me.InfoGlobal = New System.Windows.Forms.Label()
+        Me.Label30 = New System.Windows.Forms.Label()
         Me.InfoCondensado = New System.Windows.Forms.Label()
         Me.Label29 = New System.Windows.Forms.Label()
         Me.InfoEnfriador1 = New System.Windows.Forms.Label()
@@ -36,7 +39,7 @@ Partial Class Jusepin_Compresores
         Me.Titulo = New System.Windows.Forms.Label()
         Me.NombreMaquina = New System.Windows.Forms.GroupBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.Label14 = New System.Windows.Forms.Label()
+        Me.TempRucio = New System.Windows.Forms.Label()
         Me.TextDescargaCompresor2 = New System.Windows.Forms.Label()
         Me.TextTempIntercambiador = New System.Windows.Forms.Label()
         Me.TextDescargaCompresor1 = New System.Windows.Forms.Label()
@@ -95,6 +98,7 @@ Partial Class Jusepin_Compresores
         Me.HumedadRelativa = New System.Windows.Forms.TextBox()
         Me.Tambiental = New System.Windows.Forms.TextBox()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         TabPage1 = New System.Windows.Forms.TabPage()
         TabPage1.SuspendLayout()
         Me.NombreMaquina.SuspendLayout()
@@ -108,6 +112,8 @@ Partial Class Jusepin_Compresores
         '
         'TabPage1
         '
+        TabPage1.Controls.Add(Me.InfoGlobal)
+        TabPage1.Controls.Add(Me.Label30)
         TabPage1.Controls.Add(Me.InfoCondensado)
         TabPage1.Controls.Add(Me.Label29)
         TabPage1.Controls.Add(Me.InfoEnfriador1)
@@ -126,10 +132,29 @@ Partial Class Jusepin_Compresores
         TabPage1.Text = "Información de Interés"
         TabPage1.UseVisualStyleBackColor = True
         '
+        'InfoGlobal
+        '
+        Me.InfoGlobal.AutoSize = True
+        Me.InfoGlobal.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.InfoGlobal.Location = New System.Drawing.Point(149, 256)
+        Me.InfoGlobal.Name = "InfoGlobal"
+        Me.InfoGlobal.Size = New System.Drawing.Size(48, 15)
+        Me.InfoGlobal.TabIndex = 13
+        Me.InfoGlobal.Text = "Valor5"
+        '
+        'Label30
+        '
+        Me.Label30.AutoSize = True
+        Me.Label30.Location = New System.Drawing.Point(80, 225)
+        Me.Label30.Name = "Label30"
+        Me.Label30.Size = New System.Drawing.Size(281, 13)
+        Me.Label30.TabIndex = 12
+        Me.Label30.Text = "Relación de compresión global y potencia total consumida"
+        '
         'InfoCondensado
         '
         Me.InfoCondensado.AutoSize = True
-        Me.InfoCondensado.Location = New System.Drawing.Point(259, 189)
+        Me.InfoCondensado.Location = New System.Drawing.Point(259, 185)
         Me.InfoCondensado.Name = "InfoCondensado"
         Me.InfoCondensado.Size = New System.Drawing.Size(37, 13)
         Me.InfoCondensado.TabIndex = 11
@@ -138,7 +163,7 @@ Partial Class Jusepin_Compresores
         'Label29
         '
         Me.Label29.AutoSize = True
-        Me.Label29.Location = New System.Drawing.Point(35, 189)
+        Me.Label29.Location = New System.Drawing.Point(35, 185)
         Me.Label29.Name = "Label29"
         Me.Label29.Size = New System.Drawing.Size(162, 13)
         Me.Label29.TabIndex = 10
@@ -203,9 +228,9 @@ Partial Class Jusepin_Compresores
         Me.RelacionCompresion.AutoSize = True
         Me.RelacionCompresion.Location = New System.Drawing.Point(35, 54)
         Me.RelacionCompresion.Name = "RelacionCompresion"
-        Me.RelacionCompresion.Size = New System.Drawing.Size(261, 13)
+        Me.RelacionCompresion.Size = New System.Drawing.Size(362, 13)
         Me.RelacionCompresion.TabIndex = 2
-        Me.RelacionCompresion.Text = "Relación de compresión y temperatura en la descarga"
+        Me.RelacionCompresion.Text = "Relación de compresión, temperatura en la descarga y potencia consumida"
         '
         'Titulo
         '
@@ -231,7 +256,7 @@ Partial Class Jusepin_Compresores
         '
         'GroupBox3
         '
-        Me.GroupBox3.Controls.Add(Me.Label14)
+        Me.GroupBox3.Controls.Add(Me.TempRucio)
         Me.GroupBox3.Controls.Add(Me.TextDescargaCompresor2)
         Me.GroupBox3.Controls.Add(Me.TextTempIntercambiador)
         Me.GroupBox3.Controls.Add(Me.TextDescargaCompresor1)
@@ -246,14 +271,14 @@ Partial Class Jusepin_Compresores
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Sistema de Compresión de aire para Jusepin"
         '
-        'Label14
+        'TempRucio
         '
-        Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(305, 34)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(67, 26)
-        Me.Label14.TabIndex = 8
-        Me.Label14.Text = "Temperatura" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "    Gases"
+        Me.TempRucio.AutoSize = True
+        Me.TempRucio.Location = New System.Drawing.Point(305, 34)
+        Me.TempRucio.Name = "TempRucio"
+        Me.TempRucio.Size = New System.Drawing.Size(67, 26)
+        Me.TempRucio.TabIndex = 8
+        Me.TempRucio.Text = "Temperatura" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "    Gases"
         '
         'TextDescargaCompresor2
         '
@@ -528,7 +553,7 @@ Partial Class Jusepin_Compresores
         '
         'RPM
         '
-        Me.RPM.Location = New System.Drawing.Point(177, 260)
+        Me.RPM.Location = New System.Drawing.Point(177, 269)
         Me.RPM.Name = "RPM"
         Me.RPM.Size = New System.Drawing.Size(70, 20)
         Me.RPM.TabIndex = 30
@@ -536,7 +561,7 @@ Partial Class Jusepin_Compresores
         'Label24
         '
         Me.Label24.AutoSize = True
-        Me.Label24.Location = New System.Drawing.Point(9, 263)
+        Me.Label24.Location = New System.Drawing.Point(9, 272)
         Me.Label24.Name = "Label24"
         Me.Label24.Size = New System.Drawing.Size(31, 13)
         Me.Label24.TabIndex = 29
@@ -544,7 +569,7 @@ Partial Class Jusepin_Compresores
         '
         'Area
         '
-        Me.Area.Location = New System.Drawing.Point(177, 236)
+        Me.Area.Location = New System.Drawing.Point(177, 245)
         Me.Area.Name = "Area"
         Me.Area.Size = New System.Drawing.Size(70, 20)
         Me.Area.TabIndex = 28
@@ -552,7 +577,7 @@ Partial Class Jusepin_Compresores
         'Label23
         '
         Me.Label23.AutoSize = True
-        Me.Label23.Location = New System.Drawing.Point(9, 239)
+        Me.Label23.Location = New System.Drawing.Point(9, 248)
         Me.Label23.Name = "Label23"
         Me.Label23.Size = New System.Drawing.Size(58, 13)
         Me.Label23.TabIndex = 27
@@ -561,7 +586,7 @@ Partial Class Jusepin_Compresores
         'Label20
         '
         Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(49, 135)
+        Me.Label20.Location = New System.Drawing.Point(49, 143)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(134, 13)
         Me.Label20.TabIndex = 25
@@ -655,7 +680,7 @@ Partial Class Jusepin_Compresores
         '
         'DiametroBiela
         '
-        Me.DiametroBiela.Location = New System.Drawing.Point(177, 211)
+        Me.DiametroBiela.Location = New System.Drawing.Point(177, 220)
         Me.DiametroBiela.Name = "DiametroBiela"
         Me.DiametroBiela.Size = New System.Drawing.Size(70, 20)
         Me.DiametroBiela.TabIndex = 13
@@ -663,7 +688,7 @@ Partial Class Jusepin_Compresores
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(7, 214)
+        Me.Label10.Location = New System.Drawing.Point(7, 223)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(117, 13)
         Me.Label10.TabIndex = 12
@@ -671,7 +696,7 @@ Partial Class Jusepin_Compresores
         '
         'Diametro
         '
-        Me.Diametro.Location = New System.Drawing.Point(177, 185)
+        Me.Diametro.Location = New System.Drawing.Point(177, 194)
         Me.Diametro.Name = "Diametro"
         Me.Diametro.Size = New System.Drawing.Size(70, 20)
         Me.Diametro.TabIndex = 11
@@ -679,7 +704,7 @@ Partial Class Jusepin_Compresores
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(7, 188)
+        Me.Label9.Location = New System.Drawing.Point(7, 197)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(66, 13)
         Me.Label9.TabIndex = 10
@@ -695,7 +720,7 @@ Partial Class Jusepin_Compresores
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(7, 163)
+        Me.Label8.Location = New System.Drawing.Point(7, 172)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(55, 13)
         Me.Label8.TabIndex = 8
@@ -748,7 +773,7 @@ Partial Class Jusepin_Compresores
         '
         'Stroke
         '
-        Me.Stroke.Location = New System.Drawing.Point(177, 159)
+        Me.Stroke.Location = New System.Drawing.Point(177, 168)
         Me.Stroke.Name = "Stroke"
         Me.Stroke.Size = New System.Drawing.Size(70, 20)
         Me.Stroke.TabIndex = 2
@@ -775,6 +800,10 @@ Partial Class Jusepin_Compresores
         Me.TabControl1.SelectedIndex = 0
         Me.TabControl1.Size = New System.Drawing.Size(445, 330)
         Me.TabControl1.TabIndex = 3
+        '
+        'Timer1
+        '
+        Me.Timer1.Interval = 700
         '
         'Jusepin_Compresores
         '
@@ -852,7 +881,7 @@ Partial Class Jusepin_Compresores
     Friend WithEvents FlujoVolumetrico As System.Windows.Forms.TextBox
     Friend WithEvents Label22 As System.Windows.Forms.Label
     Friend WithEvents TabControl1 As System.Windows.Forms.TabControl
-    Friend WithEvents Label14 As System.Windows.Forms.Label
+    Friend WithEvents TempRucio As System.Windows.Forms.Label
     Friend WithEvents TempAeroenfriador As System.Windows.Forms.TextBox
     Friend WithEvents Label15 As System.Windows.Forms.Label
     Friend WithEvents TemperaturaUnidades As System.Windows.Forms.ComboBox
@@ -876,4 +905,7 @@ Partial Class Jusepin_Compresores
     Friend WithEvents Label26 As System.Windows.Forms.Label
     Friend WithEvents Label27 As System.Windows.Forms.Label
     Friend WithEvents RelacionCompresion As System.Windows.Forms.Label
+    Friend WithEvents InfoGlobal As System.Windows.Forms.Label
+    Friend WithEvents Label30 As System.Windows.Forms.Label
+    Friend WithEvents Timer1 As System.Windows.Forms.Timer
 End Class

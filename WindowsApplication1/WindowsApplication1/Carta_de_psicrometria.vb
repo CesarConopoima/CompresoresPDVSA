@@ -106,6 +106,9 @@
         Jusepin_Compresores.Tambiental.Text = TextBox1.Text
         Jusepin_Compresores.HumedadRelativa.Text = TextBox5.Text
         Jusepin_Compresores.HumedadAbsoluta.Text = TextBox2.Text
+        SantaBarbara_Compresores.Tambiental.Text = TextBox1.Text
+        SantaBarbara_Compresores.HumedadRelativa.Text = TextBox5.Text
+        SantaBarbara_Compresores.HumedadAbsoluta.Text = TextBox2.Text
         Me.Close()
     End Sub
 

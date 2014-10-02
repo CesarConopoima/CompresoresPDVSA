@@ -59,7 +59,7 @@ Public Class Jusepin_Compresores
             Dim EficienciaVol As Double = 0.7415 'Ojo esto debería tener una rutina de calculo asociada que no está aun programada
             Dim FlujoVol As Double = Math.Round(CalculosCompresores.FlujoVolumetrico_DoubleEfecto(DCilindro, DBiela, Corrida, RPMActual) * EficienciaVol, 2)
             Dim FlujoMass As Double = Math.Round((CalculosCompresores.FlujoMasico(FlujoVol, PresionSuccion * 6894.75729, ZGas, RGas, TempSuccion * 5 / 9)) / 3600, 2)
-            Dim DeltaEntalpia As Double = Math.Round(CalculosCompresores.CambioEntalpiaIsoentropica(PresionSuccion, PresionDescarga, TempSuccion * 5 / 9, KGas, RGas, 1, 1))
+            Dim DeltaEntalpia As Double = Math.Round(CalculosCompresores.CambioEntalpiaIsoentropica(PresionSuccion, PresionDescarga, TempSuccion * 5 / 9, KGas, RGas, 1, 1, 1))
 
             'Aquí el orden de los argumentos de la función son KGas, P2,P1,T1,ns
             Tdescarga.Text = Math.Round(CalculosCompresores.TempDescarga(1.4, PresionDescarga, PresionSuccion, TempSuccion, 1), 2)
@@ -78,9 +78,10 @@ Public Class Jusepin_Compresores
             'Esta variable guarda los valores de Presion y Temperatura en la descarga del compresor1
             'Ella se redefine cada vez que se hace calcular y estamos en el compresor1
 
-            CondicionesCompresor1 = {PresionDescarga, FlujoMass, Math.Round(CalculosCompresores.TempDescarga(1.4, PresionDescarga, PresionSuccion, TempSuccion, 1), 2)}
-            'Llenar la infor resumen en la parte derecha
-            InfoCompre1.Text = Math.Round(PresionDescarga / 14.7, 2) & "   " & Math.Round((Math.Round(CalculosCompresores.TempDescarga(1.4, PresionDescarga, PresionSuccion, TempSuccion, 1), 2) - 491) * 5 / 9, 2) & "  [°C]"
+            'Este vector guarda las condiciones de operación del compresor 1, Presión en la descar,FlujoMasico,TempDelAeroenfriado,PotenciaConsumidaCompresor1
+            CondicionesCompresor1 = {PresionDescarga, FlujoMass, Math.Round(CalculosCompresores.TempDescarga(1.4, PresionDescarga, PresionSuccion, TempSuccion, 1), 2), Math.Round(CalculosCompresores.Potencia(FlujoMass, DeltaEntalpia, 0.7415, 1, 0.9), 2)}
+            'Llenar la info resumen en la parte derecha
+            InfoCompre1.Text = Math.Round(PresionDescarga / 14.7, 2) & "   " & Math.Round((Math.Round(CalculosCompresores.TempDescarga(1.4, PresionDescarga, PresionSuccion, TempSuccion, 1), 2) - 491) * 5 / 9, 2) & "  [°C]" & "    " & Math.Round(CalculosCompresores.Potencia(FlujoMass, DeltaEntalpia, 0.7415, 1, 0.9), 2) & " [Kw]"
             'Condicional para evaluar si la presión de descarga es mayor a la presión atmosferica
             If PresionDescarga <= 14.7 Then
                 MsgBox("La presión de descarga es menor a la presión atmosférica" & vbCrLf & "porfavor escriba un valor mayor a:" & vbCrLf & "14.7 [psi], 101352.932 [Pa], 101.352 [Kpa], 0.1[Mpa], 1.0135 [Bar]")
@@ -93,6 +94,7 @@ Public Class Jusepin_Compresores
             Dim PresionSuccion As Double = CondicionesCompresor1(0)
             Dim FlujoMasicoSistema As Double = CondicionesCompresor1(1)
             Dim TempDescargaCompre1 As Double = CondicionesCompresor1(2)
+            Dim PotenciaCompre1 As Double = CondicionesCompresor1(3)
             Dim CalculosCompresores As New CalculosCompresores
             Dim ZGas As Double = 1
             Dim RGas As Double = 8314.3 / 28.97
@@ -110,7 +112,7 @@ Public Class Jusepin_Compresores
             'Vieja temp de succión para satisfacer el flujo másico, el cálculo es diferente
             'Dim TempSuccion As Double = (CalculosCompresores.TempAeroenfriador(FlujoMasicoSistema, FlujoVol, PresionSuccion * 6894.75729, TempDescargaCompre1 * 5 / 9)) * 9 / 5 'Esta función esta definida as Private al final de la clase
             Dim TempSuccion As Double = TempSuccionCompre2()
-            Dim DeltaEntalpia As Double = Math.Round(CalculosCompresores.CambioEntalpiaIsoentropica(PresionSuccion, PresionDescarga, TempSuccion * 5 / 9, KGas, RGas, 1, 1))
+            Dim DeltaEntalpia As Double = Math.Round(CalculosCompresores.CambioEntalpiaIsoentropica(PresionSuccion, PresionDescarga, TempSuccion * 5 / 9, KGas, RGas, 1, 1, 1))
             'TempAeroenfriador.Text = Math.Round(TempSuccion, 2)
 
             If PresionDescarga <= PresionSuccion Then
@@ -121,17 +123,35 @@ Public Class Jusepin_Compresores
                 FlujoMasico.Text = FlujoMasicoSistema 'Este valor es fijo pues es el flujo másico físico del sistema
                 Potencia.Text = Math.Round(CalculosCompresores.Potencia(FlujoMasicoSistema, DeltaEntalpia, 0.7415, 1, 0.9), 2)
                 TextDescargaCompresor2.Text = "Presión" & vbCrLf & Pdescarga.Text & "[psi]" & vbCrLf & "Temperatura" & vbCrLf & Tdescarga.Text & "[R]"
-                InfoCompre2.Text = Math.Round(PresionDescarga / PresionSuccion, 2) & "   " & Math.Round((Math.Round(CalculosCompresores.TempDescarga(1.4, PresionDescarga, PresionSuccion, TempSuccion, 1), 2) - 491) * 5 / 9, 2) & "  [°C]"
+                InfoCompre2.Text = Math.Round(PresionDescarga / PresionSuccion, 2) & "   " & Math.Round((Math.Round(CalculosCompresores.TempDescarga(1.4, PresionDescarga, PresionSuccion, TempSuccion, 1), 2) - 491) * 5 / 9, 2) & "  [°C]" & "    " & Math.Round(CalculosCompresores.Potencia(FlujoMasicoSistema, DeltaEntalpia, 0.7415, 1, 0.9), 2) & " [Kw]"
                 InfoEnfriador1.Text = Math.Round((TempSuccion - 491) * 5 / 9, 2) & "  [°C]"
                 'calculo de la temp despues del aeroenfriador
 
                 'Definición de variables y condiciones para cálcular el condensado de la línea despues del aeroenfriador
-                Dim ValueHumedadAbs As Double = (CDbl(HumedadAbsoluta.Text)) / 1000
+                Dim ValueHumedadAbs As Double = (CDbl(HumedadAbsoluta.Text)) / 1000 'Humedad absoluta entre 1000 para llevarla a unidades consistentes
                 Dim PresionActual As Double = PresionSuccion * 6894.75729 'Para pasar de [psi] to [Pa]
                 Dim TempActual As Double = TempSuccion * 5 / 9 'Esta viene en Rankine, necesario pasar a Kelvin por eso el factor de adelante
                 Dim FlujoMasicoAire As Double = CDbl(FlujoMasico.Text)
                 Dim EstimacionCondensado As New CalculoCondensado(ValueHumedadAbs, PresionActual, TempActual, FlujoMasicoAire)
-                InfoCondensado.Text = EstimacionCondensado.LiquidoCondensado()
+
+                'Aquí debería ir algun flag para determinar cuando haya condensado y poner un msgbox y una alarma visual!!
+                If EstimacionCondensado.LiquidoCondensado() > 0 Then
+                    MsgBox("Existe condensado en la línea del aeroenfridor!." & vbCrLf &
+                           "Cuidado con el golpe líquido en sus válvulas!!")
+                    Timer1.Enabled = True
+                End If
+                InfoCondensado.Text = Math.Round(EstimacionCondensado.LiquidoCondensado() * 60, 3) & "   [Litros/min]"
+                'Mostrar la Temperatura de Rocio en el label de la descarga del intercambiador
+
+                'Crear un objeto diferente para tener la temp de Rocio
+                Dim EstimacionTemperaturaRocio As New CalculoCondensado(ValueHumedadAbs, PresionDescarga * 6894.75729, CDbl(Tdescarga.Text) * 5 / 9, FlujoMasicoAire)
+                TempRucio.Text = "Temperatura de rocio" & vbCrLf & Math.Round(EstimacionTemperaturaRocio.TempRocio()) & " [°C]" _
+                                & vbCrLf & "@  " & PresionDescargaInput
+
+                'Definición de variables para guardar las cantidades globales de interes del sistema
+                Dim PotenciaConsumida As Double = PotenciaCompre1 + Math.Round(CalculosCompresores.Potencia(FlujoMasicoSistema, DeltaEntalpia, 0.7415, 1, 0.9), 2)
+                Dim RelacionCompresionGlobal As Double = Math.Round(Math.Sqrt(PresionDescarga / PresionSuccion * PresionSuccion / 14.7), 2)
+                InfoGlobal.Text = RelacionCompresionGlobal & "       " & PotenciaConsumida & " [Kw]"
             End If
         Else
             MsgBox("Seleccione un Compresor para ser evaluado!")
@@ -219,8 +239,21 @@ Public Class Jusepin_Compresores
         Me.Close()
     End Sub
     Private Sub GenerarReporteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GenerarReporteToolStripMenuItem.Click
+        'Dim ValoresReporte
         Dim Reporte As New GeneradorReporte
+
         Reporte.WriteFile()
+    End Sub
+    'Timer para mostrar las alarmas cambiando el background de algunos textos a voluntad.
+    Dim blink As Boolean
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        If (blink) Then
+            Me.InfoCondensado.BackColor = Color.FromArgb(253, 186, 109)
+            blink = False
+        Else
+            Me.InfoCondensado.BackColor = Color.FromArgb(255, 250, 250)
+            blink = True
+        End If
     End Sub
 
 End Class

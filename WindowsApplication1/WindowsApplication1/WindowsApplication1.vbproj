@@ -131,6 +131,13 @@
     <Compile Include="Form3.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="My Project\Program.vb" />
+    <Compile Include="SantaBarbara_Compresores.Designer.vb">
+      <DependentUpon>SantaBarbara_Compresores.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SantaBarbara_Compresores.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="LNGComposicion.Designer.vb">
       <DependentUpon>LNGComposicion.vb</DependentUpon>
     </Compile>
@@ -152,12 +159,6 @@
     <Compile Include="Inicio.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Intro.Designer.vb">
-      <DependentUpon>Intro.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Intro.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Jusepin_Compresores.Designer.vb">
       <DependentUpon>Jusepin_Compresores.vb</DependentUpon>
     </Compile>
@@ -170,10 +171,10 @@
     <Compile Include="Jusepin_Bombas.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Jusepin_1.Designer.vb">
-      <DependentUpon>Jusepin_1.vb</DependentUpon>
+    <Compile Include="SantaBarbara_CC.Designer.vb">
+      <DependentUpon>SantaBarbara_CC.vb</DependentUpon>
     </Compile>
-    <Compile Include="Jusepin_1.vb">
+    <Compile Include="SantaBarbara_CC.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -191,7 +192,19 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="SB_CC_Detalle.Designer.vb">
+      <DependentUpon>SB_CC_Detalle.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SB_CC_Detalle.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Similitudes.vb" />
+    <Compile Include="SolucionHardyCrossOpcional.Designer.vb">
+      <DependentUpon>SolucionHardyCrossOpcional.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SolucionHardyCrossOpcional.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="SolucionHardyCross.Designer.vb">
       <DependentUpon>SolucionHardyCross.vb</DependentUpon>
     </Compile>
@@ -223,6 +236,10 @@
     <EmbeddedResource Include="Form3.resx">
       <DependentUpon>Form3.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="fSplashScreen.resx" />
+    <EmbeddedResource Include="SantaBarbara_Compresores.resx">
+      <DependentUpon>SantaBarbara_Compresores.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LNGComposicion.resx">
       <DependentUpon>LNGComposicion.vb</DependentUpon>
     </EmbeddedResource>
@@ -232,23 +249,26 @@
     <EmbeddedResource Include="Inicio.resx">
       <DependentUpon>Inicio.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Intro.resx">
-      <DependentUpon>Intro.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Jusepin_Compresores.resx">
       <DependentUpon>Jusepin_Compresores.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Jusepin_Bombas.resx">
       <DependentUpon>Jusepin_Bombas.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Jusepin_1.resx">
-      <DependentUpon>Jusepin_1.vb</DependentUpon>
+    <EmbeddedResource Include="SantaBarbara_CC.resx">
+      <DependentUpon>SantaBarbara_CC.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SB_CC_Detalle.resx">
+      <DependentUpon>SB_CC_Detalle.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SolucionHardyCrossOpcional.resx">
+      <DependentUpon>SolucionHardyCrossOpcional.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SolucionHardyCross.resx">
       <DependentUpon>SolucionHardyCross.vb</DependentUpon>

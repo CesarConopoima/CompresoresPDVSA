@@ -10,6 +10,10 @@ WindowsApplication1
 	<summary>
 Represents a strongly typed in-memory cache of data.
 </summary>
+</member><member name="M:WindowsApplication1.TestSplashScreen.Program.Main">
+	<summary>
+ The main entry point for the application.
+ </summary>
 </member><member name="P:WindowsApplication1.My.Resources.Resources.ResourceManager">
 	<summary>
   Returns the cached ResourceManager instance used by this class.

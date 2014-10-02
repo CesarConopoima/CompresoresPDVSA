@@ -67,14 +67,22 @@
     Private Function FlujoMasicoVapor() As Double
         Return FullFlujoMasicoAire * FullHumedadAbsoluta
     End Function
+    'Esta función regresa la Temperatura de rocio del vapor de agua, en función de la condición actual
+    'las unidades de retorno es [°C], al inicializar la clase, la temperatura debe venir en TempActual en [K]
+    'La presión en [Pa]
+    Public Function TempRocio() As Integer
+        Return 38.9974 + 3985.439 / (6.53247 - Math.Log(PresionVapor() / 22392825)) - 237.15
+        'Esta correlación de abajo no esta comprobada
+        'Return (FullHumedadAbsoluta * FullPresionActual / ((0.622 + FullHumedadAbsoluta) * PsatAntoin())) ^ (1 / 8) * (112 + 0.9 * (FullTemperaturaActual - 273.15)) + 0.1 * (FullTemperaturaActual - 273.15) - 112
+    End Function
+
     'Función que retorna la cantidad de agua condensada, darle un rango que permita darle un error al calculo para prevenir
-    'A los operadores de los condensados
+    'A los operadores de los condensados posibles en la linea de enfriamiento
     'Considerare tres posibles escenarios:
     '1) Donde se está cerca del condensado (13700[Pa]==2Psi) por debajo de la presión de saturación)
     '2) Donde se esta en el condensado 
     '3) Donde no se esta condensando
     'Las unidades de esto es tasa de agua condensada por segundo [Kg/s].... quizas sea más conveniente sacar en gr/min or gr/hora
-
     Public Function LiquidoCondensado() As Double
         If (PresionVapor() - 13700) > PsatAntoin() Then
             Return 1

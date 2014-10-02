@@ -164,4 +164,9 @@ Public Class Jusepin_Bombas
     Private Sub NumBombas_SelectedIndexChanged(sender As Object, e As EventArgs) Handles NumBombas.SelectedIndexChanged
         chart1Diseno()
     End Sub
+
+
+    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
+        SolucionHardyCrossOpcional.Show()
+    End Sub
 End Class

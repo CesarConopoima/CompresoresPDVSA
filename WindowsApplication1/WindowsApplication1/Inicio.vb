@@ -66,7 +66,7 @@ Public Class Inicio
         interruptor = 0
         apagarFotos()
         Me.PlantaJusepin = New Informacion_Planta("PDVSA-TRENC-001", "Planta Jusepin", "Planta de Extraccion de Gas", "situada al norte del Estado Monagas, 30 km al oeste de Maturín", "+58-426-XXX-XX-XX", DateString)
-        Me.PlantaSantaBarbara = New Informacion_Planta("PDVSA-TRENC-002", "Planta Santa Teresa", "Planta de Extraccion de Gas", "situada al norte del Estado Monagas, 30 km al oeste de Maturín", "+58-426-XXX-XX-XX", DateString)
+        Me.PlantaSantaBarbara = New Informacion_Planta("PDVSA-TRENC-002", "Planta Santa Barbara", "Planta de Extraccion de Gas", "situada al norte del Estado Monagas, 30 km al oeste de Maturín", "+58-426-XXX-XX-XX", DateString)
         Me.PlantaSanJoaquin = New Informacion_Planta("PDVSA-TRENC-003", "Planta Jose", "Planta de Extraccion de Gas", "situada al norte del Estado Monagas, 30 km al oeste de Maturín", "+58-426-XXX-XX-XX", DateString)
     End Sub
 
@@ -102,18 +102,25 @@ Public Class Inicio
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         SubSistema1.Image = Image.FromFile(Path.GetFullPath("ImgPresentacion/CompresionJusepinIntro.png"))
+        SubSistema1.Image.Tag = "Sistema de Compresores Reciprocantes" & vbCrLf & "Jusepin"
         SubSistema1.Width = Image.FromFile(Path.GetFullPath("ImgPresentacion/CompresionJusepinIntro.png")).Width
         SubSistema1.Height = Image.FromFile(Path.GetFullPath("ImgPresentacion/CompresionJusepinIntro.png")).Height
         SubSistema2.Image = Image.FromFile(Path.GetFullPath("ImgPresentacion/BombasJusepinIntro.png"))
+        SubSistema2.Image.Tag = "Sistema de Bombas LGN"
         SubSistema2.Width = Image.FromFile(Path.GetFullPath("ImgPresentacion/BombasJusepinIntro.png")).Width
         SubSistema2.Height = Image.FromFile(Path.GetFullPath("ImgPresentacion/BombasJusepinIntro.png")).Height
         llenarInformacion(Me.PlantaJusepin)
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        SubSistema1.Image = Image.FromFile(Path.GetFullPath("ImgPresentacion/CompresionJusepinIntro.png"))
-        SubSistema1.Width = Image.FromFile(Path.GetFullPath("ImgPresentacion/CompresionJusepinIntro.png")).Width
-        SubSistema1.Height = Image.FromFile(Path.GetFullPath("ImgPresentacion/CompresionJusepinIntro.png")).Height
+        SubSistema1.Image = Image.FromFile(Path.GetFullPath("ImgPresentacion/CompresionSantaBarbara2.png"))
+        SubSistema1.Image.Tag = "Sistema de Compresores Reciprocantes" & vbCrLf & "Santa Barbara"
+        SubSistema1.Width = Image.FromFile(Path.GetFullPath("ImgPresentacion/CompresionSantaBarbara2.png")).Width
+        SubSistema1.Height = Image.FromFile(Path.GetFullPath("ImgPresentacion/CompresionSantaBarbara2.png")).Height
+        SubSistema2.Image = Image.FromFile(Path.GetFullPath("ImgPresentacion/SistemaCompresion2.png"))
+        SubSistema2.Image.Tag = "Sistema de Compresores Centrífugos" & vbCrLf & "Santa Barbara"
+        SubSistema2.Width = Image.FromFile(Path.GetFullPath("ImgPresentacion/SistemaCompresion2.png")).Width
+        SubSistema2.Height = Image.FromFile(Path.GetFullPath("ImgPresentacion/SistemaCompresion2.png")).Height
         llenarInformacion(Me.PlantaSantaBarbara)
     End Sub
 
@@ -127,16 +134,26 @@ Public Class Inicio
 
         If LabelSubsistema.Text = "Sin Selección" Then
             MsgBox("Seleccione un Subsistema a estudiar!")
-        ElseIf LabelSubsistema.Text = "Sistema de Compresores Reciprocantes" And nameOfSystem = "Planta Jusepin" Then
+        ElseIf LabelSubsistema.Text = "Sistema de Compresores Reciprocantes" & vbCrLf & "Jusepin" And nameOfSystem = "Planta Jusepin" Then
             Jusepin_Compresores.Label1.Text = LabelNombre.Text
             Jusepin_Compresores.Label2.Text = LabelDescripcion.Text
             Jusepin_Compresores.Label21.Text = LabelSubsistema.Text
             Jusepin_Compresores.Show()
-        ElseIf LabelSubsistema.Text = "Sistema de Bombas LNG" And nameOfSystem = "Planta Jusepin" Then
+        ElseIf LabelSubsistema.Text = "Sistema de Bombas LGN" And nameOfSystem = "Planta Jusepin" Then
             Jusepin_Bombas.Label1.Text = LabelNombre.Text
             Jusepin_Bombas.Label2.Text = LabelDescripcion.Text
             Jusepin_Bombas.Label13.Text = LabelSubsistema.Text
             Jusepin_Bombas.Show()
+        ElseIf LabelSubsistema.Text = "Sistema de Compresores Centrífugos" & vbCrLf & "Santa Barbara" And nameOfSystem = "Planta Santa Barbara" Then
+            SantaBarbara_CC.Label1.Text = LabelNombre.Text
+            SantaBarbara_CC.Label2.Text = LabelDescripcion.Text
+            SantaBarbara_CC.Label15.Text = LabelSubsistema.Text
+            SantaBarbara_CC.Show()
+        ElseIf LabelSubsistema.Text = "Sistema de Compresores Reciprocantes" & vbCrLf & "Santa Barbara" And nameOfSystem = "Planta Santa Barbara" Then
+            SantaBarbara_Compresores.Label1.Text = LabelNombre.Text
+            SantaBarbara_Compresores.Label2.Text = LabelDescripcion.Text
+            SantaBarbara_Compresores.Label21.Text = LabelSubsistema.Text
+            SantaBarbara_Compresores.Show()
         End If
         
     End Sub
@@ -144,12 +161,13 @@ Public Class Inicio
     Private Sub SubSistema1_Click(sender As Object, e As EventArgs) Handles SubSistema1.Click
         'Ojo no esta Generalizado es necesario saber primero de que sistema se trata para conocer el 
         'verdadero nombre de este label
-        LabelSubsistema.Text = "Sistema de Compresores Reciprocantes"
+        LabelSubsistema.Text = SubSistema1.Image.Tag
     End Sub
 
     Private Sub SubSistema2_Click(sender As Object, e As EventArgs) Handles SubSistema2.Click
         'Ojo no esta Generalizado es necesario saber primero de que sistema se trata para conocer el 
         'verdadero nombre de este label
-        LabelSubsistema.Text = "Sistema de Bombas LNG"
+        LabelSubsistema.Text = SubSistema2.Image.Tag
     End Sub
+
 End Class

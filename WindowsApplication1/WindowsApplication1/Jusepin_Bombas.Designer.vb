@@ -23,12 +23,12 @@ Partial Class Jusepin_Bombas
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Jusepin_Bombas))
-        Dim ChartArea3 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend3 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series3 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea4 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Legend4 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
-        Dim Series4 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.Label14 = New System.Windows.Forms.Label()
@@ -39,6 +39,8 @@ Partial Class Jusepin_Bombas
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.NumBombas = New System.Windows.Forms.ComboBox()
         Me.Button3 = New System.Windows.Forms.Button()
@@ -49,17 +51,11 @@ Partial Class Jusepin_Bombas
         Me.Label18 = New System.Windows.Forms.Label()
         Me.NEtapas = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.Coefdiseno = New System.Windows.Forms.TextBox()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.Zdiseno = New System.Windows.Forms.TextBox()
-        Me.Label9 = New System.Windows.Forms.Label()
         Me.EficMax = New System.Windows.Forms.TextBox()
-        Me.Label8 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.PMdiseno = New System.Windows.Forms.TextBox()
         Me.Hdiseno = New System.Windows.Forms.TextBox()
         Me.Qdiseno = New System.Windows.Forms.TextBox()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
@@ -67,6 +63,7 @@ Partial Class Jusepin_Bombas
         Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.Chart2 = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -95,9 +92,9 @@ Partial Class Jusepin_Bombas
         Me.GroupBox3.Controls.Add(Me.Label14)
         Me.GroupBox3.Controls.Add(Me.Label12)
         Me.GroupBox3.Controls.Add(Me.PictureBox1)
-        Me.GroupBox3.Location = New System.Drawing.Point(164, 9)
+        Me.GroupBox3.Location = New System.Drawing.Point(233, 9)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(986, 236)
+        Me.GroupBox3.Size = New System.Drawing.Size(917, 236)
         Me.GroupBox3.TabIndex = 1
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "GroupBox3"
@@ -175,6 +172,9 @@ Partial Class Jusepin_Bombas
         '
         'GroupBox5
         '
+        Me.GroupBox5.Controls.Add(Me.Button1)
+        Me.GroupBox5.Controls.Add(Me.Label8)
+        Me.GroupBox5.Controls.Add(Me.Label3)
         Me.GroupBox5.Controls.Add(Me.Label15)
         Me.GroupBox5.Controls.Add(Me.NumBombas)
         Me.GroupBox5.Controls.Add(Me.Button3)
@@ -185,17 +185,11 @@ Partial Class Jusepin_Bombas
         Me.GroupBox5.Controls.Add(Me.Label18)
         Me.GroupBox5.Controls.Add(Me.NEtapas)
         Me.GroupBox5.Controls.Add(Me.Label11)
-        Me.GroupBox5.Controls.Add(Me.Coefdiseno)
-        Me.GroupBox5.Controls.Add(Me.Label10)
-        Me.GroupBox5.Controls.Add(Me.Zdiseno)
-        Me.GroupBox5.Controls.Add(Me.Label9)
         Me.GroupBox5.Controls.Add(Me.EficMax)
-        Me.GroupBox5.Controls.Add(Me.Label8)
         Me.GroupBox5.Controls.Add(Me.Label7)
         Me.GroupBox5.Controls.Add(Me.Label6)
         Me.GroupBox5.Controls.Add(Me.Label5)
         Me.GroupBox5.Controls.Add(Me.Label4)
-        Me.GroupBox5.Controls.Add(Me.PMdiseno)
         Me.GroupBox5.Controls.Add(Me.Hdiseno)
         Me.GroupBox5.Controls.Add(Me.Qdiseno)
         Me.GroupBox5.Location = New System.Drawing.Point(617, 270)
@@ -203,12 +197,32 @@ Partial Class Jusepin_Bombas
         Me.GroupBox5.Size = New System.Drawing.Size(555, 330)
         Me.GroupBox5.TabIndex = 2
         Me.GroupBox5.TabStop = False
-        Me.GroupBox5.Text = "GroupBox5"
+        Me.GroupBox5.Text = "Resumen de los puntos de operación del equipo"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(330, 203)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(221, 32)
+        Me.Label8.TabIndex = 29
+        Me.Label8.Text = "Haga similitud para las condiciones" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "         cambiantes de la máquina"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(330, 55)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(197, 16)
+        Me.Label3.TabIndex = 28
+        Me.Label3.Text = "Solucione la red de tubería aquí"
         '
         'Label15
         '
         Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(6, 294)
+        Me.Label15.Location = New System.Drawing.Point(20, 229)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(100, 26)
         Me.Label15.TabIndex = 27
@@ -218,32 +232,32 @@ Partial Class Jusepin_Bombas
         '
         Me.NumBombas.FormattingEnabled = True
         Me.NumBombas.Items.AddRange(New Object() {"1", "2", "3"})
-        Me.NumBombas.Location = New System.Drawing.Point(118, 294)
+        Me.NumBombas.Location = New System.Drawing.Point(132, 229)
         Me.NumBombas.Name = "NumBombas"
         Me.NumBombas.Size = New System.Drawing.Size(32, 21)
         Me.NumBombas.TabIndex = 26
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(371, 112)
+        Me.Button3.Location = New System.Drawing.Point(359, 81)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(138, 43)
         Me.Button3.TabIndex = 25
-        Me.Button3.Text = "Calculo Hardy Cross"
+        Me.Button3.Text = "Sistema Original"
         Me.Button3.UseVisualStyleBackColor = True
         '
         'RPMUnidades
         '
         Me.RPMUnidades.FormattingEnabled = True
         Me.RPMUnidades.Items.AddRange(New Object() {"[RPM]", "[Hz]"})
-        Me.RPMUnidades.Location = New System.Drawing.Point(118, 264)
+        Me.RPMUnidades.Location = New System.Drawing.Point(132, 199)
         Me.RPMUnidades.Name = "RPMUnidades"
         Me.RPMUnidades.Size = New System.Drawing.Size(55, 21)
         Me.RPMUnidades.TabIndex = 24
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(371, 201)
+        Me.Button2.Location = New System.Drawing.Point(359, 242)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(138, 43)
         Me.Button2.TabIndex = 21
@@ -252,7 +266,7 @@ Partial Class Jusepin_Bombas
         '
         'RPMValor
         '
-        Me.RPMValor.Location = New System.Drawing.Point(179, 265)
+        Me.RPMValor.Location = New System.Drawing.Point(193, 200)
         Me.RPMValor.Name = "RPMValor"
         Me.RPMValor.Size = New System.Drawing.Size(70, 20)
         Me.RPMValor.TabIndex = 20
@@ -260,7 +274,7 @@ Partial Class Jusepin_Bombas
         'Label16
         '
         Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(7, 268)
+        Me.Label16.Location = New System.Drawing.Point(21, 203)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(89, 13)
         Me.Label16.TabIndex = 19
@@ -269,7 +283,7 @@ Partial Class Jusepin_Bombas
         'Label18
         '
         Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(6, 242)
+        Me.Label18.Location = New System.Drawing.Point(20, 177)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(95, 13)
         Me.Label18.TabIndex = 17
@@ -277,7 +291,7 @@ Partial Class Jusepin_Bombas
         '
         'NEtapas
         '
-        Me.NEtapas.Location = New System.Drawing.Point(179, 239)
+        Me.NEtapas.Location = New System.Drawing.Point(193, 174)
         Me.NEtapas.Name = "NEtapas"
         Me.NEtapas.Size = New System.Drawing.Size(70, 20)
         Me.NEtapas.TabIndex = 15
@@ -286,64 +300,23 @@ Partial Class Jusepin_Bombas
         '
         Me.Label11.AutoSize = True
         Me.Label11.ForeColor = System.Drawing.Color.Black
-        Me.Label11.Location = New System.Drawing.Point(51, 216)
+        Me.Label11.Location = New System.Drawing.Point(65, 151)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(191, 13)
         Me.Label11.TabIndex = 14
         Me.Label11.Text = "Condiciones cambiantes, haga similitud"
         '
-        'Coefdiseno
-        '
-        Me.Coefdiseno.Location = New System.Drawing.Point(179, 175)
-        Me.Coefdiseno.Name = "Coefdiseno"
-        Me.Coefdiseno.Size = New System.Drawing.Size(70, 20)
-        Me.Coefdiseno.TabIndex = 13
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(7, 178)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(154, 13)
-        Me.Label10.TabIndex = 12
-        Me.Label10.Text = "Coéficiente politrópico [J/Kg*K]"
-        '
-        'Zdiseno
-        '
-        Me.Zdiseno.Location = New System.Drawing.Point(179, 149)
-        Me.Zdiseno.Name = "Zdiseno"
-        Me.Zdiseno.Size = New System.Drawing.Size(70, 20)
-        Me.Zdiseno.TabIndex = 11
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(7, 152)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(127, 13)
-        Me.Label9.TabIndex = 10
-        Me.Label9.Text = "Factor de compresibilidad"
-        '
         'EficMax
         '
-        Me.EficMax.Location = New System.Drawing.Point(179, 98)
+        Me.EficMax.Location = New System.Drawing.Point(199, 104)
         Me.EficMax.Name = "EficMax"
         Me.EficMax.Size = New System.Drawing.Size(70, 20)
         Me.EficMax.TabIndex = 9
         '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(7, 127)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(166, 13)
-        Me.Label8.TabIndex = 8
-        Me.Label8.Text = "Peso molecular del gas [Kg/Kmol]"
-        '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(7, 101)
+        Me.Label7.Location = New System.Drawing.Point(27, 107)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(91, 13)
         Me.Label7.TabIndex = 7
@@ -352,7 +325,7 @@ Partial Class Jusepin_Bombas
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(6, 75)
+        Me.Label6.Location = New System.Drawing.Point(26, 81)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(100, 13)
         Me.Label6.TabIndex = 6
@@ -361,7 +334,7 @@ Partial Class Jusepin_Bombas
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(6, 52)
+        Me.Label5.Location = New System.Drawing.Point(26, 58)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(114, 13)
         Me.Label5.TabIndex = 5
@@ -370,29 +343,22 @@ Partial Class Jusepin_Bombas
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(51, 25)
+        Me.Label4.Location = New System.Drawing.Point(71, 31)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(152, 13)
         Me.Label4.TabIndex = 4
         Me.Label4.Text = "Punto de operación del equipo"
         '
-        'PMdiseno
-        '
-        Me.PMdiseno.Location = New System.Drawing.Point(179, 123)
-        Me.PMdiseno.Name = "PMdiseno"
-        Me.PMdiseno.Size = New System.Drawing.Size(70, 20)
-        Me.PMdiseno.TabIndex = 2
-        '
         'Hdiseno
         '
-        Me.Hdiseno.Location = New System.Drawing.Point(179, 73)
+        Me.Hdiseno.Location = New System.Drawing.Point(199, 79)
         Me.Hdiseno.Name = "Hdiseno"
         Me.Hdiseno.Size = New System.Drawing.Size(70, 20)
         Me.Hdiseno.TabIndex = 1
         '
         'Qdiseno
         '
-        Me.Qdiseno.Location = New System.Drawing.Point(179, 49)
+        Me.Qdiseno.Location = New System.Drawing.Point(199, 55)
         Me.Qdiseno.Name = "Qdiseno"
         Me.Qdiseno.Size = New System.Drawing.Size(70, 20)
         Me.Qdiseno.TabIndex = 0
@@ -420,16 +386,16 @@ Partial Class Jusepin_Bombas
         '
         'Chart1
         '
-        ChartArea3.Name = "ChartArea1"
-        Me.Chart1.ChartAreas.Add(ChartArea3)
-        Legend3.Name = "Legend1"
-        Me.Chart1.Legends.Add(Legend3)
+        ChartArea1.Name = "ChartArea1"
+        Me.Chart1.ChartAreas.Add(ChartArea1)
+        Legend1.Name = "Legend1"
+        Me.Chart1.Legends.Add(Legend1)
         Me.Chart1.Location = New System.Drawing.Point(-4, 0)
         Me.Chart1.Name = "Chart1"
-        Series3.ChartArea = "ChartArea1"
-        Series3.Legend = "Legend1"
-        Series3.Name = "Series1"
-        Me.Chart1.Series.Add(Series3)
+        Series1.ChartArea = "ChartArea1"
+        Series1.Legend = "Legend1"
+        Series1.Name = "Series1"
+        Me.Chart1.Series.Add(Series1)
         Me.Chart1.Size = New System.Drawing.Size(438, 298)
         Me.Chart1.TabIndex = 0
         Me.Chart1.Text = "c"
@@ -447,19 +413,28 @@ Partial Class Jusepin_Bombas
         '
         'Chart2
         '
-        ChartArea4.Name = "ChartArea1"
-        Me.Chart2.ChartAreas.Add(ChartArea4)
-        Legend4.Name = "Legend1"
-        Me.Chart2.Legends.Add(Legend4)
+        ChartArea2.Name = "ChartArea1"
+        Me.Chart2.ChartAreas.Add(ChartArea2)
+        Legend2.Name = "Legend1"
+        Me.Chart2.Legends.Add(Legend2)
         Me.Chart2.Location = New System.Drawing.Point(3, 3)
         Me.Chart2.Name = "Chart2"
-        Series4.ChartArea = "ChartArea1"
-        Series4.Legend = "Legend1"
-        Series4.Name = "Series1"
-        Me.Chart2.Series.Add(Series4)
+        Series2.ChartArea = "ChartArea1"
+        Series2.Legend = "Legend1"
+        Series2.Name = "Series1"
+        Me.Chart2.Series.Add(Series2)
         Me.Chart2.Size = New System.Drawing.Size(431, 295)
         Me.Chart2.TabIndex = 0
         Me.Chart2.Text = "Chart2"
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(359, 147)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(138, 43)
+        Me.Button1.TabIndex = 30
+        Me.Button1.Text = "Sistema Propuesta"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'Jusepin_Bombas
         '
@@ -503,17 +478,11 @@ Partial Class Jusepin_Bombas
     Friend WithEvents Chart2 As System.Windows.Forms.DataVisualization.Charting.Chart
     Friend WithEvents Hdiseno As System.Windows.Forms.TextBox
     Friend WithEvents Qdiseno As System.Windows.Forms.TextBox
-    Friend WithEvents PMdiseno As System.Windows.Forms.TextBox
-    Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents EficMax As System.Windows.Forms.TextBox
-    Friend WithEvents Label10 As System.Windows.Forms.Label
-    Friend WithEvents Zdiseno As System.Windows.Forms.TextBox
-    Friend WithEvents Label9 As System.Windows.Forms.Label
-    Friend WithEvents Coefdiseno As System.Windows.Forms.TextBox
     Friend WithEvents Label11 As System.Windows.Forms.Label
     Friend WithEvents Label14 As System.Windows.Forms.Label
     Friend WithEvents Label12 As System.Windows.Forms.Label
@@ -528,4 +497,7 @@ Partial Class Jusepin_Bombas
     Friend WithEvents Button3 As System.Windows.Forms.Button
     Friend WithEvents Label15 As System.Windows.Forms.Label
     Friend WithEvents NumBombas As System.Windows.Forms.ComboBox
+    Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents Button1 As System.Windows.Forms.Button
 End Class
